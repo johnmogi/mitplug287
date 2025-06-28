@@ -41,51 +41,83 @@ class Stock_Debugger {
     /**
      * Enqueue scripts and styles
      */
-    public function enqueue_scripts() {
-        if (!is_admin() && is_product() && current_user_can('manage_options')) {
-            global $post;
-            
-            // Enqueue the debugger CSS
-            wp_enqueue_style(
-                'stock-debugger-css',
-                plugin_dir_url(__FILE__) . 'assets/css/stock-debugger.css',
-                array(),
-                filemtime(plugin_dir_path(__FILE__) . 'assets/css/stock-debugger.css')
-            );
-            
-            // Enqueue the debugger JS
-            wp_enqueue_script(
-                'stock-debugger-js',
-                plugin_dir_url(__FILE__) . 'assets/js/stock-debugger-new.js',
-                array('jquery'),
-                filemtime(plugin_dir_path(__FILE__) . 'assets/js/stock-debugger-new.js'),
-                true
-            );
-            
-            // Get product stock
-            $stock = $this->get_current_stock();
-            
-            // Localize script with data
-            wp_localize_script(
-                'stock-debugger-js',
-                'stockDebugger',
-                array(
-                    'ajax_url' => admin_url('admin-ajax.php'),
-                    'product_id' => $post->ID,
-                    'nonce' => wp_create_nonce('stock_debugger_nonce'),
-                    'stock' => $stock,
-                    'isAdmin' => current_user_can('manage_options') ? 'yes' : 'no',
-                )
-            );
+    public function enqueue_scripts($hook = '') {
+        // Only proceed on product pages for admin users
+        if (!is_product() || !current_user_can('manage_options')) {
+            return;
         }
+        
+        global $post;
+        
+        // Make sure we have a valid post ID
+        if (!$post || !$post->ID) {
+            return;
+        }
+        
+        // Enqueue the debugger CSS
+        wp_enqueue_style(
+            'stock-debugger-css',
+            plugin_dir_url(__FILE__) . 'assets/css/stock-debugger.css',
+            array(),
+            filemtime(plugin_dir_path(__FILE__) . 'assets/css/stock-debugger.css')
+        );
+        
+        // Enqueue the debugger JS
+        wp_enqueue_script(
+            'stock-debugger-js',
+            plugin_dir_url(__FILE__) . 'assets/js/stock-debugger-new.js',
+            array('jquery'),
+            filemtime(plugin_dir_path(__FILE__) . 'assets/js/stock-debugger-new.js'),
+            true
+        );
+        
+        // Initialize with default values
+        $stock_data = array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'product_id' => $post->ID,
+            'nonce' => wp_create_nonce('stock_debugger_nonce'),
+            'stock' => 0,
+            'isAdmin' => 'yes',
+            'error' => ''
+        );
+        
+        // Try to get product stock if possible
+        try {
+            $product = wc_get_product($post->ID);
+            if ($product && is_object($product) && method_exists($product, 'get_stock_quantity')) {
+                $stock_data['stock'] = $product->get_stock_quantity();
+            }
+        } catch (Exception $e) {
+            $stock_data['error'] = $e->getMessage();
+        }
+        
+        // Localize script with data
+        wp_localize_script('stock-debugger-js', 'stockDebugger', $stock_data);
     }
     
     /**
      * Get current product stock
+     * 
+     * @deprecated Use direct product access instead
      */
     private function get_current_stock() {
-        global $product;
-        return $product ? $product->get_stock_quantity() : 0;
+        global $post, $product;
+        
+        // If we already have a valid product object, use it
+        if (is_object($product) && method_exists($product, 'get_stock_quantity')) {
+            return $product->get_stock_quantity();
+        }
+        
+        // Otherwise try to get the product from the post
+        if ($post && $post->ID) {
+            $product = wc_get_product($post->ID);
+            if ($product && is_object($product) && method_exists($product, 'get_stock_quantity')) {
+                return $product->get_stock_quantity();
+            }
+        }
+        
+        // Default to 0 if we can't get the stock
+        return 0;
     }
     
     /**
