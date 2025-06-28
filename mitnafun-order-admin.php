@@ -4,44 +4,170 @@
  * Description: Custom order management for Mitnafun Rental System
  * Version: 1.5.0
  * Author: Aviv Digital
+ *
+ * @package MitnafunOrderAdmin
  */
 
-defined('ABSPATH') || exit;
+// If this file is called directly, abort.
+if (!defined('ABSPATH')) {
+    exit;
+}
 
-// Include checkout debug functionality
+// Include required files
 require_once plugin_dir_path(__FILE__) . 'includes/class-checkout-debug.php';
-
-// Include stock debugger functionality
 require_once plugin_dir_path(__FILE__) . 'includes/stock-debugger/loader.php';
 
-// Initialize plugin after WordPress and all plugins are loaded
-add_action('plugins_loaded', function() {
-    // Check if WooCommerce is active
-    if (!class_exists('WooCommerce')) {
-        add_action('admin_notices', function() {
-            printf(
-                '<div class="error"><p>%s</p></div>',
-                esc_html__('Mitnafun Order Admin requires WooCommerce to be installed and active.', 'mitnafun-order-admin')
-            );
-        });
-        return;
+/**
+ * Main plugin class.
+ */
+class MitnafunOrderAdmin {
+    /**
+     * The single instance of the class.
+     *
+     * @var MitnafunOrderAdmin
+     */
+    private static $instance = null;
+
+    /**
+     * Get the singleton instance
+     *
+     * @return MitnafunOrderAdmin
+     */
+    public static function get_instance() {
+        if (is_null(self::$instance)) {
+            self::$instance = new self();
+        }
+        return self::$instance;
     }
 
-    // Initialize plugin
-    class MitnafunOrderAdmin {
-        private static $instance = null;
+    /**
+     * Initialize the plugin
+     */
+    public function init() {
+        // Initialize any necessary data
+        $this->maybe_create_tables();
+        $this->maybe_schedule_events();
+    }
 
-        public static function get_instance() {
-            if (self::$instance === null) {
-                self::$instance = new self();
-            }
-            return self::$instance;
+    /**
+     * Class constructor.
+     */
+    /**
+     * Display stock debug information on product pages
+     */
+    public function add_stock_debug_info() {
+        global $product;
+        
+        if (!$product || !is_a($product, 'WC_Product')) {
+            return;
+        }
+        
+        $product_id = $product->get_id();
+        $stock_quantity = $product->get_stock_quantity();
+        $initial_stock = (int) get_post_meta($product_id, '_initial_stock', true);
+        $total_stock = (int) get_post_meta($product_id, '_total_stock', true);
+        
+        echo '<div class="mitnafun-stock-debug" style="margin: 15px 0; padding: 10px; background: #f8f8f8; border: 1px solid #ddd;">';
+        echo '<h4>' . __('Stock Information', 'mitnafun-order-admin') . '</h4>';
+        echo '<ul style="list-style: none; padding: 0; margin: 0;">';
+        echo '<li><strong>' . __('Current Stock:', 'mitnafun-order-admin') . '</strong> ' . $stock_quantity . '</li>';
+        echo '<li><strong>' . __('Initial Stock:', 'mitnafun-order-admin') . '</strong> ' . $initial_stock . '</li>';
+        echo '<li><strong>' . __('Total Stock:', 'mitnafun-order-admin') . '</strong> ' . $total_stock . '</li>';
+        echo '</ul>';
+        echo '</div>';
+    }
+    
+    /**
+     * Enqueue frontend scripts and styles
+     */
+    public function enqueue_frontend_scripts() {
+        if (!is_product()) {
+            return;
         }
 
-        /**
-         * Sync WooCommerce stock with total stock for all products
-         */
-        public function ajax_bulk_sync_stock() {
+        $plugin_path = plugin_dir_path(__FILE__);
+        $plugin_url = plugins_url('', __FILE__);
+        
+        // Enqueue CSS if file exists
+        $css_path = $plugin_path . 'assets/css/frontend.css';
+        if (file_exists($css_path)) {
+            wp_enqueue_style(
+                'mitnafun-frontend',
+                $plugin_url . '/assets/css/frontend.css',
+                array(),
+                filemtime($css_path)
+            );
+        }
+        
+        // Enqueue JS if file exists
+        $js_path = $plugin_path . 'assets/js/frontend.js';
+        if (file_exists($js_path)) {
+            wp_enqueue_script(
+                'mitnafun-frontend',
+                $plugin_url . '/assets/js/frontend.js',
+                array('jquery'),
+                filemtime($js_path),
+                true
+            );
+            
+            // Localize script with AJAX URL and nonce
+            wp_localize_script('mitnafun-frontend', 'mitnafun_ajax', array(
+                'ajax_url' => admin_url('admin-ajax.php'),
+                'nonce' => wp_create_nonce('mitnafun-frontend-nonce'),
+                'i18n' => array(
+                    'error' => __('An error occurred. Please try again.', 'mitnafun-order-admin'),
+                )
+            ));
+        }
+    }
+    
+    private function __construct() {
+        // Track active rentals when order status changes
+        add_action('woocommerce_order_status_changed', array($this, 'update_active_rentals'), 10, 4);
+        
+        // Add stock debug info to product page
+        add_action('woocommerce_before_add_to_cart_button', array($this, 'add_stock_debug_info'));
+        
+        // Call init_hooks to ensure all main plugin hooks are registered
+        $this->init_hooks();
+        
+        // Register all AJAX actions with consistent naming
+        add_action('wp_ajax_mitnafun_load_orders', [$this, 'load_orders']);
+        add_action('wp_ajax_mitnafun_get_clients', [$this, 'get_clients']);
+        add_action('wp_ajax_mitnafun_get_products', [$this, 'get_products']);
+        add_action('wp_ajax_mitnafun_get_calendar_events', [$this, 'get_calendar_events']);
+        add_action('wp_ajax_mitnafun_get_stock_data', [$this, 'get_stock_data']);
+        add_action('wp_ajax_mitnafun_run_restock', [$this, 'ajax_process_ended_rentals']);
+        add_action('wp_ajax_mitnafun_manual_restock', [$this, 'manual_restock_product']);
+        add_action('wp_ajax_nopriv_mitnafun_get_product_data', [$this, 'ajax_get_product_data']);
+        add_action('wp_ajax_mitnafun_bulk_sync_stock', [$this, 'ajax_bulk_sync_stock']);
+        add_action('wp_ajax_mitnafun_sync_single_stock', [$this, 'ajax_sync_single_stock']);
+        add_action('wp_ajax_mitnafun_sync_stock', [$this, 'ajax_sync_stock']);
+        add_action('wp_ajax_mitnafun_get_order_details', [$this, 'ajax_get_order_details']);
+        add_action('wp_ajax_mitnafun_test_connection', [$this, 'test_connection']);
+        add_action('wp_ajax_nopriv_mitnafun_test_connection', [$this, 'test_connection']);
+        add_action('wp_ajax_mitnafun_get_orders', [$this, 'ajax_get_orders']);
+        add_action('wp_ajax_mitnafun_update_stock', [$this, 'ajax_update_stock']);
+        add_action('wp_ajax_mitnafun_update_initial_stock', [$this, 'ajax_update_initial_stock']);
+        add_action('wp_ajax_mitnafun_initialize_stock', [$this, 'ajax_initialize_stock']);
+        add_action('wp_ajax_mitnafun_check_availability', [$this, 'ajax_check_availability']);
+        add_action('wp_ajax_mitnafun_get_product_details', array($this, 'ajax_get_product_details'));
+        add_action('wp_ajax_nopriv_mitnafun_get_product_details', array($this, 'ajax_get_product_details'));
+        add_action('wp_ajax_mitnafun_release_stock_issues', array($this, 'ajax_release_stock_issues'));
+        
+        // Register shortcode
+        add_shortcode('mitnafun_product_availability', [$this, 'render_product_availability']);
+        
+        // Enqueue frontend scripts
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_scripts']);
+    }
+
+    /**
+     * Sync WooCommerce stock with total stock for all products
+     *
+     * @return void
+     */
+    public function ajax_bulk_sync_stock() {
             check_ajax_referer('mitnafun_admin_nonce', 'nonce');
             
             if (!current_user_can('manage_woocommerce')) {
@@ -138,67 +264,66 @@ add_action('plugins_loaded', function() {
             ]);
         }
 
-        public function __construct() {
-            // Track active rentals when order status changes
-            add_action('woocommerce_order_status_changed', array($this, 'update_active_rentals'), 10, 4);
+        /**
+         * AJAX endpoint to get order details by ID
+         */
+        public function ajax_get_order_details() {
+            check_ajax_referer('mitnafun_admin_nonce', 'nonce');
             
-            // Add stock debug info to product page
-            add_action('woocommerce_before_add_to_cart_button', array($this, 'add_stock_debug_info'));
+            if (!current_user_can('manage_woocommerce')) {
+                wp_send_json_error(__('Insufficient permissions', 'mitnafun-order-admin'));
+                return;
+            }
             
-            // Call init_hooks to ensure all main plugin hooks are registered
-            $this->init_hooks();
+            $order_id = isset($_POST['order_id']) ? intval($_POST['order_id']) : 0;
             
-            // Register Ajax actions with consistent naming
-            add_action('wp_ajax_mitnafun_load_orders', [$this, 'load_orders']);
-            add_action('wp_ajax_mitnafun_get_clients', [$this, 'get_clients']);
-            add_action('wp_ajax_mitnafun_get_products', [$this, 'get_products']);
-            add_action('wp_ajax_mitnafun_get_calendar_events', [$this, 'get_calendar_events']);
-            add_action('wp_ajax_mitnafun_get_stock_data', [$this, 'get_stock_data']);
-            add_action('wp_ajax_mitnafun_run_restock', [$this, 'ajax_process_ended_rentals']);
-            add_action('wp_ajax_mitnafun_manual_restock', [$this, 'manual_restock_product']);
-            add_action('wp_ajax_nopriv_mitnafun_get_product_data', [$this, 'ajax_get_product_data']);
-            add_action('wp_ajax_mitnafun_bulk_sync_stock', [$this, 'ajax_bulk_sync_stock']);
-            add_action('wp_ajax_mitnafun_sync_single_stock', [$this, 'ajax_sync_single_stock']);
-            add_action('wp_ajax_mitnafun_sync_stock', [$this, 'ajax_sync_stock']);
-            // Order details modal
-            add_action('wp_ajax_mitnafun_get_order_details', [$this, 'ajax_get_order_details']);
+            if (!$order_id) {
+                wp_send_json_error(__('Invalid order ID', 'mitnafun-order-admin'));
+                return;
+            }
             
-            // Add test endpoint
-            add_action('wp_ajax_mitnafun_test_connection', [$this, 'test_connection']);
-            add_action('wp_ajax_nopriv_mitnafun_test_connection', [$this, 'test_connection']);
+            $order = wc_get_order($order_id);
             
-            // AJAX handlers
-            add_action('wp_ajax_mitnafun_get_orders', [$this, 'ajax_get_orders']);
-            add_action('wp_ajax_mitnafun_get_clients', [$this, 'ajax_get_clients']);
-            add_action('wp_ajax_mitnafun_get_products', [$this, 'ajax_get_products']);
-            add_action('wp_ajax_mitnafun_get_stock_data', [$this, 'ajax_get_stock_data']);
-            add_action('wp_ajax_mitnafun_update_stock', [$this, 'ajax_update_stock']);
-            add_action('wp_ajax_mitnafun_update_initial_stock', [$this, 'ajax_update_initial_stock']);
-            add_action('wp_ajax_mitnafun_initialize_stock', [$this, 'ajax_initialize_stock']);
-            add_action('wp_ajax_mitnafun_check_availability', [$this, 'ajax_check_availability']);
-            add_action('wp_ajax_mitnafun_test_connection', [$this, 'test_connection']);
+            if (!$order) {
+                wp_send_json_error(__('Order not found', 'mitnafun-order-admin'));
+                return;
+            }
             
-            // Frontend AJAX handlers
-            add_action('wp_ajax_mitnafun_get_product_data', [$this, 'ajax_get_product_data']);
-            add_action('wp_ajax_nopriv_mitnafun_get_product_data', [$this, 'ajax_get_product_data']);
+            $items = array();
             
-            // Checkout debug AJAX handler
-            add_action('wp_ajax_mitnafun_get_product_stock', [$this, 'ajax_get_product_stock']);
-            add_action('wp_ajax_nopriv_mitnafun_get_product_stock', [$this, 'ajax_get_product_stock']);
+            foreach ($order->get_items() as $item_id => $item) {
+                $product = $item->get_product();
+                $items[] = array(
+                    'name' => $item->get_name(),
+                    'quantity' => $item->get_quantity(),
+                    'total' => $item->get_total(),
+                    'pickup_date' => $item->get_meta('_pickup_date'),
+                    'return_date' => $item->get_meta('_return_date'),
+                    'sku' => $product ? $product->get_sku() : ''
+                );
+            }
             
-            // Frontend AJAX handlers for the debug panel
-            add_action('wp_ajax_mitnafun_get_product_details', array($this, 'ajax_get_product_details'));
-            add_action('wp_ajax_nopriv_mitnafun_get_product_details', array($this, 'ajax_get_product_details'));
+            $data = array(
+                'order_number' => $order->get_order_number(),
+                'date_created' => $order->get_date_created()->date('Y-m-d H:i:s'),
+                'status' => $order->get_status(),
+                'total' => $order->get_total(),
+                'customer_note' => $order->get_customer_note(),
+                'items' => $items,
+                'customer' => array(
+                    'name' => $order->get_formatted_billing_full_name(),
+                    'email' => $order->get_billing_email(),
+                    'phone' => $order->get_billing_phone()
+                )
+            );
             
-            // Stock issues release handler
-            add_action('wp_ajax_mitnafun_release_stock_issues', array($this, 'ajax_release_stock_issues'));
-            
-            // Register shortcode
-            add_shortcode('mitnafun_product_availability', [$this, 'render_product_availability']);
-            
-            // Enqueue frontend scripts
-            add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_scripts']);
+            wp_send_json_success($data);
         }
+        
+        // get_reserved_dates method has been moved to Stock_Debugger class
+        // to avoid duplicate method declarations. Use Stock_Debugger::get_reserved_dates() instead.
+
+        // Removed duplicate constructor - functionality merged into the main constructor
 
         /**
      * Handle order status changes
@@ -370,10 +495,16 @@ add_action('plugins_loaded', function() {
             
             // Add order status change hooks
             add_action('woocommerce_order_status_changed', [$this, 'handle_order_status_change'], 10, 3);
-            add_action('woocommerce_checkout_order_processed', [$this, 'handle_new_order'], 10, 1);
-            add_action('woocommerce_order_status_cancelled', [$this, 'handle_order_cancelled'], 10, 1);
-            add_action('woocommerce_order_status_failed', [$this, 'handle_order_failed'], 10, 1);
-            add_action('woocommerce_order_status_refunded', [$this, 'handle_order_refunded'], 10, 1);
+            add_action('woocommerce_checkout_order_processed', [$this, 'handle_new_order']);
+            add_action('woocommerce_order_status_cancelled', [$this, 'handle_order_cancelled']);
+            add_action('woocommerce_order_status_failed', [$this, 'handle_order_failed']);
+            add_action('woocommerce_order_status_refunded', [$this, 'handle_order_refunded']);
+            
+            // Add stock debug info to product page
+            add_action('woocommerce_before_add_to_cart_button', [$this, 'add_stock_debug_info']);
+            
+            // Register shortcode
+            add_shortcode('mitnafun_product_availability', [$this, 'render_product_availability']);
         }
 
         public function activate() {
@@ -424,24 +555,14 @@ add_action('plugins_loaded', function() {
             error_log('Mitnafun Order Admin: add_admin_menu() called');
 
             // Add main menu under WooCommerce
-            add_submenu_page(
-                'woocommerce',
-                'Mitnafun Order Management',
-                'Mitnafun Orders',
+            add_menu_page(
+                __('Mitnafun Orders', 'mitnafun-order-admin'),
+                __('Mitnafun Orders', 'mitnafun-order-admin'),
                 'manage_woocommerce',
                 'mitnafun-order-admin',
                 [$this, 'admin_page'],
-                10
-            );
-
-            // Add test page as a submenu
-            add_submenu_page(
-                'mitnafun-order-admin',
-                'Connection Test',
-                'Connection Test',
-                'manage_woocommerce',
-                'mitnafun-test-connection',
-                [$this, 'render_test_page']
+                'dashicons-calendar-alt',
+                56
             );
         }
 
@@ -528,53 +649,16 @@ add_action('plugins_loaded', function() {
         }
         
         public function enqueue_admin_scripts($hook) {
-            // Check if we're on our plugin's admin page
-            $screen = get_current_screen();
-            if ($screen->id !== 'woocommerce_page_mitnafun-order-admin') {
+            // Only load on our plugin pages
+            if (strpos($hook, 'mitnafun-order-admin') === false) {
                 return;
             }
             
-            // Enqueue products script
-            wp_enqueue_script(
-                'mitnafun-products',
-                plugin_dir_url(__FILE__) . 'js/products.js',
-                ['jquery'],
-                filemtime(plugin_dir_path(__FILE__) . 'js/products.js'),
-                true
-            );
-            
-            // Enqueue stock management script and styles
-            wp_enqueue_script(
-                'mitnafun-stock-management',
-                plugin_dir_url(__FILE__) . 'js/stock-management.js',
-                ['jquery'],
-                filemtime(plugin_dir_path(__FILE__) . 'js/stock-management.js'),
-                true
-            );
-            
-            // Enqueue stock sync script
-            wp_enqueue_script(
-                'mitnafun-stock-sync',
-                plugin_dir_url(__FILE__) . 'js/stock-sync.js',
-                ['jquery'],
-                filemtime(plugin_dir_path(__FILE__) . 'js/stock-sync.js'),
-                true
-            );
+            // Enqueue scripts and styles
+            wp_enqueue_style('mitnafun-admin', plugin_dir_url(__FILE__) . 'assets/css/admin.css', [], '1.0.0');
+            wp_enqueue_script('mitnafun-admin', plugin_dir_url(__FILE__) . 'assets/js/admin.js', ['jquery', 'jquery-ui-datepicker'], '1.0.0', true);
             
             // Localize script with AJAX URL and nonce
-            $localize_data = [
-                'ajaxurl' => admin_url('admin-ajax.php'),
-                'nonce' => wp_create_nonce('mitnafun_admin_nonce'),
-                'i18n' => [
-                    'confirm_sync' => __('Are you sure you want to sync all product stocks?', 'mitnafun-order-admin'),
-                    'syncing' => __('Syncing...', 'mitnafun-order-admin'),
-                    'sync_complete' => __('Sync complete!', 'mitnafun-order-admin'),
-                    'error' => __('Error:', 'mitnafun-order-admin'),
-                ]
-            ];
-            
-            wp_localize_script('mitnafun-stock-sync', 'mitnafunAdmin', $localize_data);
-            
             // Enqueue stock management styles
             wp_enqueue_style(
                 'mitnafun-stock-management',
@@ -1996,46 +2080,63 @@ add_action('plugins_loaded', function() {
             ]);
         }
         
-        public function ajax_get_order_details() {
-            check_ajax_referer('mitnafun_admin_nonce', 'nonce');
-
-            if (!current_user_can('edit_shop_orders')) {
-                wp_send_json_error(['message' => __('Insufficient permissions', 'mitnafun-order-admin')]);
-            }
-
-            $order_id = isset($_POST['order_id']) ? intval($_POST['order_id']) : 0;
-            if (!$order_id) {
-                wp_send_json_error(['message' => __('Invalid order ID', 'mitnafun-order-admin')]);
-            }
-
-            $order = wc_get_order($order_id);
-            if (!$order) {
-                wp_send_json_error(['message' => __('Order not found', 'mitnafun-order-admin')]);
-            }
-
-            ob_start();
-            ?>
-            <div class="mitnafun-order-details">
-                <h2><?php echo sprintf(__('Order #%d Details', 'mitnafun-order-admin'), $order->get_id()); ?></h2>
-                <p><strong><?php _e('Status:', 'mitnafun-order-admin'); ?></strong> <?php echo wc_get_order_status_name($order->get_status()); ?></p>
-                <p><strong><?php _e('Customer:', 'mitnafun-order-admin'); ?></strong> <?php echo esc_html($order->get_billing_first_name() . ' ' . $order->get_billing_last_name()); ?></p>
-                <p><strong><?php _e('Total:', 'mitnafun-order-admin'); ?></strong> <?php echo $order->get_formatted_order_total(); ?></p>
-                <h3><?php _e('Items', 'mitnafun-order-admin'); ?></h3>
-                <ul>
-                <?php foreach ($order->get_items() as $item) : ?>
-                    <li><?php echo esc_html($item->get_name()) . ' × ' . $item->get_quantity(); ?></li>
-                <?php endforeach; ?>
-                </ul>
-            </div>
-            <?php
-            $html = ob_get_clean();
-
-            wp_send_json_success(['html' => $html]);
-        }
 
         public function enqueue_assets() {
-            // Admin page
-            if (is_admin() && isset($_GET['page']) && $_GET['page'] === 'mitnafun-order-admin') {
+        // Frontend assets
+        if (!is_admin()) {
+            // Register and enqueue frontend styles
+            wp_register_style(
+                'mitnafun-frontend-style',
+                plugins_url('assets/css/frontend.css', __FILE__),
+                array(),
+                filemtime(plugin_dir_path(__FILE__) . 'assets/css/frontend.css')
+            );
+            
+            // Register and enqueue frontend scripts
+            wp_register_script(
+                'mitnafun-frontend-script',
+                plugins_url('assets/js/frontend.js', __FILE__),
+                array('jquery', 'jquery-ui-datepicker'),
+                filemtime(plugin_dir_path(__FILE__) . 'assets/js/frontend.js'),
+                true
+            );
+            
+            // Get product ID if on product page
+            $product_data = array(
+                'ajaxUrl' => admin_url('admin-ajax.php'),
+                'nonce' => wp_create_nonce('mitnafun_frontend_nonce'),
+                'isMobile' => wp_is_mobile(),
+                'reservedDates' => array(),
+                'initialStock' => 0,
+                'currentStock' => 0
+            );
+            
+            // If we're on a product page, add product-specific data
+            if (is_product()) {
+                global $product;
+                if ($product && is_a($product, 'WC_Product')) {
+                    $product_id = $product->get_id();
+                    $initial_stock = (int) get_post_meta($product_id, '_initial_stock', true);
+                    $current_stock = $product->get_stock_quantity();
+                    $reserved_dates = $this->get_reserved_dates($product_id);
+                    
+                    $product_data['productId'] = $product_id;
+                    $product_data['initialStock'] = $initial_stock;
+                    $product_data['currentStock'] = $current_stock;
+                    $product_data['reservedDates'] = $reserved_dates;
+                }
+            }
+            
+            // Enqueue scripts and styles
+            wp_enqueue_style('mitnafun-frontend-style');
+            wp_enqueue_script('mitnafun-frontend-script');
+            
+            // Localize script with product data
+            wp_localize_script('mitnafun-frontend-script', 'mitnafunFrontend', $product_data);
+        }
+        
+        // Admin page
+        if (is_admin() && isset($_GET['page']) && $_GET['page'] === 'mitnafun-order-admin') {
                 // Register and enqueue admin styles
                 wp_register_style(
                     'mitnafun-order-admin-style',
@@ -2103,161 +2204,132 @@ add_action('plugins_loaded', function() {
                 wp_enqueue_style('mitnafun-frontend-style');
                 wp_enqueue_script('mitnafun-frontend-script');
                 
-                // Pass data to frontend script
-                wp_localize_script('mitnafun-frontend-script', 'mitnafunFrontend', array(
+                // Get product ID if on product page
+                $product_data = array(
                     'ajaxUrl' => admin_url('admin-ajax.php'),
                     'nonce' => wp_create_nonce('mitnafun_frontend_nonce'),
-                    'isMobile' => wp_is_mobile()
-                ));
-            }
-        }
-
-        /**
-         * Enqueue frontend scripts and styles
-         */
-        public function enqueue_frontend_scripts() {
-            // Only on product pages
-            if (!is_product()) {
-                return;
-            }
-
-            // Register and enqueue frontend styles
-            wp_register_style(
-                'mitnafun-frontend-style',
-                plugins_url('css/frontend.css', __FILE__),
-                array(),
-                filemtime(plugin_dir_path(__FILE__) . 'css/frontend.css')
-            );
-            
-            // Register and enqueue frontend scripts
-            wp_register_script(
-                'mitnafun-frontend-script',
-                plugins_url('js/frontend.js', __FILE__),
-                array('jquery'),
-                filemtime(plugin_dir_path(__FILE__) . 'js/frontend.js'),
-                true
-            );
-            
-            wp_enqueue_style('mitnafun-frontend-style');
-            wp_enqueue_script('mitnafun-frontend-script');
-            
-            // Localize script with data
-            global $product;
-            $product_data = array(
-                'ajaxUrl' => admin_url('admin-ajax.php'),
-                'nonce' => wp_create_nonce('mitnafun_stock_nonce'),
-                'productId' => 0,
-                'initialStock' => 0,
-                'currentStock' => 0,
-                'isAdmin' => current_user_can('manage_options') ? 'yes' : 'no',
-                'i18n' => array(
-                    'initialStock' => __('Initial Stock:', 'mitnafun-order-admin'),
-                    'currentStock' => __('Current Stock:', 'mitnafun-order-admin'),
-                    'availableForRent' => __('Available for Rent:', 'mitnafun-order-admin'),
-                    'adminOnly' => __('(Admin Only)', 'mitnafun-order-admin')
-                )
-            );
-            
-            // Only try to get product data if we're on a product page and have a valid product
-            if (is_product() && is_a($product, 'WC_Product')) {
-                $product_id = $product->get_id();
-                $initial_stock = (int) get_post_meta($product_id, '_initial_stock', true);
-                $current_stock = $product->get_stock_quantity();
+                    'isMobile' => wp_is_mobile(),
+                    'reservedDates' => array(),
+                    'initialStock' => 0,
+                    'currentStock' => 0
+                );
                 
-                // Update product data
-                $product_data['productId'] = $product_id;
-                $product_data['initialStock'] = $initial_stock;
-                $product_data['currentStock'] = $current_stock;
+                // If we're on a product page, add product-specific data
+                if (is_product()) {
+                    global $product;
+                    if ($product && is_a($product, 'WC_Product')) {
+                        $product_id = $product->get_id();
+                        $initial_stock = (int) get_post_meta($product_id, '_initial_stock', true);
+                        $current_stock = $product->get_stock_quantity();
+                        $reserved_dates = $this->get_reserved_dates($product_id);
+                        
+                        $product_data['productId'] = $product_id;
+                        $product_data['initialStock'] = $initial_stock;
+                        $product_data['currentStock'] = $current_stock;
+                        $product_data['reservedDates'] = $reserved_dates;
+                    }
+                }
             }
-            
-            wp_localize_script('mitnafun-frontend-script', 'mitnafunStockData', $product_data);
         }
-        
-        /**
-         * Add stock debug information to product pages
-         */
-        public function add_stock_debug_info() {
-            // Only show to admins
-            if (!current_user_can('manage_options')) {
-                return;
-            }
-            
-            global $product;
-            
-            // Make sure we have a valid product
-            if (!$product || !is_a($product, 'WC_Product')) {
-                return;
-            }
-            
-            $product_id = $product->get_id();
-            $current_stock = $product->get_stock_quantity();
-            $initial_stock = (int) get_post_meta($product_id, '_initial_stock', true);
-            
-            // If initial stock is not set, use current stock as initial
-            if (!$initial_stock) {
-                $initial_stock = $current_stock;
-                update_post_meta($product_id, '_initial_stock', $initial_stock);
-            }
-            
-            // Calculate available stock (initial - current)
-            $available_stock = $initial_stock - $current_stock;
-            
-            // Output the stock information
-            echo '<div class="mitnafun-stock-debug" style="margin: 15px 0; padding: 15px; background: #f8f8f8; border: 1px solid #ddd; border-radius: 4px;">';
-            echo '<h4 style="margin: 0 0 10px 0; color: #23282d; font-size: 16px;">' . __('Stock Information', 'mitnafun-order-admin') . '</h4>';
-            echo '<ul style="margin: 0; padding: 0 0 0 20px;">';
-            echo '<li style="margin: 5px 0; list-style-type: none; position: relative; padding-left: 15px;"><span style="position: absolute; left: 0; color: #0073aa; font-weight: bold;">•</span> <strong>' . __('Initial Stock:', 'mitnafun-order-admin') . '</strong> ' . $initial_stock . '</li>';
-            echo '<li style="margin: 5px 0; list-style-type: none; position: relative; padding-left: 15px;"><span style="position: absolute; left: 0; color: #0073aa; font-weight: bold;">•</span> <strong>' . __('Current Stock:', 'mitnafun-order-admin') . '</strong> ' . $current_stock . '</li>';
-            echo '<li style="margin: 5px 0; list-style-type: none; position: relative; padding-left: 15px;"><span style="position: absolute; left: 0; color: #0073aa; font-weight: bold;">•</span> <strong>' . __('Available for Rent:', 'mitnafun-order-admin') . '</strong> ' . $available_stock . '</li>';
-            echo '</ul>';
-            echo '</div>';
-            
-            // Add the stock values to the DOM as data attributes for frontend JS
-            echo '<div id="mitnafun-stock-data" 
-                  data-initial-stock="' . esc_attr($initial_stock) . '" 
-                  data-current-stock="' . esc_attr($current_stock) . '" 
-                  style="display: none;"></div>';
-        }
-    
     }
 
-    // Initialize the plugin
-    add_action('plugins_loaded', function() {
-        $mitnafun_order_admin = MitnafunOrderAdmin::get_instance();
-        
-        // Add stock debug info to product page for admins
-        if (is_admin() || current_user_can('manage_woocommerce')) {
-            add_action('woocommerce_before_add_to_cart_form', array($mitnafun_order_admin, 'add_stock_debug_info'));
-        }
-    }, 20);
+/**
+ * Display notice if WooCommerce is not active
+ *
+ * @return void
+ */
+function mitnafun_order_admin_woocommerce_missing_notice() {
+    ?>
+    <div class="error">
+        <p><?php esc_html_e('Mitnafun Order Admin requires WooCommerce to be installed and active.', 'mitnafun-order-admin'); ?></p>
+    </div>
+    <?php
+}
+
+/**
+ * Initialize the plugin.
+ *
+ * @return void
+ */
+function mitnafun_order_admin_init() {
+    // Check if WooCommerce is active
+    if (!class_exists('WooCommerce')) {
+        add_action('admin_notices', 'mitnafun_order_admin_woocommerce_missing_notice');
+        return;
+    }
+
+    $mitnafun_order_admin = MitnafunOrderAdmin::get_instance();
     
-    // Register activation hook
-    register_activation_hook(__FILE__, function() {
-        // Set a flag to indicate the plugin is active
-        update_option('mitnafun_order_admin_active', 'yes');
-        
-        // Schedule any necessary cron jobs
-        if (!wp_next_scheduled('mitnafun_daily_rental_check')) {
-            wp_schedule_event(time(), 'daily', 'mitnafun_daily_rental_check');
-        }
-    });
+    // Add stock debug info to product page for admins
+    if (is_admin() || current_user_can('manage_woocommerce')) {
+        add_action('woocommerce_before_add_to_cart_form', array($mitnafun_order_admin, 'add_stock_debug_info'));
+    }
+}
+
+/**
+ * Plugin activation.
+ *
+ * @return void
+ */
+function mitnafun_order_admin_activate() {
+    // Set a flag to indicate the plugin is active
+    update_option('mitnafun_order_admin_active', 'yes');
     
-    // Register deactivation hook
-    register_deactivation_hook(__FILE__, function() {
-        // Clear any scheduled events
-        wp_clear_scheduled_hook('mitnafun_daily_rental_check');
-    });
+    // Schedule any necessary cron jobs
+    if (!wp_next_scheduled('mitnafun_daily_rental_check')) {
+        wp_schedule_event(time(), 'daily', 'mitnafun_daily_rental_check');
+    }
+}
+
+/**
+ * Plugin deactivation.
+ *
+ * @return void
+ */
+function mitnafun_order_admin_deactivate() {
+    // Clear any scheduled events
+    wp_clear_scheduled_hook('mitnafun_daily_rental_check');
     
-    // Add action for daily rental check
-    add_action('mitnafun_daily_rental_check', array('MitnafunOrderAdmin', 'process_ended_rentals'));
-    
-    // Add admin notice if initialization is needed
-    add_action('admin_notices', function() {
-        if (!get_option('mitnafun_initial_stock_initialized')) {
-            echo '<div class="notice notice-warning">';
-            echo '<p>Mitnafun Order Admin: Initial stock values need to be initialized. ';
-            echo '<a href="' . admin_url('admin.php?page=mitnafun-order-admin&init_stock=1') . '" class="button button-small">Initialize Now</a></p>';
-            echo '</div>';
-        }
-    });
-});
+    // Clear any transients or options if needed
+    delete_option('mitnafun_order_admin_active');
+}
+
+/**
+ * Daily rental check action.
+ *
+ * @return void
+ */
+function mitnafun_daily_rental_check() {
+    if (class_exists('MitnafunOrderAdmin')) {
+        MitnafunOrderAdmin::process_ended_rentals();
+    }
+}
+
+/**
+ * Admin notice for stock initialization.
+ *
+ * @return void
+ */
+function mitnafun_order_admin_notice() {
+    if (!get_option('mitnafun_initial_stock_initialized')) {
+        ?>
+        <div class="notice notice-warning">
+            <p>
+                <?php esc_html_e('Mitnafun Order Admin: Initial stock values need to be initialized.', 'mitnafun-order-admin'); ?>
+                <a href="<?php echo esc_url(admin_url('admin.php?page=mitnafun-order-admin&init_stock=1')); ?>" class="button button-small">
+                    <?php esc_html_e('Initialize Now', 'mitnafun-order-admin'); ?>
+                </a>
+            </p>
+        </div>
+        <?php
+    }
+}
+
+// Register activation and deactivation hooks
+register_activation_hook(__FILE__, 'mitnafun_order_admin_activate');
+register_deactivation_hook(__FILE__, 'mitnafun_order_admin_deactivate');
+
+// Hook initialization
+add_action('plugins_loaded', 'mitnafun_order_admin_init', 20);
+add_action('mitnafun_daily_rental_check', 'mitnafun_daily_rental_check');
+add_action('admin_notices', 'mitnafun_order_admin_notice');
