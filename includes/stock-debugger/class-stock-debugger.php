@@ -469,13 +469,16 @@ class Stock_Debugger {
         echo '<div class="debug-section">';
         echo '<h4>Reserved Dates <span class="debug-count">(' . count($reserved_dates) . ')</span></h4>';
         
-        if (!empty($reserved_dates)) {
+        // Get the detailed reservations data
+        $reservations = $this->get_detailed_reservations($product_id);
+        
+        if (!empty($reservations)) {
             echo '<div class="debug-scrollable">';
             echo '<table class="debug-table">';
             echo '<thead><tr><th>Order ID</th><th>Status</th><th>Start Date</th><th>End Date</th><th>Quantity</th></tr></thead>';
             echo '<tbody>';
             
-            foreach ($reserved_dates as $reservation) {
+            foreach ($reservations as $reservation) {
                 echo '<tr>';
                 echo '<td><a href="' . admin_url('post.php?post=' . $reservation['order_id'] . '&action=edit') . '" target="_blank">#' . $reservation['order_id'] . '</a></td>';
                 echo '<td><span class="status-badge status-' . esc_attr(str_replace('wc-', '', $reservation['status'])) . '">' . ucfirst(str_replace('wc-', '', $reservation['status'])) . '</span></td>';
@@ -550,17 +553,13 @@ class Stock_Debugger {
     }
     
     /**
-     * Get reserved dates for a product
+     * Get detailed reservations for a product
      * 
      * @param int $product_id
      * @return array
      */
-    public function get_reserved_dates($product_id) {
+    private function get_detailed_reservations($product_id) {
         global $wpdb;
-        
-        // Get current date in Israel timezone
-        $today = new DateTime('now', new DateTimeZone('Asia/Jerusalem'));
-        $today->setTime(0, 0, 0);
         
         $results = $wpdb->get_results($wpdb->prepare(
             "SELECT 
@@ -581,7 +580,6 @@ class Stock_Debugger {
             $product_id
         ));
         
-        // Create an associative array with dates as keys and quantities as values
         $reservations = [];
         
         foreach ($results as $row) {
@@ -590,57 +588,13 @@ class Stock_Debugger {
                 continue;
             }
             
-            try {
-                // Parse start and end dates
-                $start_date_str = trim($dates[0]);
-                $end_date_str = trim($dates[1]);
-                
-                // Convert from d.m.Y format to Y-m-d for JavaScript
-                $start_parts = explode('.', $start_date_str);
-                $end_parts = explode('.', $end_date_str);
-                
-                if (count($start_parts) !== 3 || count($end_parts) !== 3) {
-                    error_log('Invalid date format: ' . $row->rental_dates);
-                    continue;
-                }
-                
-                $start_date = new DateTime($start_parts[2] . '-' . $start_parts[1] . '-' . $start_parts[0]);
-                $end_date = new DateTime($end_parts[2] . '-' . $end_parts[1] . '-' . $end_parts[0]);
-                
-                // Skip if the reservation has already ended
-                if ($end_date < $today) {
-                    continue;
-                }
-                
-                // Get quantity from order
-                $quantity = (int)$row->quantity;
-                if ($quantity <= 0) {
-                    $quantity = 1; // Default to 1 if quantity is not set
-                }
-                
-                // Create a period iterator for the date range
-                $interval = new DateInterval('P1D');
-                $daterange = new DatePeriod($start_date, $interval, $end_date->modify('+1 day')); // Include end date
-                
-                // Add each date in the range to the reservations array
-                foreach ($daterange as $date) {
-                    $date_str = $date->format('Y-m-d');
-                    
-                    // Add or increment the quantity for this date
-                    if (isset($reservations[$date_str])) {
-                        $reservations[$date_str] += $quantity;
-                    } else {
-                        $reservations[$date_str] = $quantity;
-                    }
-                }
-                
-                // Log for debugging
-                error_log("Processed reservation: Order #{$row->order_id}, Dates: {$row->rental_dates}, Quantity: {$quantity}");
-                
-            } catch (Exception $e) {
-                error_log('Error processing reservation dates: ' . $e->getMessage());
-                continue;
-            }
+            $reservations[] = [
+                'order_id' => $row->order_id,
+                'status' => $row->status,
+                'start_date' => trim($dates[0]),
+                'end_date' => trim($dates[1]),
+                'quantity' => (int)$row->quantity ?: 1
+            ];
         }
         
         return $reservations;
@@ -705,6 +659,56 @@ class Stock_Debugger {
         }
         
         return $active_rentals;
+    }
+    
+    /**
+     * Get all reserved dates for a product
+     * 
+     * @param int $product_id Product ID
+     * @return array Array of reserved dates in Y-m-d format
+     */
+    private function get_reserved_dates($product_id) {
+        global $wpdb;
+        
+        // Get all active rentals for the product
+        $active_rentals = $this->get_active_rentals($product_id);
+        $reserved_dates = [];
+        
+        // Process each rental to extract reserved dates
+        foreach ($active_rentals as $rental) {
+            try {
+                $start_date = new DateTime($rental['start_date']);
+                $end_date = new DateTime($rental['end_date']);
+                
+                // Add each date in the range to reserved dates
+                $current_date = clone $start_date;
+                while ($current_date <= $end_date) {
+                    $date_str = $current_date->format('Y-m-d');
+                    if (!in_array($date_str, $reserved_dates)) {
+                        $reserved_dates[] = $date_str;
+                    }
+                    $current_date->modify('+1 day');
+                }
+            } catch (Exception $e) {
+                // Skip invalid date ranges
+                continue;
+            }
+        }
+        
+        // Also include buffer dates
+        $buffer_dates = $this->get_buffer_dates($product_id);
+        if (!empty($buffer_dates) && is_array($buffer_dates)) {
+            foreach ($buffer_dates as $date) {
+                if (!in_array($date, $reserved_dates)) {
+                    $reserved_dates[] = $date;
+                }
+            }
+        }
+        
+        // Sort dates chronologically
+        sort($reserved_dates);
+        
+        return $reserved_dates;
     }
     
     /**
