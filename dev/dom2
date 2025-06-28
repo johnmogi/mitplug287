@@ -1,0 +1,145 @@
+selection of the 27 day began
+
+<div class="fallback-calendar"><div class="month-header">
+                <div class="month-year">יוני 2025</div>
+                <button id="prevMonthBtn" class="nav-btn">&lt;</button>
+                <button id="nextMonthBtn" class="nav-btn">&gt;</button>
+            </div><div class="calendar-days-header"><div class="day-name">א</div><div class="day-name">ב</div><div class="day-name">ג</div><div class="day-name">ד</div><div class="day-name">ה</div><div class="day-name">ו</div><div class="day-name">ש</div></div><div class="calendar-days"><div class="day-cell disabled" data-date="2025-06-01" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">1</div><div class="day-cell disabled" data-date="2025-06-02" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">2</div><div class="day-cell disabled" data-date="2025-06-03" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">3</div><div class="day-cell disabled" data-date="2025-06-04" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">4</div><div class="day-cell disabled" data-date="2025-06-05" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">5</div><div class="day-cell disabled" data-date="2025-06-06" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">6</div><div class="day-cell weekend disabled" data-date="2025-06-07" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">7</div><div class="day-cell disabled" data-date="2025-06-08" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">8</div><div class="day-cell disabled" data-date="2025-06-09" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">9</div><div class="day-cell disabled" data-date="2025-06-10" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">10</div><div class="day-cell disabled" data-date="2025-06-11" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">11</div><div class="day-cell disabled" data-date="2025-06-12" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">12</div><div class="day-cell disabled" data-date="2025-06-13" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">13</div><div class="day-cell weekend disabled" data-date="2025-06-14" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">14</div><div class="day-cell disabled" data-date="2025-06-15" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">15</div><div class="day-cell disabled" data-date="2025-06-16" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">16</div><div class="day-cell disabled" data-date="2025-06-17" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">17</div><div class="day-cell disabled" data-date="2025-06-18" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">18</div><div class="day-cell disabled" data-date="2025-06-19" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">19</div><div class="day-cell disabled" data-date="2025-06-20" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">20</div><div class="day-cell weekend disabled" data-date="2025-06-21" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">21</div><div class="day-cell disabled" data-date="2025-06-22" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">22</div><div class="day-cell disabled" data-date="2025-06-23" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">23</div><div class="day-cell disabled" data-date="2025-06-24" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">24</div><div class="day-cell disabled" data-date="2025-06-25" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Past date" title="Past date - Not available">25</div><div class="day-cell today" data-date="2025-06-26" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">26</div><div class="day-cell selected-start start-date selected-date selected range-start" data-date="2025-06-27" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">27</div><div class="day-cell weekend disabled" data-date="2025-06-28" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Available" title="Available (1 units)">28</div><div class="day-cell" data-date="2025-06-29" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">29</div><div class="day-cell" data-date="2025-06-30" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">30</div></div>
+                <div class="calendar-spinner-container">
+                    <div class="calendar-spinner"></div>
+                    <span class="spinner-text">מחשב מחירים ותאריכים...</span>
+                </div>
+            </div>
+
+            passed on to the next month by pressing
+            <button id="nextMonthBtn" class="nav-btn">&gt;</button>
+
+            selection of the end date on the 2nd
+            <div class="text-wrap">
+                <ul class="list-info">
+                    <li>הסדנה 1, כפר סבא</li>
+                                            <li class="stock-availability" style="margin-top: 10px;">
+                            <div style="font-size: 1em; color: #000; font-weight: bold;">
+                                <div>סה"כ מלאי: 1 יחידות</div>
+                            </div>
+                        </li>
+                                    </ul>
+
+                <h1 class="product_title entry-title">טירת הכיף</h1><p class="price"><span class="woocommerce-Price-amount amount"><bdi>520.00&nbsp;<span class="woocommerce-Price-currencySymbol">₪</span></bdi></span></p>
+<div class="product_meta">
+
+	
+	
+	<span class="posted_in">Category: <a href="https://cmit.local/product-category/%d7%9e%d7%aa%d7%a0%d7%a4%d7%97%d7%99%d7%9d-%d7%9c%d7%94%d7%a9%d7%9b%d7%a8%d7%94/" rel="tag">מתנפחים להשכרה</a></span>
+	
+	
+</div>
+
+                <div class="rental-form-section">
+                    <!-- Simple Notice - Always Visible at Top -->
+                    <!-- <div id="simple-notice" class="return-time-notice info" style="margin-bottom: 15px; background-color: #e3f2fd; border: 1px solid #90caf9; padding: 8px; border-radius: 4px;">
+                        <strong style="color: #1565c0;">שימו לב</strong>
+                        <span> - בחרו תאריכי השכרה לקבלת מידע מלא</span>
+                    </div> -->
+                    
+                    <!-- Early discount incentive message - only shown if there's an actual discount -->
+                                        <script>
+                        // Make discount values available globally
+                        window.discountType = 'percentage';
+                        window.discountValue = 50;
+                        console.log('🔄 Setting global discount values:', window.discountType, window.discountValue);
+                    </script>
+                    
+                    <h3>תאריכי השכרה</h3>
+                    <div class="rental-dates-label">תאריכי השכרה</div><div id="datepicker-container"><div class="fallback-calendar"><div class="month-header">
+                <div class="month-year">יולי 2025</div>
+                <button id="prevMonthBtn" class="nav-btn">&lt;</button>
+                <button id="nextMonthBtn" class="nav-btn">&gt;</button>
+            </div><div class="calendar-days-header"><div class="day-name">א</div><div class="day-name">ב</div><div class="day-name">ג</div><div class="day-name">ד</div><div class="day-name">ה</div><div class="day-name">ו</div><div class="day-name">ש</div></div><div class="calendar-days"><div class="day-cell empty" data-selectable="true"></div><div class="day-cell empty" data-selectable="true"></div><div class="day-cell selected in-range confirmed" data-date="2025-07-01" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">1</div><div class="day-cell selected-start start-date selected-date selected range-end confirmed" data-date="2025-07-02" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">2</div><div class="day-cell" data-date="2025-07-03" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">3</div><div class="day-cell" data-date="2025-07-04" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">4</div><div class="day-cell weekend disabled" data-date="2025-07-05" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Available" title="Available (1 units)">5</div><div class="day-cell" data-date="2025-07-06" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">6</div><div class="day-cell" data-date="2025-07-07" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">7</div><div class="day-cell" data-date="2025-07-08" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">8</div><div class="day-cell" data-date="2025-07-09" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">9</div><div class="day-cell" data-date="2025-07-10" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">10</div><div class="day-cell" data-date="2025-07-11" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">11</div><div class="day-cell weekend disabled" data-date="2025-07-12" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Available" title="Available (1 units)">12</div><div class="day-cell" data-date="2025-07-13" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">13</div><div class="day-cell" data-date="2025-07-14" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">14</div><div class="day-cell" data-date="2025-07-15" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">15</div><div class="day-cell" data-date="2025-07-16" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">16</div><div class="day-cell" data-date="2025-07-17" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">17</div><div class="day-cell" data-date="2025-07-18" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">18</div><div class="day-cell weekend disabled" data-date="2025-07-19" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Available" title="Available (1 units)">19</div><div class="day-cell" data-date="2025-07-20" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">20</div><div class="day-cell" data-date="2025-07-21" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">21</div><div class="day-cell" data-date="2025-07-22" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">22</div><div class="day-cell" data-date="2025-07-23" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">23</div><div class="day-cell" data-date="2025-07-24" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">24</div><div class="day-cell" data-date="2025-07-25" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">25</div><div class="day-cell weekend disabled" data-date="2025-07-26" data-selectable="false" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="false" data-reason="Available" title="Available (1 units)">26</div><div class="day-cell" data-date="2025-07-27" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">27</div><div class="day-cell" data-date="2025-07-28" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">28</div><div class="day-cell" data-date="2025-07-29" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">29</div><div class="day-cell" data-date="2025-07-30" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">30</div><div class="day-cell" data-date="2025-07-31" data-selectable="true" data-stock="1" data-orders="0" data-available="1" data-fully-booked="false" data-partially-booked="false" data-is-available="true" data-reason="Available" title="Available (1 units)">31</div></div><div class="calendar-legend">
+                <div class="legend-item"><span class="legend-color available"></span> פנוי</div>
+                <div class="legend-item"><span class="legend-color disabled"></span> תאריך עבר</div>
+                <div class="legend-item"><span class="legend-color weekend"></span> שבת (סגור)</div>
+                <div class="legend-item"><span class="legend-color fully-booked"></span> מושכר במלואו</div>
+                <div class="legend-item"><span class="legend-color partially-booked"></span> מושכר חלקית</div>
+            
+                <div class="legend-item">
+                    <span class="legend-color early-return"></span> החזרה מוקדמת (עד 09:00)
+                </div>
+            
+                <div class="legend-item">
+                    <span class="legend-color return-date"></span> יום החזרה (ניתן להזמין)
+                </div>
+            </div></div></div>
+                    <div id="date-validation-message" class="validation-message success" style="display: block;"><div class="validation-message-content">
+                <p>
+                    <strong>תאריכי השכרה:</strong> 2025-07-02 - 2025-07-02
+              </p>
+            </div></div>
+        <div class="mitnafun-breakdown" style="border: 1px solid #ddd; padding: 15px; margin: 15px 0; background-color: #f9f9f9; border-radius: 4px;">
+          <div class="breakdown-toggle" style="cursor: pointer; padding: 5px 0;">
+            <p style="font-weight: bold; margin-bottom: 10px; font-size: 16px;">פירוט תמחור לתקופת השכירות (1 ימים):</p>
+          </div>
+          <div class="breakdown-content" style="display: block;">
+            <ul style="list-style: none; padding-right: 15px; margin: 0 0 15px 0;">
+              <li style="margin-bottom: 10px; color: #0077cc;"><strong>חשוב לדעת:</strong> ימי שישי ושבת נחשבים כיום אחד בלבד לחיוב.</li>
+              <li style="margin-bottom: 10px;">יום ראשון: ‏520&nbsp;‏₪ (מחיר מלא)</li>
+              
+            </ul>
+            <p style="font-weight: bold; margin: 15px 0 0; border-top: 1px dashed #ddd; padding-top: 10px;">
+              <strong>סה"כ: ‏520&nbsp;‏₪ (חסכת ‏0&nbsp;‏₪)</strong>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                    
+                    <div id="max-duration-message" class="validation-message info" style="display: none">ניתן להזמין עד <span id="max-days">14</span> ימים</div>
+                    
+                    <!-- Price Breakdown Section -->
+                    <div id="price-breakdown-container" class="price-breakdown-container" style="margin: 15px 0px; padding: 15px; background-color: rgb(249, 249, 249); border: 1px solid rgb(224, 224, 224); border-radius: 4px; display: block;">
+                        <h4 style="margin-top: 0; margin-bottom: 10px; color: #333; font-size: 16px;">פירוט תמחור לתקופת השכירה:</h4>
+                        <ul id="price-breakdown-list" style="margin: 0 0 10px 0; padding-right: 20px;">
+                            <!-- Will be populated by JavaScript -->
+                        </ul>
+                        <p id="price-breakdown-total" style="margin: 5px 0 0; font-weight: bold; color: #333;">
+                            <!-- Will be populated by JavaScript -->
+                        </p>
+                    </div>
+                    
+                    <div class="debug-marker" style="display:none;">Price calculator running</div><div class="debug-marker" style="display:none;">Price calculator running</div><form class="cart" action="https://cmit.local/product/%d7%98%d7%99%d7%a8%d7%aa-%d7%94%d7%9b%d7%99%d7%a3/" method="post" enctype="multipart/form-data">
+                        <input type="hidden" id="rental_dates" name="rental_dates" class="date-picker-field" value="27.06.2025 - 02.07.2025">
+                        <input type="hidden" id="rental_hours" name="rental_hours">
+                        <div style="display: none">
+                            <div class="quantity">
+		<label class="screen-reader-text" for="quantity_685ca37c07642">טירת הכיף quantity</label>
+	<input type="number" id="quantity_685ca37c07642" class="input-text qty text" name="quantity" value="1" aria-label="Product quantity" size="4" min="0" max="1" step="1" placeholder="" inputmode="numeric" autocomplete="off" data-max="1">
+	<div class="available-units-note" style="font-size: 0.8em; color: #777;">1 unit available</div></div>
+                        </div>
+                        <div id="return-time-notice" class="return-time-notice info" style="margin-bottom: 15px; background-color: #e3f2fd; border: 1px solid #90caf9; padding: 8px; border-radius: 4px;">
+                            <strong>שימו לב!</strong> החזרת הציוד מתבצעת עד השעה 10:00 .
+                        </div>
+                        <div class="btn-wrap">
+                            <button type="submit" name="add-to-cart" value="467" class="single_add_to_cart_button btn-default btn-blue btn-mini" aria-disabled="false">הוסף לסל</button>
+                            <button type="submit" name="add-to-cart" value="467" class="single_add_to_cart_button btn-redirect btn-default btn-yellow btn-mini" aria-disabled="false">הזמן</button>
+                            <div class="rental-notice" style="margin-top: 10px; font-size: 13px; color: #856404; background-color: #fff3cd; border: 1px solid #ffeeba; padding: 8px; border-radius: 4px;">
+                                <strong>שימו לב:</strong> יש לבחור תאריכים לפני ההזמנה. המערכת תבדוק את זמינות התאריכים בעת ההזמנה.
+                            </div>
+                        <input type="hidden" name="redirect" value="">
+                    
+                    
+                                    </div></form>
+            </div>
+        </div>
+
+        result the discount box does not show the selected dates it looks like 1 day for some reason

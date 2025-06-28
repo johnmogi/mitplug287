@@ -1,0 +1,1547 @@
+jquery-migrate.min.js:2 JQMIGRATE: Migrate is installed, version 3.4.1
+emergency-direct-submit.js:6 Emergency direct submit script has been deprecated and moved to backup folder
+איירון-מן/:687 Uncaught SyntaxError: Unexpected token ';' (at איירון-מן/:687:27)
+איירון-מן/:1101 🌍 Global basePrice set to: 550
+איירון-מן/:1104 🌍 Global variables: {discountType: undefined, discountValue: undefined, maxRentalDays: undefined}
+איירון-מן/:1281 🔄 Setting global discount values: percentage 50
+איירון-מן/:1486 Uncaught SyntaxError: Unexpected token 'else' (at איירון-מן/:1486:27)
+air-datepicker.js:4 Using fallback calendar system instead of Air Datepicker
+last-minute-booking-check.js:6 Last minute booking check script has been deprecated and moved to backup folder
+calendar-future-date-fixer.js:6 Calendar future date fixer script has been deprecated and moved to backup folder
+logger.js:1 Uncaught SyntaxError: Unexpected token ':' (at logger.js:1:17)
+איירון-מן/:1920 [WEEKEND OVERRIDE] Applying weekend booking fixes
+איירון-מן/:1969 [WEEKEND OVERRIDE] Weekend booking fixes applied
+price-calculator.js:38 🔥 Price Calculator initializing
+price-calculator.js:45 🔥 Price Calculator using: {basePrice: 550, discountType: 'percentage', discountValue: 50}
+price-calculator.js:69 📌 Observer attached to date validation message
+script.js:2 Document is ready
+calendar-initializer.js:14 [Info] Calendar initializer running...
+calendar-test.js:6 Calendar test script running...
+calendar-test.js:10 Found datepicker container, initializing test...
+pickup-time-handler.js:11 Initializing Unified Pickup Time Handler
+pickup-time-handler.js:23 Pickup time field not found, skipping initialization
+date-range-validator.js:15 [Date Validator] Initializing date range validator
+date-range-validator.js:210 [Date Validator] Date range validation patched successfully
+stock-based-special-dates.js:18 ✅ Stock-based special dates handler initialized
+improved-stock-debugger.js:10 [Improved Stock Debugger] Initializing...
+direct-form-override.js:7 🔥 DIRECT FORM OVERRIDE ACTIVE
+form-submission-validator.js:9 🔒 Form Submission Validator loaded
+form-submission-validator.js:169 🔒 Form submission validation is active
+actions.js:9 undefined
+pickup-time-handler.js:23 Pickup time field not found, skipping initialization
+price-calculator.js:18 🚀 DIRECT INTEGRATION - Initial check: {dateRange: '', rentalDays: undefined}
+fallback-calendar.js:241 Initializing fallback calendar system
+fallback-calendar.js:245 Received dates for initialization: (10) ['2025-06-10', '2025-06-11', '2025-06-12', '2025-06-13', '2025-06-14', '2025-06-15', '2025-06-16', '2025-06-17', '2024-10-16', '2024-10-17']
+fallback-calendar.js:250 Stock quantity: 1 Initial stock: 1
+fallback-calendar.js:285 Reserved dates with counts: {2025-06-10: 1, 2025-06-11: 1, 2025-06-12: 1, 2025-06-13: 1, 2025-06-14: 1, …}
+fallback-calendar.js:286 Disabled dates (fully booked): (10) ['2025-06-10', '2025-06-11', '2025-06-12', '2025-06-13', '2025-06-14', '2025-06-15', '2025-06-16', '2025-06-17', '2024-10-16', '2024-10-17']
+fallback-calendar.js:307 Container cleared, proceeding with initialization
+fallback-calendar.js:327 Pickup hour: 11 / Cutoff hour: 9
+fallback-calendar.js:336 Disabled dates prepared successfully: (10) ['2025-06-10', '2025-06-11', '2025-06-12', '2025-06-13', '2025-06-14', '2025-06-15', '2025-06-16', '2025-06-17', '2024-10-16', '2024-10-17']
+fallback-calendar.js:375 Current hour: 13 / Cutoff hour: 9
+fallback-calendar.js:381 PRODUCTION MODE: Added today to disabled dates because it's past cutoff time
+fallback-calendar.js:389 Final disabled dates set: (11) ['2025-06-10', '2025-06-11', '2025-06-12', '2025-06-13', '2025-06-14', '2025-06-15', '2025-06-16', '2025-06-17', '2024-10-16', '2024-10-17', '2025-06-08']
+fallback-calendar.js:400 Generating calendar with month: 5 year: 2025
+fallback-calendar.js:541 Generating month calendar with month: 5 year: 2025
+fallback-calendar.js:643 Calendar successfully generated
+stock-based-special-dates.js:46 📊 Current stock level for special dates: 0
+stock-based-special-dates.js:88 📅 fetchAndShowOrderBoundaryDates
+stock-based-special-dates.js:89 🔍 Fetching order boundary dates for low stock scenario
+stock-based-special-dates.js:197 🔍 Attempting to get product ID...
+stock-based-special-dates.js:229 ✅ Found product ID in body class: 461
+stock-based-special-dates.js:116 📦 AJAX request data: {
+  "action": "get_order_boundary_dates",
+  "product_id": "461",
+  "security": "e223893462"
+}
+stock-based-special-dates.js:117 🌐 AJAX URL: https://mitnafun.local/wp-admin/admin-ajax.php
+stock-based-special-dates.js:256 📊 Applying stock-based rules. Stock level: 0
+stock-based-special-dates.js:263 📉 Stock is less than 2, disabling special dates
+fallback-calendar.js:751 Setting up date selection handlers
+fallback-calendar.js:2123 Pickup time field not found, skipping initialization
+fallback-calendar.js:441 Fallback calendar initialization completed successfully
+stock-based-special-dates.js:125 ✅ AJAX response received: {success: false, data: 'Invalid nonce'}
+stock-based-special-dates.js:141 ⚠️ No boundary dates data received: Invalid nonce
+success @ stock-based-special-dates.js:141
+c @ jquery.min.js:2
+fireWith @ jquery.min.js:2
+l @ jquery.min.js:2
+(anonymous) @ jquery.min.js:2
+XMLHttpRequest.send
+send @ jquery.min.js:2
+ajax @ jquery.min.js:2
+(anonymous) @ jquery-migrate.min.js:2
+e.<computed> @ jquery-migrate.min.js:2
+fetchAndShowOrderBoundaryDates @ stock-based-special-dates.js:119
+initStockBasedSpecialDates @ stock-based-special-dates.js:50
+(anonymous) @ stock-based-special-dates.js:30
+dispatch @ jquery.min.js:2
+v.handle @ jquery.min.js:2
+trigger @ jquery.min.js:2
+(anonymous) @ jquery.min.js:2
+each @ jquery.min.js:2
+each @ jquery.min.js:2
+trigger @ jquery.min.js:2
+generateMonthCalendar @ fallback-calendar.js:645
+initializeFallbackCalendar @ fallback-calendar.js:409
+success @ calendar-initializer.js:114
+c @ jquery.min.js:2
+fireWith @ jquery.min.js:2
+l @ jquery.min.js:2
+(anonymous) @ jquery.min.js:2
+XMLHttpRequest.send
+send @ jquery.min.js:2
+ajax @ jquery.min.js:2
+(anonymous) @ jquery-migrate.min.js:2
+e.<computed> @ jquery-migrate.min.js:2
+(anonymous) @ calendar-initializer.js:74
+e @ jquery.min.js:2
+t @ jquery.min.js:2
+setTimeout
+(anonymous) @ jquery.min.js:2
+c @ jquery.min.js:2
+fireWith @ jquery.min.js:2
+fire @ jquery.min.js:2
+c @ jquery.min.js:2
+fireWith @ jquery.min.js:2
+ready @ jquery.min.js:2
+P @ jquery.min.js:2
+stock-based-special-dates.js:256 📊 Applying stock-based rules. Stock level: 0
+stock-based-special-dates.js:263 📉 Stock is less than 2, disabling special dates
+stock-based-special-dates.js:161 🏁 AJAX request completed
+stock-based-special-dates.js:46 📊 Current stock level for special dates: 0
+stock-based-special-dates.js:88 📅 fetchAndShowOrderBoundaryDates
+stock-based-special-dates.js:89 🔍 Fetching order boundary dates for low stock scenario
+stock-based-special-dates.js:197 🔍 Attempting to get product ID...
+stock-based-special-dates.js:229 ✅ Found product ID in body class: 461
+stock-based-special-dates.js:116 📦 AJAX request data: {
+  "action": "get_order_boundary_dates",
+  "product_id": "461",
+  "security": "e223893462"
+}
+stock-based-special-dates.js:117 🌐 AJAX URL: https://mitnafun.local/wp-admin/admin-ajax.php
+stock-based-special-dates.js:256 📊 Applying stock-based rules. Stock level: 0
+stock-based-special-dates.js:263 📉 Stock is less than 2, disabling special dates
+stock-based-special-dates.js:125 ✅ AJAX response received: {success: false, data: 'Invalid nonce'}
+stock-based-special-dates.js:141 ⚠️ No boundary dates data received: Invalid nonce
+success @ stock-based-special-dates.js:141
+c @ jquery.min.js:2
+fireWith @ jquery.min.js:2
+l @ jquery.min.js:2
+(anonymous) @ jquery.min.js:2
+XMLHttpRequest.send
+send @ jquery.min.js:2
+ajax @ jquery.min.js:2
+(anonymous) @ jquery-migrate.min.js:2
+e.<computed> @ jquery-migrate.min.js:2
+fetchAndShowOrderBoundaryDates @ stock-based-special-dates.js:119
+initStockBasedSpecialDates @ stock-based-special-dates.js:50
+setTimeout
+initStockBasedSpecialDates @ stock-based-special-dates.js:40
+setTimeout
+initStockBasedSpecialDates @ stock-based-special-dates.js:40
+setTimeout
+initStockBasedSpecialDates @ stock-based-special-dates.js:40
+(anonymous) @ stock-based-special-dates.js:21
+e @ jquery.min.js:2
+t @ jquery.min.js:2
+setTimeout
+(anonymous) @ jquery.min.js:2
+c @ jquery.min.js:2
+fireWith @ jquery.min.js:2
+fire @ jquery.min.js:2
+c @ jquery.min.js:2
+fireWith @ jquery.min.js:2
+ready @ jquery.min.js:2
+P @ jquery.min.js:2
+stock-based-special-dates.js:256 📊 Applying stock-based rules. Stock level: 0
+stock-based-special-dates.js:263 📉 Stock is less than 2, disabling special dates
+stock-based-special-dates.js:161 🏁 AJAX request completed
+איירון-מן/:1112 ⏱️ After timeout, global variables: {basePrice: 550, discountType: 'percentage', discountValue: 50}
+calendar-test.js:15 SUCCESS: Calendar initialization function found!
+calendar-test.js:21 Calendar system is operational - no reinitialization needed
+
+<body class="rtl wp-singular product-template-default single single-product postid-461 logged-in admin-bar wp-theme-mitnafun-upro theme-mitnafun-upro woocommerce woocommerce-page woocommerce-js customize-support">
+    <script type="text/javascript">
+  /* <![CDATA[ */
+  
+          (function() {
+              var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
+  
+                  request = true;
+      
+              b[c] = b[c].replace( rcs, ' ' );
+              // The customizer requires postMessage and CORS (if the site is cross domain).
+              b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
+          }());
+      
+  /* ]]> */
+  </script>
+          <div id="wpadminbar" class="nojq">
+                          <div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="סרגל כלים">
+                  <ul role="menu" id="wp-admin-bar-root-default" class="ab-top-menu"><li role="group" id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item" role="menuitem" aria-expanded="false" href="https://mitnafun.local/wp-admin/about.php"><span class="ab-icon" aria-hidden="true"></span><span class="screen-reader-text">אודות וורדפרס</span></a><div class="ab-sub-wrapper"><ul role="menu" aria-label="אודות וורדפרס" id="wp-admin-bar-wp-logo-default" class="ab-submenu"><li role="group" id="wp-admin-bar-about"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/about.php">אודות וורדפרס</a></li><li role="group" id="wp-admin-bar-contribute"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/contribute.php">Get Involved</a></li></ul><ul role="menu" aria-label="אודות וורדפרס" id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu"><li role="group" id="wp-admin-bar-wporg"><a class="ab-item" role="menuitem" href="https://he.wordpress.org/">WordPress.org</a></li><li role="group" id="wp-admin-bar-documentation"><a class="ab-item" role="menuitem" href="https://wordpress.org/documentation/">תיעוד</a></li><li role="group" id="wp-admin-bar-learn"><a class="ab-item" role="menuitem" href="https://learn.wordpress.org/">Learn WordPress</a></li><li role="group" id="wp-admin-bar-support-forums"><a class="ab-item" role="menuitem" href="https://wordpress.org/support/forums/">תמיכה</a></li><li role="group" id="wp-admin-bar-feedback"><a class="ab-item" role="menuitem" href="https://wordpress.org/support/forum/requests-and-feedback">משוב</a></li></ul></div></li><li role="group" id="wp-admin-bar-site-name" class="menupop"><a class="ab-item" role="menuitem" aria-expanded="false" href="https://mitnafun.local/wp-admin/">Mitnafun</a><div class="ab-sub-wrapper"><ul role="menu" aria-label="Mitnafun" id="wp-admin-bar-site-name-default" class="ab-submenu"><li role="group" id="wp-admin-bar-dashboard"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/">לוח בקרה</a></li><li role="group" id="wp-admin-bar-plugins"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/plugins.php">תוספים</a></li></ul><ul role="menu" aria-label="Mitnafun" id="wp-admin-bar-appearance" class="ab-submenu"><li role="group" id="wp-admin-bar-themes"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/themes.php">תבניות</a></li><li role="group" id="wp-admin-bar-menus"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/nav-menus.php">תפריטים</a></li></ul></div></li><li role="group" id="wp-admin-bar-woocommerce-site-visibility-badge" class="woocommerce-site-status-badge-live"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/admin.php?page=wc-settings&amp;tab=site-visibility">בזמן אמת</a></li><li role="group" id="wp-admin-bar-customize" class="hide-if-no-customize"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/customize.php?url=https%3A%2F%2Fmitnafun.local%2Fproduct%2F%25d7%2590%25d7%2599%25d7%2599%25d7%25a8%25d7%2595%25d7%259f-%25d7%259e%25d7%259f%2F">התאמה אישית</a></li><li role="group" id="wp-admin-bar-updates"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/update-core.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label" aria-hidden="true">20</span><span class="screen-reader-text updates-available-text">קיימים 20 עדכונים זמינים</span></a></li><li role="group" id="wp-admin-bar-comments"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/edit-comments.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label awaiting-mod pending-count count-1" aria-hidden="true">1</span><span class="screen-reader-text comments-in-moderation-text">תגובה 1 בהמתנה</span></a></li><li role="group" id="wp-admin-bar-new-content" class="menupop"><a class="ab-item" role="menuitem" aria-expanded="false" href="https://mitnafun.local/wp-admin/post-new.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label">חדש</span></a><div class="ab-sub-wrapper"><ul role="menu" aria-label="חדש" id="wp-admin-bar-new-content-default" class="ab-submenu"><li role="group" id="wp-admin-bar-new-post"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/post-new.php">פוסט</a></li><li role="group" id="wp-admin-bar-new-media"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/media-new.php">מדיה</a></li><li role="group" id="wp-admin-bar-new-page"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/post-new.php?post_type=page">עמוד</a></li><li role="group" id="wp-admin-bar-new-faq"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/post-new.php?post_type=faq">FAQ</a></li><li role="group" id="wp-admin-bar-new-product"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/post-new.php?post_type=product">מוצר</a></li><li role="group" id="wp-admin-bar-new-shop_order"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/post-new.php?post_type=shop_order">הזמנה</a></li><li role="group" id="wp-admin-bar-new-shop_coupon"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/post-new.php?post_type=shop_coupon">קופון</a></li><li role="group" id="wp-admin-bar-new-br_product_filter"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/post-new.php?post_type=br_product_filter">Product Filter</a></li><li role="group" id="wp-admin-bar-new-br_filters_group"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/post-new.php?post_type=br_filters_group">Product Filter Group</a></li><li role="group" id="wp-admin-bar-new-user"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/user-new.php">משתמש</a></li></ul></div></li><li role="group" id="wp-admin-bar-edit"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/post.php?post=461&amp;action=edit">עריכת מוצר</a></li><li role="group" id="wp-admin-bar-wpcode-admin-bar-info" class="menupop wpcode-admin-bar-info menupop"><a class="ab-item" role="menuitem" aria-expanded="false" href="https://mitnafun.local/wp-admin/admin.php?page=wpcode">WPCode</a><div class="ab-sub-wrapper"><ul role="menu" id="wp-admin-bar-wpcode-admin-bar-info-default" class="ab-submenu"><li role="group" id="wp-admin-bar-wpcode-description" class="wpcode-admin-bar-info-submenu wpcode-admin-bar-description"><div class="ab-item ab-empty-item" role="menuitem">Loaded on this page</div></li><li role="group" id="wp-admin-bar-wpcode-global-scripts" class="menupop wpcode-admin-bar-info-submenu"><a class="ab-item" role="menuitem" aria-expanded="false" href="https://mitnafun.local/wp-admin/admin.php?page=wpcode-headers-footers"><span class="wp-admin-bar-arrow" aria-hidden="true"></span>Global Scripts (2)</a><div class="ab-sub-wrapper"><ul role="menu" id="wp-admin-bar-wpcode-global-scripts-default" class="ab-submenu"><li role="group" id="wp-admin-bar-wpcode-global-header" class="wpcode-admin-bar-info-submenu"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/admin.php?page=wpcode-headers-footers#wpcode-global-header">Global Header (1)</a></li><li role="group" id="wp-admin-bar-wpcode-global-body" class="wpcode-admin-bar-info-submenu"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/admin.php?page=wpcode-headers-footers#wpcode-global-body">Global Body (1)</a></li><li role="group" id="wp-admin-bar-wpcode-global-footer" class="wpcode-admin-bar-info-submenu"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/admin.php?page=wpcode-headers-footers#wpcode-global-footer">Global Footer (0)</a></li></ul></div></li><li role="group" id="wp-admin-bar-wpcode-loaded-on-this-page" class="menupop wpcode-admin-bar-info-submenu"><a class="ab-item" role="menuitem" aria-expanded="false" href="https://mitnafun.local/wp-admin/admin.php?page=wpcode"><span class="wp-admin-bar-arrow" aria-hidden="true" style="display: none;"></span>Code Snippets (0)</a><div class="ab-sub-wrapper"><ul role="menu" id="wp-admin-bar-wpcode-loaded-on-this-page-default" class="ab-submenu"></ul></div></li><li role="group" id="wp-admin-bar-wpcode-page-scripts" class="menupop wpcode-admin-bar-has-upsell-submenu"><div class="ab-item ab-empty-item" role="menuitem" aria-expanded="false"><span class="wp-admin-bar-arrow" aria-hidden="true"></span>Page Scripts <span class="wpcode-pro-indicator">PRO</span></div><div class="ab-sub-wrapper"><ul role="menu" id="wp-admin-bar-wpcode-page-scripts-default" class="ab-submenu"><li role="group" id="wp-admin-bar-wpcode-page-scripts-upgrade" class="wpcode-admin-bar-upsell-submenu"><div class="ab-item ab-empty-item" role="menuitem"></div><div class="wpcode-admin-bar-submenu-upsell"><span class="wpcode-heading">Page Scripts is a Pro Feature</span><p>While you can always use global snippets, in the PRO version you can easily add page-specific scripts and snippets directly from the post edit screen.</p><a class="wpcode-button" href="https://wpcode.com/lite/?utm_source=liteplugin&amp;utm_medium=admin-bar&amp;utm_campaign=page-scripts" target="_blank" rel="noopener noreferrer">Upgrade to Pro and Unlock Page Scripts</a></div></li></ul></div></li><li role="group" id="wp-admin-bar-wpcode-admin-bar-info-add-new" class="wpcode-admin-bar-info-submenu wpcode-admin-bar-info-separator-top"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/admin.php?page=wpcode-snippet-manager">+ Add Snippet</a></li><li role="group" id="wp-admin-bar-wpcode-admin-bar-info-settings" class="wpcode-admin-bar-info-submenu"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/admin.php?page=wpcode-settings">הגדרות</a></li><li role="group" id="wp-admin-bar-wpcode-admin-bar-info-help" class="wpcode-admin-bar-info-submenu"><a class="ab-item" role="menuitem" href="https://wpcode.com/docs/?utm_source=liteplugin&amp;utm_medium=admin-bar&amp;utm_campaign=help" target="_blank" rel="noopener noreferrer">Help Docs</a></li><li role="group" id="wp-admin-bar-wpcode-upgrade" class="wpcode-admin-bar-info-submenu"><a class="ab-item" role="menuitem" href="https://wpcode.com/lite/?utm_source=liteplugin&amp;utm_medium=admin-bar&amp;utm_campaign=upgrade-to-pro" target="_blank" rel="noopener noreferrer">Upgrade to Pro</a></li></ul></div></li><li role="group" id="wp-admin-bar-bapf_debug_bar" class="menupop"><div class="ab-item ab-empty-item" role="menuitem" aria-expanded="false"><img style="width:22px;height:22px;display:inline;" src="https://mitnafun.local/wp-content/plugins/woocommerce-ajax-filters/berocket/includes/ico.png" alt="">Product Filters</div><div class="ab-sub-wrapper"><ul role="menu" id="wp-admin-bar-bapf_debug_bar-default" class="ab-submenu"><li role="group" id="wp-admin-bar-bapf_debug_bar_content"><div class="ab-item ab-empty-item" role="menuitem"><div class="bapf_wp_admin_bar_replace">Filters cannot be detected</div></div></li></ul></div></li></ul><ul role="menu" id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu"><li role="group" id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item" role="menuitem" aria-expanded="false" href="https://mitnafun.local/wp-admin/profile.php">שלום, <span class="display-name">נתנאל איתן</span><img alt="" src="https://secure.gravatar.com/avatar/c4db619e5ebeee7dcd220d9c28cb1ebb86e1ef687a6b1f665d3259c04e59f655?s=26&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/c4db619e5ebeee7dcd220d9c28cb1ebb86e1ef687a6b1f665d3259c04e59f655?s=52&amp;d=mm&amp;r=g 2x" class="avatar avatar-26 photo" height="26" width="26" decoding="async"></a><div class="ab-sub-wrapper"><ul role="menu" aria-label="שלום, נתנאל איתן" id="wp-admin-bar-user-actions" class="ab-submenu"><li role="group" id="wp-admin-bar-user-info"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-admin/profile.php"><img alt="" src="https://secure.gravatar.com/avatar/c4db619e5ebeee7dcd220d9c28cb1ebb86e1ef687a6b1f665d3259c04e59f655?s=64&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/c4db619e5ebeee7dcd220d9c28cb1ebb86e1ef687a6b1f665d3259c04e59f655?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64" decoding="async"><span class="display-name">נתנאל איתן</span><span class="username">admins</span><span class="display-name edit-profile">עריכת פרופיל</span></a></li><li role="group" id="wp-admin-bar-logout"><a class="ab-item" role="menuitem" href="https://mitnafun.local/wp-login.php?action=logout&amp;_wpnonce=252993a707">יציאה</a></li></ul></div></li><li role="group" id="wp-admin-bar-search" class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1" role="menuitem"><form action="https://mitnafun.local/" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150"><label for="adminbar-search" class="screen-reader-text">חיפוש</label><input type="submit" class="adminbar-button" value="חיפוש"></form></div></li></ul>			</div>
+          </div>
+  
+          <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLXPPMS3"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->  <header>
+      <div class="top-line">
+        <div class="content-width">
+  
+                    <div class="logo-wrap">
+              <a href="https://mitnafun.local">
+                <img width="166" height="76" src="https://mitnafun.local/wp-content/uploads/2024/03/logo.svg" class="attachment-full size-full" alt="" decoding="async">            </a>
+            </div>
+          
+          <div class="top-menu">
+  
+            <ul><li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-24"><a href="https://mitnafun.local/">עמוד הבית</a></li>
+  <li id="menu-item-416" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat current-product-ancestor current-menu-parent current-product-parent menu-item-416"><a href="https://mitnafun.local/product-category/%d7%9e%d7%aa%d7%a0%d7%a4%d7%97%d7%99%d7%9d-%d7%9c%d7%94%d7%a9%d7%9b%d7%a8%d7%94/">מתנפחים</a></li>
+  <li id="menu-item-561" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-561"><a href="https://mitnafun.local/product-category/%d7%9e%d7%92%d7%9c%d7%a9%d7%95%d7%aa-%d7%9e%d7%99%d7%9d-%d7%9c%d7%94%d7%a9%d7%9b%d7%a8%d7%94/">מתנפחי מים</a></li>
+  <li id="menu-item-563" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-563"><a href="https://mitnafun.local/product-category/%d7%93%d7%95%d7%9b%d7%a0%d7%99-%d7%9e%d7%96%d7%95%d7%9f-%d7%9c%d7%94%d7%a9%d7%9b%d7%a8%d7%94/">דוכני מזון</a></li>
+  <li id="menu-item-562" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-562"><a href="https://mitnafun.local/product-category/%d7%92%d7%a0%d7%a8%d7%98%d7%95%d7%a8%d7%99%d7%9d-%d7%9c%d7%94%d7%a9%d7%9b%d7%a8%d7%94/">גנרטורים וציוד נלווה</a></li>
+  <li id="menu-item-25" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25"><a href="https://mitnafun.local/blog/">בלוג</a></li>
+  </ul>
+            <div class="open-menu">
+              <a href="#">
+                <img src="https://mitnafun.local/wp-content/themes/mitnafun-upro/img/menu.svg" alt="">
+              </a>
+            </div>
+            <div class="btn-wrap">
+              <a href="#check-popup" class="fancybox-check"><img src="https://mitnafun.local/wp-content/themes/mitnafun-upro/img/icon-1.svg" alt=""></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  
+    <div class="menu-responsive" id="menu-responsive" style="display: none">
+      <div class="top">
+        <div class="close-menu">
+          <a href="#"><img src="https://mitnafun.local/wp-content/themes/mitnafun-upro/img/icon-close.svg" alt=""></a>
+        </div>
+      </div>
+      <div class="wrap">
+  
+                <div class="logo-wrap">
+            <a href="https://mitnafun.local">
+              <img width="166" height="76" src="https://mitnafun.local/wp-content/uploads/2024/03/logo.svg" class="attachment-full size-full" alt="" decoding="async">          </a>
+          </div>
+        
+        <nav class="mob-menu">
+  
+          <ul><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-24"><a href="https://mitnafun.local/">עמוד הבית</a></li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat current-product-ancestor current-menu-parent current-product-parent menu-item-416"><a href="https://mitnafun.local/product-category/%d7%9e%d7%aa%d7%a0%d7%a4%d7%97%d7%99%d7%9d-%d7%9c%d7%94%d7%a9%d7%9b%d7%a8%d7%94/">מתנפחים</a></li>
+  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-561"><a href="https://mitnafun.local/product-category/%d7%9e%d7%92%d7%9c%d7%a9%d7%95%d7%aa-%d7%9e%d7%99%d7%9d-%d7%9c%d7%94%d7%a9%d7%9b%d7%a8%d7%94/">מתנפחי מים</a></li>
+  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-563"><a href="https://mitnafun.local/product-category/%d7%93%d7%95%d7%9b%d7%a0%d7%99-%d7%9e%d7%96%d7%95%d7%9f-%d7%9c%d7%94%d7%a9%d7%9b%d7%a8%d7%94/">דוכני מזון</a></li>
+  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-562"><a href="https://mitnafun.local/product-category/%d7%92%d7%a0%d7%a8%d7%98%d7%95%d7%a8%d7%99%d7%9d-%d7%9c%d7%94%d7%a9%d7%9b%d7%a8%d7%94/">גנרטורים וציוד נלווה</a></li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25"><a href="https://mitnafun.local/blog/">בלוג</a></li>
+  </ul>
+        </nav>
+      </div>
+    </div>
+  
+    <main>
+  
+  
+  
+                      
+              <!-- Embed air-datepicker.js directly in the head -->
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/air-datepicker.js"></script>
+  <link rel="stylesheet" href="https://mitnafun.local/wp-content/themes/mitnafun-upro/css/air-datepicker.css">
+  
+  <script>
+      // Always load rental dates, regardless of stock quantity
+      window.bookedDates = [];
+      window.stockQuantity = 23;
+      window.initialStock = ;
+      window.maxRentalDays = 14;
+      window.businessHours = {"sunday":["09:00","17:00"],"monday":["09:00","17:00"],"tuesday":["09:00","17:00"],"wednesday":["09:00","17:00"],"thursday":["09:00","17:00"],"friday":["09:00","13:00"],"saturday":["closed","closed"]};
+      window.productPickupTime = 11;
+      window.productReturnTime = '10:00';
+      window.discountType = 'percentage';
+      window.discountValue = 50;
+      window.basePrice = 550;
+      
+      jQuery(document).ready(function($) {
+          // Load CSS if needed
+          if (!$('link[href*="air-datepicker.css"]').length) {
+              $('<link>')
+                  .appendTo('head')
+                  .attr({
+                      type: 'text/css',
+                      rel: 'stylesheet',
+                      href: 'https://mitnafun.local/wp-content/themes/mitnafun-upro/css/air-datepicker.css'
+                  });
+          }
+          
+          // Check for AirDatepicker and wait if needed
+          function checkAndInitDatepicker() {
+              if (typeof AirDatepicker !== 'undefined') {
+                  initDatepicker();
+                  return true;
+              }
+              return false;
+          }
+          
+          // Try immediately
+          if (!checkAndInitDatepicker()) {
+              // If not available, check multiple times with increasing delays
+              var attempts = 0;
+              var maxAttempts = 5;
+              var checkInterval = setInterval(function() {
+                  console.log('Checking for AirDatepicker, attempt ' + (attempts + 1));
+                  if (checkAndInitDatepicker() || ++attempts >= maxAttempts) {
+                      clearInterval(checkInterval);
+                      if (attempts >= maxAttempts && typeof AirDatepicker === 'undefined') {
+                          console.error('AirDatepicker library not loaded after ' + maxAttempts + ' attempts');
+                          $('#datepicker-container').html('<p style="color:red;">Error loading date picker. Please refresh the page or contact support.</p>');
+                      }
+                  }
+              }, 500); // Check every 500ms
+          }
+          
+          function initDatepicker() {
+              try {
+                  const datepicker = new AirDatepicker('#datepicker-container', {
+                      inline: true,
+                      multipleDates: false,
+                      range: true,
+                      toggleSelected: false,
+                      weekends: [6], // Only Saturday is weekend
+                      minDate: new Date(),
+                      dateFormat: 'dd.MM.yyyy',
+                      // Add functionality to disable booked dates
+                      onRenderCell: function(date, cellType) {
+                          if (cellType === 'day') {
+                              // Skip checking for disabled dates if it's a weekend
+                              if (date.getDay() === 6) { // Saturday
+                                  return {
+                                      disabled: true,
+                                      classes: '-weekend-disabled-'
+                                  };
+                              }
+                              
+                              // Parse and check against booked dates
+                              let isDisabled = false;
+                              let customClass = '';
+                              
+                              // Check if this date is in the booked dates array
+                              if (window.bookedDates && window.bookedDates.length) {
+                                  for (let i = 0; i <window.bookedDates.length; i++) {
+                                      // Parse the date range from the booking
+                                      let dateRangeStr = window.bookedDates[i];
+                                      let [startStr, endStr] = dateRangeStr.split(' - ');
+                                      
+                                      if (startStr && endStr) {
+                                          let [startDay, startMonth, startYear] = startStr.split('.');
+                                          let [endDay, endMonth, endYear] = endStr.split('.');
+                                          
+                                          let startDate = new Date(startYear, startMonth - 1, startDay);
+                                          let endDate = new Date(endYear, endMonth - 1, endDay);
+                                          
+                                          // Check if current date is within the booked range
+                                          if (date >= startDate && date <= endDate) {
+                                              isDisabled = true;
+                                              customClass = '-booked-';
+                                              break;
+                                          }
+                                      }
+                                  }
+                              }
+                              
+                              return {
+                                  disabled: isDisabled,
+                                  classes: customClass
+                              };
+                          }
+                      },
+                      locale: {
+                          days: ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'],
+                          daysShort: ['א\'', 'ב\'', 'ג\'', 'ד\'', 'ה\'', 'ו\'', 'ש\''],
+                          daysMin: ['א\'', 'ב\'', 'ג\'', 'ד\'', 'ה\'', 'ו\'', 'ש\''],
+                          months: ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר'],
+                          monthsShort: ['ינו', 'פבר', 'מרץ', 'אפר', 'מאי', 'יונ', 'יול', 'אוג', 'ספט', 'אוק', 'נוב', 'דצמ'],
+                          today: 'היום',
+                          clear: 'נקה',
+                          firstDay: 0
+                      },
+                      onSelect: function({date, formattedDate, datepicker}) {
+                          // Reset validation messages and form state
+                          $('#date-validation-message').hide();
+                          $('#max-duration-message').hide();
+                          $('.single_add_to_cart_button').prop('disabled', true);
+                          
+                          if (!date) {
+                              $('#rental_dates').val('');
+                              $('[name="quantity"]').val(1).trigger('change');
+                              return;
+                          }
+                          
+                          // Handle single date selection
+                          if (!Array.isArray(date)) {
+                              const nextDay = new Date(date);
+                              nextDay.setDate(nextDay.getDate() + 1);
+                              
+                              // Skip Saturday if needed
+                              if (nextDay.getDay() === 6) {
+                                  nextDay.setDate(nextDay.getDate() + 1);
+                              }
+                              
+                              datepicker.selectDate([date, nextDay]);
+                              return;
+                          }
+                          
+                          // Handle date range
+                          if (Array.isArray(date) && date.length === 2) {
+                              let startDate = date[0];
+                              let endDate = date[1];
+                              
+                              if (startDate && endDate) {
+                                  let daysDiff = 0;
+                                  let currentDate = new Date(startDate);
+                                  
+                                  while (currentDate <= endDate) {
+                                      // Skip Saturdays (6 is Saturday)
+                                      if (currentDate.getDay() !== 6) {
+                                          daysDiff++;
+                                      }
+                                      currentDate.setDate(currentDate.getDate() + 1);
+                                  }
+                                  
+                                  // Calculate days between dates
+                                  const diffTime = Math.abs(endDate - startDate);
+                                  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                                  let totalDays = diffDays;
+                                  
+                                  // Validate max rental period
+                                  if (diffDays > window.maxRentalDays) {
+                                      $('#max-duration-message').show();
+                                      return;
+                                  }
+                                  
+                                  // Check if any selected date is disabled (unavailable)
+                                  let hasDisabledDate = false;
+                                  let currentCheckDate = new Date(startDate);
+                                  
+                                  while (currentCheckDate <= endDate) {
+                                      const dateStr = currentCheckDate.toISOString().split('T')[0];
+                                      const $dateCell = $(`.day-cell[data-date="${dateStr}"]`);
+                                      
+                                      // Check if this date is disabled or has reservations exceeding stock
+                                      if ($dateCell.hasClass('disabled') || 
+                                          (parseInt($dateCell.attr('data-reservations') || 0) >= window.stockQuantity)) {
+                                          hasDisabledDate = true;
+                                          break;
+                                      }
+                                      
+                                      currentCheckDate.setDate(currentCheckDate.getDate() + 1);
+                                  }
+                                  
+                                  // Update price breakdown
+                                  updatePriceBreakdown(window.basePrice, totalDays, window.discountType, window.discountValue);
+                                  
+                                  // Format and store dates for cart
+                                  $('#rental_dates').val(formattedDate.join(' - '));
+                                  
+                                  if (hasDisabledDate) {
+                                      // Show error message and keep buttons disabled
+                                      $('#date-validation-message').text('טווח התאריכים מכיל תאריך שאינו זמין').removeClass('success').addClass('error').show();
+                                      $('.single_add_to_cart_button').prop('disabled', true).attr('aria-disabled', 'true');
+                                  } else {
+                                      // Show success message and enable buttons
+                                      $('#date-validation-message').text('התאריכים אושרו בהצלחה: ' + formattedDate.join(' - ') + ' (' + totalDays + ' יום לחיוב)').removeClass('error').addClass('success').show();
+                                      
+                                      // Enable the add to cart buttons and update their styles
+                                      $('.single_add_to_cart_button')
+                                          .removeAttr('style') // First remove all inline styles
+                                          .prop('disabled', false) // Then enable the button
+                                          .attr('aria-disabled', 'false'); // Update ARIA attribute
+                                  }
+                              }
+                          }
+                      }
+                  });
+  
+                  // Add clear selection button
+                  $('.air-datepicker--buttons').append(
+                      $('<span>', {
+                          class: 'air-datepicker-button air-datepicker-button--clear',
+                          text: 'נקה בחירה',
+                          click: function() {
+                              datepicker.clear();
+                              $('#rental_dates').val('');
+                              $('[name="quantity"]').val(1).trigger('change');
+                              $('.single_add_to_cart_button').prop('disabled', true);
+                              $('#date-validation-message').hide();
+                              $('#max-duration-message').hide();
+                          }
+                      })
+                  );
+  
+                  // Initially disable the add to cart button until dates are selected
+                  $('.single_add_to_cart_button').prop('disabled', true);
+                  
+                  function updatePriceBreakdown(basePrice, totalDays, discountType, discountValue) {
+                      console.log('%c PRICE DEBUG', 'background: #f0f; color: white; padding: 2px 5px; border-radius: 3px;', {
+                          basePrice, 
+                          totalDays, 
+                          discountType, 
+                          discountValue, 
+                          source: 'updatePriceBreakdown'
+                      });
+                      
+                      if (!basePrice || isNaN(basePrice)) {
+                          console.error(' Invalid basePrice:', basePrice);
+                          // Try to get basePrice from the DOM
+                          try {
+                              const priceTxt = $('.woocommerce-Price-amount').first().text().trim();
+                              basePrice = parseFloat(priceTxt.replace(/[^0-9.,]/g, '').replace(',', '.'));
+                              console.log(' Retrieved basePrice from DOM:', basePrice);
+                          } catch (e) {
+                              console.error('Failed to get basePrice from DOM:', e);
+                              return;
+                          }
+                      }
+                      
+                      const $priceBreakdownList = $('#price-breakdown-list');
+                      const $priceBreakdownTotal = $('#price-breakdown-total');
+                      
+                      // Clear existing list
+                      $priceBreakdownList.empty();
+                      
+                      // Calculate prices
+                      let additionalDaysPrice = 0;
+                      let savings = 0;
+                      let totalPrice = basePrice; // First day is always full price
+                      
+                      console.log(' Initial totalPrice', totalPrice);
+                      
+                      // If more than one day, calculate additional days with discount
+                      if (totalDays > 1) {
+                          const additionalDays = totalDays - 1;
+                          console.log(' additionalDays', additionalDays);
+                          
+                          // Calculate based on discount type
+                          if (discountType === 'percentage') {
+                              // Calculate discounted price for additional days
+                              const discountedDailyRate = basePrice * (1 - (discountValue / 100));
+                              console.log(' discountedDailyRate (percentage)', discountedDailyRate);
+                              additionalDaysPrice = discountedDailyRate * additionalDays;
+                              
+                              // Calculate savings (what full price would have been minus actual price)
+                              savings = (basePrice * additionalDays) - additionalDaysPrice;
+                          } else {
+                              // Fixed discount
+                              const discountedDailyRate = Math.max(0, basePrice - discountValue);
+                              console.log(' discountedDailyRate (fixed)', discountedDailyRate);
+                              additionalDaysPrice = discountedDailyRate * additionalDays;
+                              
+                              // Calculate savings (what full price would have been minus actual price)
+                              savings = (basePrice * additionalDays) - additionalDaysPrice;
+                          }
+                          
+                          // Add to total price
+                          totalPrice += additionalDaysPrice;
+                          console.log(' Final totalPrice', totalPrice, 'additionalDaysPrice', additionalDaysPrice, 'savings', savings);
+                      }
+                      
+                      // Format the discount label
+                      const discountLabel = (discountType === 'percentage') 
+                          ? discountValue + '% הנחה' 
+                          : discountValue + ' ₪ הנחה';
+                      
+                      console.log(' Building price breakdown HTML with label:', discountLabel);
+                      
+                      // Format price with Hebrew currency formatter
+                      function formatCurrency(amount) {
+                          return new Intl.NumberFormat('he-IL', { 
+                              style: 'currency', 
+                              currency: 'ILS',
+                              minimumFractionDigits: 2
+                          }).format(amount);
+                      }
+                      
+                      // Create a direct HTML insertion to ensure consistent display
+                      const directHtml = `
+                      <!-- Breakdown will be injected by JS after confirmation -->
+  <!-- <div class="mitnafun-breakdown" style="border: 1px solid #ddd; padding: 10px; margin: 10px 0; background-color: #f9f9f9; border-radius: 4px;">
+                          <p style="font-weight: bold; margin-bottom: 10px;">פירוט תמחור לתקופת השכירה:</p>
+                          <ul style="list-style: none; padding-right: 15px; margin: 0 0 10px 0;">
+                              <li style="margin-bottom: 5px;">יום ראשון: ${formatCurrency(basePrice)} (מחיר מלא)</li>
+                              ${totalDays > 1 ? `<li style="margin-bottom: 5px;">${totalDays - 1} ימים נוספים: ${formatCurrency(additionalDaysPrice)} (${discountLabel})</li>` : ''}
+                          </ul>
+                          <p style="font-weight: bold; margin: 5px 0 0;">סה"כ: ${formatCurrency(totalPrice)} (חסכת ${formatCurrency(savings)})</p>
+                      </div>
+                      `;
+                      
+                      console.log('HTML Generated:', directHtml);
+                      
+                      // Remove any existing direct breakdowns first
+                      $('.mitnafun-breakdown, .mitnafun-direct-breakdown').remove();
+                      
+                      // First, check for our container
+                      if ($('#price-breakdown-container').length) {
+                          console.log(' Using price-breakdown-container');
+                          // Also update our container elements
+                          $priceBreakdownList.append(`
+                              <li>יום ראשון: ${formatCurrency(basePrice)} (מחיר מלא)</li>
+                          `);
+                          
+                          if (totalDays > 1) {
+                              $priceBreakdownList.append(`
+                                  <li>${totalDays - 1} ימים נוספים: ${formatCurrency(additionalDaysPrice)} (${discountLabel})</li>
+                              `);
+                          }
+                          
+                          $priceBreakdownTotal.html(`
+                              <strong>סה"כ: ${formatCurrency(totalPrice)} (חסכת ${formatCurrency(savings)})</strong>
+                          `);
+                          
+                          $('#price-breakdown-container').show();
+                      }
+                      
+                      // Now insert our direct HTML as well, as a fallback
+                      // After price amount
+                      if ($('.woocommerce-Price-amount').length) {
+                          console.log(' Inserting after .woocommerce-Price-amount');
+                          $('.woocommerce-Price-amount').first().closest('.price').after(directHtml);
+                      }
+                      // After form-start
+                      else if ($('.rental-form-start').length) {
+                          console.log(' Inserting after .rental-form-start');
+                          $('.rental-form-start').after(directHtml);
+                      }
+                      // After validation message
+                      else if ($('#date-validation-message').length) {
+                          console.log(' Inserting after #date-validation-message');
+                          $('#date-validation-message').after(directHtml);
+                      }
+                      // Last resort - after add to cart
+                      else if ($('.single_add_to_cart_button').length) {
+                          console.log(' Inserting after .single_add_to_cart_button');
+                          $('.single_add_to_cart_button').after(directHtml);
+                      } else {
+                          console.error(' Could not find insertion point for price breakdown');
+                      }
+                      
+                      console.log(' Price breakdown update complete');
+                      
+                      // Store calculated values in a data attribute for debugging
+                      $('body').attr('data-price-calc', JSON.stringify({
+                          basePrice,
+                          totalDays,
+                          additionalDaysPrice,
+                          totalPrice,
+                          savings,
+                          discountType,
+                          discountValue,
+                          timestamp: new Date().toISOString()
+                      }));
+                  }
+                  
+                  function validateDateRange(startDate, endDate) {
+                      // Check if dates are valid
+                      if (startDate > endDate) {
+                          return false;
+                      }
+                      
+                      // Check if dates are within the allowed range
+                      const minDate = new Date();
+                      const maxDate = new Date(minDate);
+                      maxDate.setDate(maxDate.getDate() + window.maxRentalDays);
+                      
+                      if (startDate < minDate || endDate > maxDate) {
+                          return false;
+                      }
+                      
+                      return true;
+                  }
+              } catch (error) {
+                  console.error('Error initializing datepicker:', error);
+                  $('#datepicker-container').html('<p style="color:red;">Error loading date picker. Please refresh the page or contact support.</p>');
+              }
+          }
+      });
+  </script>
+  
+  <script>
+      // Make sure basePrice is always available globally
+      window.basePrice = 550;
+      console.log('🌍 Global basePrice set to:', window.basePrice);
+      
+      // Log other global variables for debugging
+      console.log('🌍 Global variables:', {
+          discountType: window.discountType,
+          discountValue: window.discountValue,
+          maxRentalDays: window.maxRentalDays
+      });
+      
+      // Delay and try to fetch values again for debugging
+      setTimeout(function() {
+          console.log('⏱️ After timeout, global variables:', {
+              basePrice: window.basePrice,
+              discountType: window.discountType,
+              discountValue: window.discountValue
+          });
+          
+          // Try forcing the price breakdown display directly
+          if (typeof updatePriceBreakdown === 'function' && window.basePrice) {
+              console.log('🔄 Attempting direct price breakdown update from timer');
+              // Use default values if needed
+              const baseP = window.basePrice || 550;
+              const days = 2; // Example: 2 days
+              const discType = window.discountType || 'percentage';
+              const discVal = window.discountValue || 50;
+              
+              // Call with fallback values
+              updatePriceBreakdown(baseP, days, discType, discVal);
+          }
+      }, 2000);
+  </script>
+  
+  <style>
+  .rental-form-section {
+      margin: 20px 0;
+      padding: 15px;
+      background: #fff;
+      border-radius: 5px;
+  }
+  
+  .rental-form-section h3 {
+      margin-bottom: 15px;
+      font-size: 1.2em;
+      color: #333;
+  }
+  
+  .hours-selection {
+      margin-top: 15px;
+      padding: 15px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+  }
+  
+  .hours-selection select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-top: 10px;
+  }
+  
+  .business-hours-info {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #666;
+  }
+  
+  .business-hours-info ul {
+      list-style: none;
+      padding: 0;
+      margin: 5px 0 0 0;
+  }
+  
+  .business-hours-info li {
+      margin-bottom: 5px;
+  }
+  
+  .air-datepicker-button--clear {
+      color: #666;
+      font-size: 0.9em;
+      cursor: pointer;
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      margin-right: 10px;
+  }
+  
+  .air-datepicker-button--clear:hover {
+      background: #f0f0f0;
+  }
+  
+  .price-breakdown-container {
+      margin: 15px 0;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+  }
+  
+  .price-breakdown-container h4 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #333;
+      font-size: 16px;
+  }
+  
+  .price-breakdown-container ul {
+      margin: 0 0 10px 0;
+      padding-right: 20px;
+  }
+  
+  .price-breakdown-container li {
+      margin-bottom: 5px;
+  }
+  
+  .price-breakdown-container p {
+      margin: 5px 0 0;
+      font-weight: bold;
+      color: #333;
+  }
+  </style>
+  
+  <section class="product-info">
+      <div class="bg">
+          <img src="https://mitnafun.local/wp-content/themes/mitnafun-upro/img/after-7.svg" alt="">
+      </div>
+      <div class="content-width">
+          <div class="woocommerce-notices-wrapper"></div>        <div class="content">
+              
+  <div class="slider-wrap">
+      <div class="swiper product-slider swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl swiper-backface-hidden">
+          <div class="swiper-wrapper" id="swiper-wrapper-c53dd4b41e9c27d5" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
+                          <div class="swiper-slide swiper-slide-active" style="width: 653px;" role="group" aria-label="1 / 1">
+                  <a href="https://mitnafun.local/wp-content/uploads/2024/04/img-prod-6.png" data-fancybox="gallery">
+                      <img width="726" height="626" src="https://mitnafun.local/wp-content/uploads/2024/04/img-prod-6.png" class="attachment-large size-large" alt="" decoding="async" fetchpriority="high" srcset="https://mitnafun.local/wp-content/uploads/2024/04/img-prod-6.png 726w, https://mitnafun.local/wp-content/uploads/2024/04/img-prod-6-600x517.png 600w, https://mitnafun.local/wp-content/uploads/2024/04/img-prod-6-300x259.png 300w" sizes="(max-width: 726px) 100vw, 726px">                </a>
+              </div>
+                          
+          </div>
+          <div class="swiper-button-next product-next product-btn swiper-button-disabled swiper-button-lock" tabindex="-1" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-c53dd4b41e9c27d5" aria-disabled="true"><img src="https://mitnafun.local/wp-content/themes/mitnafun-upro/img/icon-7.svg" alt=""></div>
+          <div class="swiper-button-prev product-prev product-btn swiper-button-disabled swiper-button-lock" tabindex="-1" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-c53dd4b41e9c27d5" aria-disabled="true"><img src="https://mitnafun.local/wp-content/themes/mitnafun-upro/img/icon-7.svg" alt=""></div>
+      <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+  </div>
+  
+  
+  
+  
+  
+              <div class="text-wrap">
+                  <ul class="list-info">
+                      <li>הסדנה 1, כפר סבא</li>
+                                              <li class="stock-availability" style="margin-top: 10px;">
+                              <div style="font-size: 1em; color: #000; font-weight: bold;">
+                                  <div>סה"כ מלאי: 3 יחידות</div>
+                              </div>
+                          </li>
+                                      </ul>
+  
+                  <h1 class="product_title entry-title">איירון מן</h1><p class="price"><span class="woocommerce-Price-amount amount"><bdi>550.00&nbsp;<span class="woocommerce-Price-currencySymbol">₪</span></bdi></span></p>
+  <div class="product_meta">
+  
+      
+      
+      <span class="posted_in">קטגוריה: <a href="https://mitnafun.local/product-category/%d7%9e%d7%aa%d7%a0%d7%a4%d7%97%d7%99%d7%9d-%d7%9c%d7%94%d7%a9%d7%9b%d7%a8%d7%94/" rel="tag">מתנפחים להשכרה</a></span>
+      
+      
+  </div>
+  
+                  <div class="rental-form-section">
+                      <!-- Simple Notice - Always Visible at Top -->
+                      <!-- <div id="simple-notice" class="return-time-notice info" style="margin-bottom: 15px; background-color: #e3f2fd; border: 1px solid #90caf9; padding: 8px; border-radius: 4px;">
+                          <strong style="color: #1565c0;">שימו לב</strong>
+                          <span> - בחרו תאריכי השכרה לקבלת מידע מלא</span>
+                      </div> -->
+                      
+                      <!-- Early discount incentive message - only shown if there's an actual discount -->
+                                          <script>
+                          // Make discount values available globally
+                          window.discountType = 'percentage';
+                          window.discountValue = 50;
+                          console.log('🔄 Setting global discount values:', window.discountType, window.discountValue);
+                      </script>
+                      
+                      <h3>תאריכי השכרה</h3>
+                      <div class="rental-dates-label">תאריכי השכרה</div><div id="datepicker-container"><div class="fallback-calendar"><div class="month-header">
+                  <div class="month-year">יוני 2025</div>
+                  <button id="prevMonthBtn" class="nav-btn">&lt;</button>
+                  <button id="nextMonthBtn" class="nav-btn">&gt;</button>
+              </div><div class="calendar-days-header"><div class="day-name">א</div><div class="day-name">ב</div><div class="day-name">ג</div><div class="day-name">ד</div><div class="day-name">ה</div><div class="day-name">ו</div><div class="day-name">ש</div></div><div class="calendar-days"><div class="day-cell disabled" data-date="2025-06-01" data-selectable="false">1</div><div class="day-cell disabled" data-date="2025-06-02" data-selectable="false">2</div><div class="day-cell disabled" data-date="2025-06-03" data-selectable="false">3</div><div class="day-cell disabled" data-date="2025-06-04" data-selectable="false">4</div><div class="day-cell disabled" data-date="2025-06-05" data-selectable="false">5</div><div class="day-cell disabled" data-date="2025-06-06" data-selectable="false">6</div><div class="day-cell weekend disabled" data-date="2025-06-07" data-selectable="false">7</div><div class="day-cell today disabled" data-date="2025-06-08" data-selectable="false">8</div><div class="day-cell" data-date="2025-06-09" data-selectable="true">9</div><div class="day-cell disabled" data-date="2025-06-10" data-selectable="false">10</div><div class="day-cell disabled" data-date="2025-06-11" data-selectable="false">11</div><div class="day-cell disabled" data-date="2025-06-12" data-selectable="false">12</div><div class="day-cell disabled" data-date="2025-06-13" data-selectable="false">13</div><div class="day-cell weekend disabled" data-date="2025-06-14" data-selectable="false">14</div><div class="day-cell disabled" data-date="2025-06-15" data-selectable="false">15</div><div class="day-cell disabled" data-date="2025-06-16" data-selectable="false">16</div><div class="day-cell disabled" data-date="2025-06-17" data-selectable="false">17</div><div class="day-cell" data-date="2025-06-18" data-selectable="true">18</div><div class="day-cell" data-date="2025-06-19" data-selectable="true">19</div><div class="day-cell" data-date="2025-06-20" data-selectable="true">20</div><div class="day-cell weekend" data-date="2025-06-21" data-selectable="true">21</div><div class="day-cell" data-date="2025-06-22" data-selectable="true">22</div><div class="day-cell" data-date="2025-06-23" data-selectable="true">23</div><div class="day-cell" data-date="2025-06-24" data-selectable="true">24</div><div class="day-cell" data-date="2025-06-25" data-selectable="true">25</div><div class="day-cell" data-date="2025-06-26" data-selectable="true">26</div><div class="day-cell" data-date="2025-06-27" data-selectable="true">27</div><div class="day-cell weekend" data-date="2025-06-28" data-selectable="true">28</div><div class="day-cell" data-date="2025-06-29" data-selectable="true">29</div><div class="day-cell" data-date="2025-06-30" data-selectable="true">30</div></div><div class="calendar-legend">
+                  <div class="legend-item"><span class="legend-color available"></span> פנוי</div>
+                  <div class="legend-item"><span class="legend-color disabled"></span> תפוס</div>
+                  <div class="legend-item"><span class="legend-color weekend"></span> שבת (סגור)</div>
+              
+                  <div class="legend-item">
+                      <span class="legend-color early-return"></span> החזרה מוקדמת (עד 09:00)
+                  </div>
+              
+                  <div class="legend-item">
+                      <span class="legend-color return-date"></span> יום החזרה (ניתן להזמין)
+                  </div>
+              </div></div></div>
+                      <div id="date-validation-message" class="validation-message success" style="display: none">תאריכים נבחרו בהצלחה</div>
+                      
+                      <div id="max-duration-message" class="validation-message info" style="display: none">ניתן להזמין עד <span id="max-days">14</span> ימים</div>
+                      
+                      <!-- Price Breakdown Section -->
+                      <div id="price-breakdown-container" class="price-breakdown-container" style="display: none; margin: 15px 0; padding: 15px; background-color: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 4px;">
+                          <h4 style="margin-top: 0; margin-bottom: 10px; color: #333; font-size: 16px;">פירוט תמחור לתקופת השכירה:</h4>
+                          <ul id="price-breakdown-list" style="margin: 0 0 10px 0; padding-right: 20px;">
+                              <!-- Will be populated by JavaScript -->
+                          </ul>
+                          <p id="price-breakdown-total" style="margin: 5px 0 0; font-weight: bold; color: #333;">
+                              <!-- Will be populated by JavaScript -->
+                          </p>
+                      </div>
+                      
+                      <form class="cart" action="https://mitnafun.local/product/%d7%90%d7%99%d7%99%d7%a8%d7%95%d7%9f-%d7%9e%d7%9f/" method="post" enctype="multipart/form-data">
+                          <input type="hidden" id="rental_dates" name="rental_dates" class="date-picker-field">
+                          <input type="hidden" id="rental_hours" name="rental_hours">
+                          <div style="display: none">
+                              <div class="quantity">
+          <label class="screen-reader-text" for="quantity_68457812a91d2">כמות של איירון מן</label>
+      <input type="number" id="quantity_68457812a91d2" class="input-text qty text" name="quantity" value="1" aria-label="כמות המוצר" size="4" min="0" max="" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+      </div>
+                          </div>
+                          <div id="return-time-notice" class="return-time-notice info" style="margin-bottom: 15px; background-color: #e3f2fd; border: 1px solid #90caf9; padding: 8px; border-radius: 4px;">
+                              <strong>שימו לב!</strong> החזרת הציוד מתבצעת עד השעה 10:00 .
+                          </div>
+                          <div class="btn-wrap">
+                              <button type="submit" name="add-to-cart" value="461" class="single_add_to_cart_button btn-default btn-blue btn-mini disabled" disabled="" aria-disabled="true">הוסף לסל</button>
+                              <button type="submit" name="add-to-cart" value="461" class="single_add_to_cart_button btn-redirect btn-default btn-yellow btn-mini disabled" disabled="" aria-disabled="true">הזמן</button>
+                              <div class="rental-notice" style="margin-top: 10px; font-size: 13px; color: #856404; background-color: #fff3cd; border: 1px solid #ffeeba; padding: 8px; border-radius: 4px;">
+                                  <strong>שימו לב:</strong> יש לבחור תאריכים לפני ההזמנה. המערכת תבדוק את זמינות התאריכים בעת ההזמנה.
+                              </div>
+                          <input type="hidden" name="redirect" value="">
+                      
+                      
+                                      </div></form>
+              </div>
+          </div>
+      </div><div class="lmp_load_more_button br_lmp_button_settings" style="display: none;"><a class="lmp_button link-wrap" style="font-size: 22px;color: #333333;background-color: #ffffff;padding-top:15px;padding-right:25px;padding-bottom:15px;padding-left:25px;margin-top:px;margin-right:px;margin-bottom:px;margin-left:px; border-top: 0px solid #000; border-bottom: 0px solid #000; border-left: 0px solid #000; border-right: 0px solid #000; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;" href="#load_next_page">טען עוד</a></div>
+  </div></section>
+  
+  
+      <div class="rental-debug-panel" style="margin: 2em 0; padding: 1em; background: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; direction: rtl; font-family: Arial, sans-serif;">
+          <h3 style="margin-top: 0; color: #333;">🔧 Debug Information (Admin Only)</h3>
+          
+          <div style="margin-bottom: 1em;">
+              <h4 style="margin: 0.5em 0;">Stock Information</h4>
+              <div id="debug-stock-info" style="margin-bottom: 10px;">
+                  <p>Loading stock information...</p>
+              </div>
+              <button id="refresh-debug-info" style="padding: 5px 10px; background: #2271b1; color: white; border: none; border-radius: 3px; cursor: pointer;">
+                  Refresh Debug Info
+              </button>
+          </div>
+          
+          <div id="reserved-dates-debug" style="margin-top: 20px;">
+              <h4 style="margin: 0.5em 0;">Reserved Dates (Next 30 Days)</h4>
+              <div style="max-height: 200px; overflow-y: auto; border: 1px solid #ddd; background: white; padding: 0.5em;">
+                  <table style="width: 100%; border-collapse: collapse;">
+                      <thead>
+                          <tr style="background: #f0f0f0;">
+                              <th style="padding: 8px; text-align: right; border: 1px solid #ddd;">Date</th>
+                              <th style="padding: 8px; text-align: right; border: 1px solid #ddd;">Reserved</th>
+                              <th style="padding: 8px; text-align: right; border: 1px solid #ddd;">Available</th>
+                          </tr>
+                      </thead>
+                      <tbody id="reserved-dates-body">
+                          <tr><td colspan="3" style="text-align: center; padding: 10px;">Loading reserved dates...</td></tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          
+          <script type="text/javascript">
+          jQuery(document).ready(function($) {
+              // Ensure we have the AJAX URL
+              const ajaxUrl = typeof mitnafun_vars !== 'undefined' ? mitnafun_vars.ajax_url : ajaxurl || '/wp-admin/admin-ajax.php';
+              
+              // Function to update the debug info
+              function updateDebugInfo() {
+                  // Get the product ID from the body class (most reliable method)
+                  var productId = null;
+                  
+                  // Try to get from body class (format: postid-123)
+                  $('body').attr('class').split(' ').forEach(function(className) {
+                      if (className.startsWith('postid-')) {
+                          productId = className.replace('postid-', '');
+                      } else if (className.startsWith('product-')) {
+                          productId = className.replace('product-', '');
+                      }
+                  });
+                  
+                  // Fallback to other methods if needed
+                  if (!productId) {
+                      productId = $('input[name="add-to-cart"]').val() || 
+                                 $('input[name="product_id"]').val() ||
+                                 $('form.cart').data('product_id') ||
+                                 $('button.single_add_to_cart_button').data('product_id') ||
+                                 $('.product').data('product_id') ||
+                                 $('body').data('product-id');
+                  }
+                  
+                  if (!productId) {
+                      console.error('Could not find product ID. Body classes:', $('body').attr('class'));
+                      $('#debug-stock-info').html('<p style="color: red;">Error: Could not determine product ID</p>');
+                      return;
+                  }
+                  
+                  // Show loading state
+                  $('#debug-stock-info').html('<p>טוען נתונים...</p>');
+                  $('#reserved-dates-body').html('<tr><td colspan="3" style="text-align: center; padding: 10px;">Loading reserved dates...</td></tr>');
+                  
+                  try {
+                      const nonce = 'c76c27af49';
+                      console.log('Sending AJAX request...', {
+                          url: ajaxUrl,
+                          action: 'get_rental_debug_info',
+                          product_id: productId,
+                          security: nonce
+                      });
+                      
+                      $.ajax({
+                          url: ajaxUrl,
+                          type: 'POST',
+                          dataType: 'json',
+                          data: {
+                              action: 'get_rental_debug_info',
+                              product_id: productId,
+                              security: nonce
+                          },
+                          beforeSend: function() {
+                              $('#debug-stock-info').html('<p>טוען נתונים...</p>');
+                              console.log('AJAX Request sent');
+                          },
+                          success: function(response) {
+                              console.log('AJAX Success:', response);
+                              
+                              // Clear previous errors
+                              $('.debug-error').remove();
+                              
+                              if (response && response.success && response.data) {
+                                  const data = response.data;
+                                  
+                                  // Update stock info
+                                  const stockHtml = `
+                                      <div class="stock-info">
+                                          <h4>Stock Information</h4>
+                                          <ul>
+                                              <li>Initial Stock: <strong>${data.initial_stock || 0}</strong></li>
+                                              <li>Active Rentals: <strong>${data.active_rentals_count || 0}</strong></li>
+                                              <li>Available Stock: <strong>${data.available_stock || 0}</strong></li>
+                                              <li>Today's Reservations (${data.today || 'N/A'}): <strong>${data.today_reservations || 0}</strong></li>
+                                          </ul>
+                                      </div>
+                                  `;
+                                  
+                                  $('#debug-stock-info').html(stockHtml);
+                                  
+                                  // Update reserved dates table
+                                  const $reservedDatesBody = $('#reserved-dates-body');
+                                  $reservedDatesBody.empty();
+                                  
+                                  if (data.reserved_dates && Array.isArray(data.reserved_dates) && data.reserved_dates.length > 0) {
+                                      var tbody = '';
+                                      data.reserved_dates.forEach(function(item) {
+                                          if (item && item.date) {
+                                              tbody += '<tr>' +
+                                                  '<td style="padding: 4px 8px; border: 1px solid #eee;">' + item.date + '</td>' +
+                                                  '<td style="padding: 4px 8px; border: 1px solid #eee; text-align: center; background-color: ' + 
+                                                      ((item.reserved || 0) >= (data.initial_stock || 1) ? '#ffebee' : '#fff8e1') + '">' + 
+                                                      (item.reserved || 0) + '</td>' +
+                                                  '<td style="padding: 4px 8px; border: 1px solid #eee; text-align: center; font-weight: bold; color: ' + 
+                                                      ((item.available || 0) > 0 ? '#2e7d32' : '#c62828') + '">' + (item.available || 0) + '</td>' +
+                                              '</tr>';
+                                          }
+                                      });
+                                  }
+                                  if (tbody) {
+                                      $reservedDatesBody.html(tbody);
+                                  } else {
+                                      $reservedDatesBody.html('<tr><td colspan="3" style="text-align: center; padding: 10px;">לא נמצאו תאריכים שמורים ל-30 הימים הקרובים</td></tr>');
+                                  }
+                              } else {
+                                  $reservedDatesBody.html('<tr><td colspan="3" style="text-align: center; padding: 10px;">No reserved dates found in the next 30 days.</td></tr>');
+                              }
+                          } else {
+                              var errorMsg = 'Error: ';
+                              if (response && response.data) {
+                                  errorMsg += response.data;
+                              } else if (response && response.message) {
+                                  errorMsg += response.message;
+                              } else if (typeof response === 'string') {
+                                  errorMsg += response;
+                              } else {
+                                  errorMsg += 'Unknown error occurred';
+                              }
+                              $('#debug-stock-info').html('<p style="color: red;">' + errorMsg + '</p>');
+                              console.error('Error response:', response);
+                          }
+                      },
+                      error: function(xhr, status, error) {
+                          console.error('AJAX Error:', {
+                              status: status,
+                              error: error,
+                              responseText: xhr.responseText,
+                              statusText: xhr.statusText,
+                              readyState: xhr.readyState
+                          });
+                      
+                          let errorMessage = 'אירעה שגיאה בלתי צפויה. אנא נסה שוב.';
+                      
+                          try {
+                              const response = JSON.parse(xhr.responseText);
+                              if (response && response.data) {
+                                  errorMessage = response.data;
+                              } else if (xhr.responseText) {
+                                  errorMessage = xhr.responseText;
+                              }
+                          } catch (e) {
+                              console.error('Error parsing error response:', e);
+                              if (xhr.responseText) {
+                                  errorMessage = xhr.responseText;
+                              }
+                          }
+                      
+                          // Show error in both console and UI
+                          console.error('AJAX Error Details:', errorMessage);
+                      
+                          const errorHtml = `
+                              <div class="error-message" style="color: #d32f2f; padding: 15px; margin: 15px 0; border: 1px solid #ffcdd2; background-color: #ffebee; border-radius: 4px;">
+                                  <div style="font-weight: bold; margin-bottom: 8px;">
+                                      <i class="dashicons dashicons-warning" style="margin-left: 5px;"></i>
+                                      שגיאה בטעינת נתוני מלאי
+                                  </div>
+                                  <div style="margin-bottom: 5px;">${errorMessage}</div>
+                                  <div style="font-size: 0.85em; color: #b71c1c; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #ffcdd2;">
+                                      <div>סטטוס: ${xhr.status} ${xhr.statusText || ''}</div>
+                                      <div>קוד שגיאה: ${xhr.status || 'לא זמין'}</div>
+                                  </div>
+                                  <div style="margin-top: 10px;">
+                                      <button onclick="updateDebugInfo()" class="button" style="background: #d32f2f; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">
+                                          נסה שוב
+                                      </button>
+                                  </div>
+                              </div>
+                          `;
+                      
+                          $('#debug-stock-info').html(errorHtml);
+                          $('#reserved-dates-body').html('<tr><td colspan="3" style="text-align: center; padding: 15px; color: #d32f2f;">לא ניתן לטעון נתונים - נא לבדוק את הקונסול לפרטים נוספים</td></tr>');
+                      },
+                          complete: function() {
+                              console.log('AJAX request completed');
+                              // Remove loading state
+                              $('.debug-loading').remove();
+                          }
+                      });
+                  }
+              
+              // Initial load with delay to ensure everything is ready
+              setTimeout(function() {
+                  updateDebugInfo();
+              }, 1000);
+              
+              // Refresh button click handler with loading state
+              $('#refresh-debug-info').on('click', function(e) {
+                  e.preventDefault();
+                  $(this).prop('disabled', true).text('טוען...');
+                  updateDebugInfo();
+                  
+                  // Re-enable button after 2 seconds
+                  setTimeout(function() {
+                      $('#refresh-debug-info').prop('disabled', false).text('Refresh Debug Info');
+                  }, 2000);
+              });
+              
+              // Also refresh when the tab becomes visible
+              $(document).on('visibilitychange', function() {
+                  if (!document.hidden) {
+                      updateDebugInfo();
+                  }
+              });
+          });
+          </script>
+      </div>
+      
+      
+  
+      <section class="item-2x-text">
+          <div class="content-width">
+              <h2 class="title-h3">פרטי המוצר</h2>
+              <div class="content">
+                                  <div class="item berocket_lmp_first_on_page" data-url="https://mitnafun.local/product/איירון-מן/">
+                                          <h6 class="title">תיאור המתקן:</h6>
+                                          <p>מתנפח איירון מן הוא מתנפח נהדר המתאים למגוון גילאים. מדובר במתנפח גדול וחזק שנכנס ברוב הרכבים הפרטיים.</p>
+  <p>כולל משטח קפיצה רחב קיר טיפוס ומגלשה מהנה.<br>
+  המתקן עשוי בד חזק במיוחד ומסוגל להכיל מספר רב של ילדים.</p>
+                  </div>
+                                  <div class="item">
+                                          <h6 class="title">לאיזה גילאים מתאים?</h6>
+                                          <p>מתאים ללדים עד גילאי 12.</p>
+                  </div>
+                                  <div class="item">
+                                          <h6 class="title">כמה ילדים יכולים להיות במתקן באותו הזמן?</h6>
+                                          <p>עד 8 ילדים, כמובן שמספר זה עשוי להשתנות בהתאם לגיל, לגודל ולפעילות הילדים.<br>
+  כמה ילדים באירוע?</p>
+  <p>למתנפח דינוזאורים פראיים אנו ממליצים יחס של עד 15 ילדים באירוע,<br>
+  הילדים יתחלפו במהלך הזמן.</p>
+  <p>*שימו לב – המתקן גדול ולכן יש להגיע עם רכב פנוי (ללא כיסאות ילדים וכדומה)</p>
+                  </div>
+                                  <div class="item">
+                                          <h6 class="title">מידות:</h6>
+                                          <p>אורך-400 ס"מ<br>
+  רוחב-400 ס"מ<br>
+  גובה-330 ס"מ</p>
+                  </div>
+                                  <div class="item">
+                                          <h6 class="title">משקל :</h6>
+                                          <p>70 ק"ג</p>
+                  </div>
+                              </div><div class="lmp_load_more_button br_lmp_button_settings" style="display: none;"><a class="lmp_button link-wrap" style="font-size: 22px;color: #333333;background-color: #ffffff;padding-top:15px;padding-right:25px;padding-bottom:15px;padding-left:25px;margin-top:px;margin-right:px;margin-bottom:px;margin-left:px; border-top: 0px solid #000; border-bottom: 0px solid #000; border-left: 0px solid #000; border-right: 0px solid #000; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;" href="#load_next_page">טען עוד</a></div>
+          </div>
+      </section>
+      
+          <section class="title-border-block">
+          <div class="bg">
+              <img src="https://mitnafun.com/wp-content/themes/mitnafun_upro/img/after-8.svg" alt="" class="img-1">
+              <img src="https://mitnafun.com/wp-content/themes/mitnafun_upro/img/after-9.svg" alt="" class="img-2">
+              <img src="https://mitnafun.com/wp-content/themes/mitnafun_upro/img/after-10.svg" alt="" class="img-3">
+          </div>
+          <div class="content-width">
+              <h2 class="title-h3">מדיניות ביטולים</h2>
+              <div class="content">
+                  <div class="text">
+                                              <p>ביטול הזמנה ו/או השכרה של ציוד תעשה <a href="#">עד 72</a> <a href="#">שעות</a> לפני תקופת ההשכרה, ובלבד שניתן אישור על ידי מתנפחים ונהנים.</p>
+                          <p>למען הסר ספק, לא יוחזר תשלום בעת ביטול הזמנה או השכרה <a href="#">במסגרת 72</a> השעות לפני תקופת ההשכרה.</p>
+                                      </div>
+                  
+                  <div class="img-wrap">
+                      <figure>
+                          <img src="https://mitnafun.com/wp-content/uploads/2024/04/icon-8.svg">
+                      </figure>
+                      
+                      <div class="wrap">
+                          <p>יש ליצור קשר בטלפון </p>
+                          <p>
+                              <a href="tel:+0505544516">050-5544516</a>
+                          </p>
+                      </div>
+                  </div>
+              </div><div class="lmp_load_more_button br_lmp_button_settings" style="display: none;"><a class="lmp_button link-wrap" style="font-size: 22px;color: #333333;background-color: #ffffff;padding-top:15px;padding-right:25px;padding-bottom:15px;padding-left:25px;margin-top:px;margin-right:px;margin-bottom:px;margin-left:px; border-top: 0px solid #000; border-bottom: 0px solid #000; border-left: 0px solid #000; border-right: 0px solid #000; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;" href="#load_next_page">טען עוד</a></div>
+              <div class="lmp_load_more_button br_lmp_button_settings" style="display: none;">
+                  <a class="lmp_button link-wrap" style="font-size: 22px;color: #333333;background-color: #ffffff;padding-top:15px;padding-right:25px;padding-bottom:15px;padding-left:25px;margin-top:px;margin-right:px;margin-bottom:px;margin-left:px; border-top: 0px solid #000; border-bottom: 0px solid #000; border-left: 0px solid #000; border-right: 0px solid #000; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;" href="#load_next_page">טען עוד</a>
+              </div>
+          </div>
+      </section>
+  
+          
+  
+  
+  </main>
+  
+  <footer>
+    <div class="content-width">
+      <div class="content">
+        <div class="item item-1">
+          <ul>
+  
+                        <li>
+                <img src="https://mitnafun.local/wp-content/themes/mitnafun-upro/img/icon-f1.svg" alt="">
+                <a href="#" target="_blank">הסדנה 1, כפר סבא ליד קניון G</a>
+              </li>
+            
+                        <li>
+                <img src="https://mitnafun.local/wp-content/themes/mitnafun-upro/img/icon-f2.svg" alt="">
+                <a href="tel:+0505544516">050-5544516</a>
+              </li>
+            
+                        <li>
+                <img src="https://mitnafun.local/wp-content/themes/mitnafun-upro/img/icon-f3.svg" alt="">
+                <a href="mailto:Mitnafun@gmail.com">Mitnafun@gmail.com</a>
+              </li>
+            
+          </ul>
+        </div>
+        <div class="item item-2">
+  
+          
+            <ul>
+  
+              
+                
+                <li>
+  
+                                    <img width="21" height="21" src="https://mitnafun.local/wp-content/uploads/2024/03/icon-f5.svg" class="attachment-full size-full" alt="" decoding="async" loading="lazy">                
+                                    <a href="https://www.facebook.com/mitnafun" target="_blank">Mitnafun</a>
+                  
+                </li>
+              
+            
+          </ul>
+  
+        
+      </div>
+      <div class="item item-3">
+  
+        <ul><li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-39"><a rel="privacy-policy" href="https://mitnafun.local/privacy-policy/">מדיניות פרטיות</a></li>
+  </ul>
+      </div>
+      <div class="item item-4">
+  
+        
+          <ul>
+  
+            
+                            <li>
+                  <p>שעות פעילות לאיסוף והחזרת ציוד:</p>
+                </li>
+              
+            
+                            <li>
+                  <p>ראשון עד חמישי: 08:00-15:00</p>
+                </li>
+              
+            
+                            <li>
+                  <p>שישי:  08:00-12:00</p>
+                </li>
+              
+            
+                            <li>
+                  <p>ניתן לשנות בתיאום מראש</p>
+                </li>
+              
+            
+          </ul>
+  
+        
+      </div>
+    </div><div class="lmp_load_more_button br_lmp_button_settings" style="display: none;"><a class="lmp_button link-wrap" style="font-size: 22px;color: #333333;background-color: #ffffff;padding-top:15px;padding-right:25px;padding-bottom:15px;padding-left:25px;margin-top:px;margin-right:px;margin-bottom:px;margin-left:px; border-top: 0px solid #000; border-bottom: 0px solid #000; border-left: 0px solid #000; border-right: 0px solid #000; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;" href="#load_next_page">טען עוד</a></div>
+  
+    <div class="bottom">
+      <p>כל הזכויות שמורות למתנפחים ונהנים ©2025</p>
+    </div>
+  
+  </div>
+  </footer>
+  
+  <div id="default-popup " style="display:none;">
+    <div class="popup-main">
+    </div>
+  </div>
+  
+  
+  <div id="check-popup" class="check-popup" style="display: none;" dir="rtl">
+      <div class="main">
+          <h2 class="title">ההזמנה שלך</h2>
+          <div class="close-wrap">
+              <a href="#" class="close-check"><img src="https://mitnafun.local/wp-content/themes/mitnafun-upro/img/icon-19.svg" alt=""></a>
+          </div>
+          <div class="content">
+  
+              
+  
+      <p class="woocommerce-mini-cart__empty-message">אין מוצרים בסל הקניות.</p>
+  
+  
+  
+  
+          </div><div class="lmp_load_more_button br_lmp_button_settings" style="display: none;"><a class="lmp_button link-wrap" style="font-size: 22px;color: #333333;background-color: #ffffff;padding-top:15px;padding-right:25px;padding-bottom:15px;padding-left:25px;margin-top:px;margin-right:px;margin-bottom:px;margin-left:px; border-top: 0px solid #000; border-bottom: 0px solid #000; border-left: 0px solid #000; border-right: 0px solid #000; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;" href="#load_next_page">טען עוד</a></div>
+      </div>
+  </div>
+  
+   <!-- BEGIN Simple Chat Button Plugin --> <style> #simple-chat-button--container { position: fixed; bottom: 20px; right: 20px; z-index: 999999999; } #simple-chat-button--button { display: block; position: relative; text-decoration: none; width: 60px; height: 60px; border-radius: 50%; -webkit-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out; -webkit-transform: scale(1); transform: scale(1); box-shadow: 0 6px 8px 2px rgba(0, 0, 0, .15); background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjU2IiB3aWR0aD0iMjU2IiB2aWV3Qm94PSItMjMgLTIxIDY4MiA2ODIuNjY3IiBmaWxsPSIjZmZmIiB4bWxuczp2PSJodHRwczovL3ZlY3RhLmlvL25hbm8iPjxwYXRoIGQ9Ik01NDQuMzg3IDkzLjAwOEM0ODQuNTEyIDMzLjA2MyA0MDQuODgzLjAzNSAzMjAuMDUxIDAgMTQ1LjI0NiAwIDIuOTggMTQyLjI2MiAyLjkxIDMxNy4xMTNjLS4wMjMgNTUuODk1IDE0LjU3OCAxMTAuNDU3IDQyLjMzMiAxNTguNTUxTC4yNSA2NDBsMTY4LjEyMS00NC4xMDJjNDYuMzI0IDI1LjI3IDk4LjQ3NyAzOC41ODYgMTUxLjU1MSAzOC42MDJoLjEzM2MxNzQuNzg1IDAgMzE3LjA2Ni0xNDIuMjczIDMxNy4xMzMtMzE3LjEzMy4wMzUtODQuNzQyLTMyLjkyMi0xNjQuNDE4LTkyLjgwMS0yMjQuMzU5ek0zMjAuMDUxIDU4MC45NDFoLS4xMDljLTQ3LjI5Ny0uMDItOTMuNjg0LTEyLjczLTEzNC4xNi0zNi43NDJsLTkuNjIxLTUuNzE1LTk5Ljc2NiAyNi4xNzIgMjYuNjI5LTk3LjI3LTYuMjctOS45NzNjLTI2LjM4Ny00MS45NjktNDAuMzItOTAuNDc3LTQwLjI5Ny0xNDAuMjgxLjA1NS0xNDUuMzMyIDExOC4zMDUtMjYzLjU3IDI2My42OTktMjYzLjU3IDcwLjQwNi4wMjMgMTM2LjU5IDI3LjQ3NyAxODYuMzU1IDc3LjMwMXM3Ny4xNTYgMTE2LjA1MSA3Ny4xMzMgMTg2LjQ4NGMtLjA2MiAxNDUuMzQ0LTExOC4zMDUgMjYzLjU5NC0yNjMuNTk0IDI2My41OTR6bTE0NC41ODYtMTk3LjQxOGMtNy45MjItMy45NjktNDYuODgzLTIzLjEzMy01NC4xNDgtMjUuNzgxLTcuMjU4LTIuNjQ1LTEyLjU0Ny0zLjk2MS0xNy44MjQgMy45NjktNS4yODUgNy45My0yMC40NjkgMjUuNzgxLTI1LjA5NCAzMS4wNjZzLTkuMjQyIDUuOTUzLTE3LjE2OCAxLjk4NC0zMy40NTctMTIuMzM2LTYzLjcyNy0zOS4zMzJjLTIzLjU1NS0yMS4wMTItMzkuNDU3LTQ2Ljk2MS00NC4wODItNTQuODkxLTQuNjE3LTcuOTM3LS4wMzktMTEuODEyIDMuNDc3LTE2LjE3MiA4LjU3OC0xMC42NTIgMTcuMTY4LTIxLjgyIDE5LjgwOS0yNy4xMDVzMS4zMi05LjkxOC0uNjY0LTEzLjg4M2MtMS45NzctMy45NjUtMTcuODI0LTQyLjk2OS0yNC40MjYtNTguODQtNi40MzctMTUuNDQ1LTEyLjk2NS0xMy4zNTktMTcuODMyLTEzLjYwMi00LjYxNy0uMjMtOS45MDItLjI3Ny0xNS4xODctLjI3N3MtMTMuODY3IDEuOTgtMjEuMTMzIDkuOTE4LTI3LjczIDI3LjEwMi0yNy43MyA2Ni4xMDUgMjguMzk1IDc2LjY4NCAzMi4zNTUgODEuOTczIDU1Ljg3OSA4NS4zMjggMTM1LjM2NyAxMTkuNjQ4YzE4LjkwNiA4LjE3MiAzMy42NjQgMTMuMDQzIDQ1LjE3NiAxNi42OTUgMTguOTg0IDYuMDMxIDM2LjI1NCA1LjE4IDQ5LjkxIDMuMTQxIDE1LjIyNy0yLjI3NyA0Ni44NzktMTkuMTcyIDUzLjQ4OC0zNy42OCA2LjYwMi0xOC41MTIgNi42MDItMzQuMzc1IDQuNjE3LTM3LjY4NC0xLjk3Ny0zLjMwNS03LjI2Mi01LjI4NS0xNS4xODQtOS4yNTR6bTAgMCIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+") center/44px 44px no-repeat #25D366; } #simple-chat-button--text { display: block; position: absolute; width: max-content; background-color: #fff; bottom: 15px; right: 70px; border-radius: 5px; padding: 5px 10px; color: #000; font-size: 13px; font-weight: 700; letter-spacing: -0.03em; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; word-break: keep-all; line-height: 1em; text-overflow: ellipsis; vertical-align: middle; box-shadow: 0 6px 8px 2px rgba(0, 0, 0, .15); } #simple-chat-button--button:before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; right: 0; border-radius: 50%; -webkit-animation: scb-shockwave-animation 2s 5.3s ease-out infinite; animation: scb-shockwave-animation 2s 5.3s ease-out infinite; z-index: -1; } #simple-chat-button--button:hover { -webkit-transform: scale(1.06); transform: scale(1.06); -webkit-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out; } @media only screen and (max-width: 1024px) { #simple-chat-button--container { bottom: 20px; } } @media only screen and (max-width: 768px) { #simple-chat-button--container { bottom: 20px; } } @-webkit-keyframes scb-shockwave-animation { 0% { -webkit-transform: scale(1); transform: scale(1); box-shadow: 0 0 2px rgba(0, 100, 0, .5), inset 0 0 1px rgba(0, 100, 0, .5); } 95% { box-shadow: 0 0 50px transparent, inset 0 0 30px transparent; } 100% { -webkit-transform: scale(1.2); transform: scale(1.2); } } @keyframes scb-shockwave-animation { 0% { -webkit-transform: scale(1); transform: scale(1); box-shadow: 0 0 2px rgba(0, 100, 0, .5), inset 0 0 1px rgba(0, 100, 0, .5); } 95% { box-shadow: 0 0 50px transparent, inset 0 0 30px transparent; } 100% { -webkit-transform: scale(1.2); transform: scale(1.2); } } </style> <div id="simple-chat-button--container"> <a id="simple-chat-button--button" href="https://api.whatsapp.com/send?phone=+972505544516&amp;text=Hello" target="_blank" rel="nofollow" aria-label="WhatsApp Chat Button"></a> <span id="simple-chat-button--text">להזמנות דברו איתנו בצ׳אט</span> </div> <!-- END Simple Chat Button Plugin -->         <script type="text/javascript">
+          jQuery(function($) {
+              // Direct click handler for the order button
+              $('.btn-redirect').on('click', function(e) {
+                  // Set a flag in localStorage
+                  localStorage.setItem('mitnafun_redirect_to_checkout', 'yes');
+                  
+                  // Also attempt direct redirect if AJAX doesn't work
+                  setTimeout(function() {
+                      if (window.location.href.indexOf('checkout') === -1) {
+                          window.location.href = 'https://mitnafun.local/checkout/';
+                      }
+                  }, 1500);
+              });
+              
+              // Handle AJAX add to cart completion
+              $(document.body).on('added_to_cart', function() {
+                  // Check if we should redirect
+                  if (localStorage.getItem('mitnafun_redirect_to_checkout') === 'yes') {
+                      localStorage.removeItem('mitnafun_redirect_to_checkout');
+                      window.location.href = 'https://mitnafun.local/checkout/';
+                  }
+              });
+          });
+          </script>
+          <script type="application/ld+json">{"@context":"https:\/\/schema.org\/","@type":"Product","@id":"https:\/\/mitnafun.local\/product\/%d7%90%d7%99%d7%99%d7%a8%d7%95%d7%9f-%d7%9e%d7%9f\/#product","name":"\u05d0\u05d9\u05d9\u05e8\u05d5\u05df \u05de\u05df","url":"https:\/\/mitnafun.local\/product\/%d7%90%d7%99%d7%99%d7%a8%d7%95%d7%9f-%d7%9e%d7%9f\/","description":"","image":"https:\/\/mitnafun.local\/wp-content\/uploads\/2024\/04\/img-prod-6.png","sku":461,"offers":[{"@type":"Offer","priceSpecification":[{"@type":"UnitPriceSpecification","price":"550.00","priceCurrency":"ILS","valueAddedTaxIncluded":false,"validThrough":"2026-12-31"}],"priceValidUntil":"2026-12-31","availability":"http:\/\/schema.org\/InStock","url":"https:\/\/mitnafun.local\/product\/%d7%90%d7%99%d7%99%d7%a8%d7%95%d7%9f-%d7%9e%d7%9f\/","seller":{"@type":"Organization","name":"Mitnafun","url":"https:\/\/mitnafun.local"}}]}</script>	<script type="text/javascript">
+          (function () {
+              var c = document.body.className;
+              c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+              document.body.className = c;
+          })();
+      </script>
+              <script>
+              var wpcode_admin_bar_info = [];
+              var wpcode_admin_bar_info_count = 0;
+          </script>
+          <link rel="stylesheet" id="berocket_lmp_style-css" href="https://mitnafun.local/wp-content/plugins/load-more-products-for-woocommerce/css/load_products.css" type="text/css" media="all">
+  <link rel="stylesheet" id="wc-blocks-style-rtl-css" href="https://mitnafun.local/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks-rtl.css" type="text/css" media="all">
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/plugins/insert-headers-and-footers/build/admin-bar.js" id="wpcode-admin-bar-js-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-includes/js/hoverintent-js.min.js" id="hoverintent-js-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-includes/js/admin-bar.min.js" id="admin-bar-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-includes/js/dist/hooks.min.js" id="wp-hooks-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-includes/js/dist/i18n.min.js" id="wp-i18n-js"></script>
+  <script type="text/javascript" id="wp-i18n-js-after">
+  /* <![CDATA[ */
+  wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'rtl' ] } );
+  /* ]]> */
+  </script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/plugins/contact-form-7/includes/swv/js/index.js" id="swv-js"></script>
+  <script type="text/javascript" id="contact-form-7-js-before">
+  /* <![CDATA[ */
+  var wpcf7 = {
+      "api": {
+          "root": "https:\/\/mitnafun.local\/wp-json\/",
+          "namespace": "contact-form-7\/v1"
+      }
+  };
+  /* ]]> */
+  </script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/plugins/contact-form-7/includes/js/index.js" id="contact-form-7-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/price-calculator.js" id="mitnafun-price-calculator-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/swiper.js" id="my-swiper-js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cuttr@0.3.0/jquery.cuttr.min.js" id="cuttr-js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" id="jquery.mask-js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" id="my-fancybox-js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" id="my-nice-select-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/plugins/woocommerce-ajax-filters/assets/frontend/js/select2.min.js" id="select2-js" defer="defer" data-wp-strategy="defer"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/script.js" id="my-script-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/actions.js" id="my-actions-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-includes/js/jquery/ui/core.min.js" id="jquery-ui-core-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/fix-button-text.js" id="fix-button-text-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/air-datepicker/air-datepicker.js" id="air-datepicker-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/last-minute-booking-check.js" id="last-minute-booking-check-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/fallback-calendar.js" id="fallback-calendar-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/calendar-initializer.js" id="calendar-initializer-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/calendar-test.js" id="calendar-test-js"></script>
+  <script type="text/javascript" id="pickup-time-handler-js-extra">
+  /* <![CDATA[ */
+  var mitnafun_booking_data = {"pickup_override":"11","business_hours":{"weekdays":false,"friday":false}};
+  /* ]]> */
+  </script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/pickup-time-handler.js" id="pickup-time-handler-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js" id="sourcebuster-js-js"></script>
+  <script type="text/javascript" id="wc-order-attribution-js-extra">
+  /* <![CDATA[ */
+  var wc_order_attribution = {"params":{"lifetime":1.0000000000000001e-5,"session":30,"base64":false,"ajaxurl":"https:\/\/mitnafun.local\/wp-admin\/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
+  /* ]]> */
+  </script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js" id="wc-order-attribution-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/calendar-future-date-fixer.js" id="calendar-future-date-fixer-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/date-range-validator.js" id="mitnafun-date-range-validator-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/stock-based-special-dates.js" id="stock-based-special-dates-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/improved-stock-debugger.js" id="improved-stock-debugger-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/direct-form-override.js" id="direct-form-override-js"></script>
+  <script type="text/javascript" id="mitnafun-form-submission-validator-js-extra">
+  /* <![CDATA[ */
+  var mitnafunFormValidator = {"ajaxurl":"https:\/\/mitnafun.local\/wp-admin\/admin-ajax.php","errorMessage":"Please select valid rental dates before proceeding."};
+  /* ]]> */
+  </script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/form-submission-validator.js" id="mitnafun-form-submission-validator-js"></script>
+  <script type="text/javascript" id="mitnafun-stock-order-logger-js-extra">
+  /* <![CDATA[ */
+  var mitnafunLoggerVars = {"debugMode":"false","isProduction":"true"};
+  /* ]]> */
+  </script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/stockOrder/logger.js" id="mitnafun-stock-order-logger-js"></script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/themes/mitnafun-upro/js/stockOrder/simple-stock-display.js" id="mitnafun-simple-stock-display-js"></script>
+  <script type="text/javascript" id="berocket_lmp_js-js-extra">
+  /* <![CDATA[ */
+  var the_lmp_js_data = {"type":"more_button","update_url":"1","use_mobile":"","mobile_type":"","mobile_width":"","is_AAPF":"","buffer":"50","use_prev_btn":"","load_image":"<div class=\"lmp_products_loading\"><i class=\"fa fa-spinner lmp_rotate\"><\/i><span class=\"\"><\/span><\/div>","load_img_class":".lmp_products_loading","load_more":"<div class=\"lmp_load_more_button br_lmp_button_settings\"><a class=\"lmp_button link-wrap\" style=\"font-size: 22px;color: #333333;background-color: #ffffff;padding-top:15px;padding-right:25px;padding-bottom:15px;padding-left:25px;margin-top:px;margin-right:px;margin-bottom:px;margin-left:px; border-top: 0px solid #000; border-bottom: 0px solid #000; border-left: 0px solid #000; border-right: 0px solid #000; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;\" href=\"#load_next_page\">\u05d8\u05e2\u05df \u05e2\u05d5\u05d3<\/a><\/div>","load_prev":"<div class=\"lmp_load_more_button br_lmp_prev_settings\"><a class=\"lmp_button \" style=\"font-size: 22px;color: #333333;background-color: #aaaaff;padding-top:15px;padding-right:25px;padding-bottom:15px;padding-left:25px;margin-top:px;margin-right:px;margin-bottom:px;margin-left:px; border-top: 0px solid #000; border-bottom: 0px solid #000; border-left: 0px solid #000; border-right: 0px solid #000; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;\" href=\"#load_next_page\">Load Previous<\/a><\/div>","lazy_load":"","lazy_load_m":"","LLanimation":"","end_text":"<div class=\"lmp_products_loading\"><span class=\"\"><\/span><\/div>","javascript":{"before_update":"","after_update":""},"products":"div.content","item":"div.item","pagination":"nav.woocommerce-pagination","next_page":"a.next.page-numbers","prev_page":"a.prev.page-numbers"};
+  /* ]]> */
+  </script>
+  <script type="text/javascript" src="https://mitnafun.local/wp-content/plugins/load-more-products-for-woocommerce/js/load_products.js" id="berocket_lmp_js-js"></script>
+      <script>
+      jQuery(document).ready(function($) {
+          // Initialize the toggle functionality
+          function initBreakdownToggle() {
+              $('.breakdown-toggle').off('click').on('click', function() {
+                  var content = $(this).next('.breakdown-content');
+                  var icon = $(this).find('.toggle-icon');
+                  
+                  content.slideToggle(200);
+                  
+                  if (icon.text() === '+') {
+                      icon.text('-');
+                  } else {
+                      icon.text('+');
+                  }
+              });
+          }
+          
+          // Initial setup
+          initBreakdownToggle();
+          
+          // Re-initialize on AJAX cart updates
+          $(document.body).on('updated_cart_totals updated_checkout', function() {
+              initBreakdownToggle();
+          });
+          
+          // Handle mini-cart updates
+          $(document.body).on('wc_fragments_loaded wc_fragments_refreshed', function() {
+              initBreakdownToggle();
+          });
+      });
+      </script>
+          <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function() {
+          console.log('[WEEKEND OVERRIDE] Applying weekend booking fixes');
+          
+          // Specifically fix errors about Saturdays (Shabbat)
+          setInterval(function() {
+              // Find and hide any error messages about Shabbat bookings
+              const errorMessages = document.querySelectorAll(".validation-message, #date-validation-message");
+              errorMessages.forEach(function(msg) {
+                  if (msg.innerText.includes('לא ניתן להזמין לשבת') || 
+                      msg.innerText.includes('מערכת סגורה')) {
+                      msg.style.display = 'none';
+                  }
+              });
+          }, 500);
+          
+          // Override the validateDateRange function from fallback-calendar.js
+          if (window.originalValidateDateRange === undefined && window.validateDateRange) {
+              console.log('[WEEKEND OVERRIDE] Storing original validateDateRange function');
+              window.originalValidateDateRange = window.validateDateRange;
+          }
+          
+          // Replace with function that always allows weekends
+          window.validateDateRange = function(startDate, endDate) {
+              console.log('[WEEKEND OVERRIDE] Using weekend-friendly validation');
+              
+              if (!startDate || !endDate) {
+                  return false;
+              }
+              
+              // Normalize dates
+              startDate = new Date(startDate);
+              endDate = new Date(endDate);
+              startDate.setHours(0,0,0,0);
+              endDate.setHours(0,0,0,0);
+              
+              // Only basic validation - no weekend restrictions
+              if (startDate > endDate) {
+                  return false;
+              }
+              
+              // Check maximum rental period
+              let days = calculateRentalDays(startDate, endDate);
+              if (window.maxRentalDays && days > window.maxRentalDays) {
+                  return false;
+              }
+              
+              // Always allow weekend bookings
+              return true;
+          };
+          
+          console.log('[WEEKEND OVERRIDE] Weekend booking fixes applied');
+      });
+      </script>
+      
+  
+  <div class="widget_shopping_cart_live_region screen-reader-text" role="status"></div></body>

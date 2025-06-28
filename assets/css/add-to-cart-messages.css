@@ -1,0 +1,84 @@
+/* Add to Cart Messages */
+.woocommerce-message.wc-ajax-message,
+.woocommerce-error.wc-ajax-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999999;
+    padding: 15px 50px 15px 20px;
+    margin: 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    width: auto;
+    min-width: 300px;
+    text-align: right;
+    direction: rtl;
+    font-size: 14px;
+    line-height: 1.5;
+    animation: slideInDown 0.3s ease-out;
+}
+
+.woocommerce-message.wc-ajax-message {
+    background-color: #f0f8e5;
+    border: 1px solid #c8d8a9;
+    color: #3c763d;
+}
+
+.woocommerce-error.wc-ajax-message {
+    background-color: #f8e8e8;
+    border: 1px solid #e8b9b9;
+    color: #a94442;
+}
+
+.wc-ajax-message .close-message {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.wc-ajax-message .close-message:hover {
+    opacity: 1;
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translate(-50%, -20px);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+/* Loading state for add to cart button */
+.single_add_to_cart_button.loading {
+    position: relative;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.single_add_to_cart_button.loading:after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

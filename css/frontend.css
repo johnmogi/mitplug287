@@ -1,0 +1,388 @@
+/**
+ * Aviv Rental Frontend Styles
+ */
+
+/* Reservation calendar container */
+
+.aviv-reservations-container {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.aviv-reservations-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Upcoming reservations */
+.aviv-upcoming-dates {
+    margin-bottom: 20px;
+}
+
+.aviv-reservation-date {
+    display: inline-block;
+    margin: 3px;
+    padding: 5px 10px;
+    background-color: #f0f7ff;
+    border: 1px solid #c9e2ff;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #0073aa;
+}
+
+.aviv-reservation-date.unavailable {
+    background-color: #ffe6e6;
+    border-color: #ffb3b3;
+    color: #d63638;
+}
+
+.aviv-no-reservations {
+    padding: 10px;
+    font-style: italic;
+    color: #666;
+}
+
+/* Calendar view */
+.fc-col-header {
+    min-width: 100%;
+}
+
+.fc-daygrid-day {
+    min-width: 100%;
+}
+
+.aviv-calendar {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.aviv-calendar th {
+    background-color: #f0f0f0;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.aviv-calendar td {
+    width: 14.28%;
+    height: 40px;
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.aviv-calendar .day {
+    position: relative;
+}
+
+.aviv-calendar .current-month {
+    font-weight: 600;
+}
+
+.aviv-calendar .other-month {
+    color: #ccc;
+}
+
+.aviv-calendar .reserved {
+    background-color: #ffe6e6;
+    color: #d63638;
+}
+
+.aviv-calendar .available {
+    background-color: #f0f7ff;
+    color: #0073aa;
+}
+
+.aviv-calendar .today {
+    background-color: #ffecb3;
+    font-weight: bold;
+}
+
+/* FIXED: Calendar sizing and visibility fixes */
+#mitnafun-calendar {
+    min-height: 800px;
+    height: 800px;
+    margin-top: 20px;
+    width: 100% !important;
+}
+
+/* Force calendar dimensions */
+.fc .fc-scrollgrid-liquid {
+    height: 800px !important;
+    min-height: 800px !important;
+}
+
+/* Header and cell sizing */
+.fc-col-header-cell, 
+.fc-daygrid-day {
+    min-width: 120px !important;
+    min-height: 120px !important;
+}
+
+/* Calendar viewport */
+.fc-view-harness {
+    min-height: 800px !important;
+    height: 800px !important;
+    overflow: visible !important;
+}
+
+/* Fix for hidden cells */
+.fc-daygrid-day-frame {
+    min-height: 100px !important;
+    overflow: visible !important;
+}
+
+/* Force all calendar elements to be visible */
+.fc-timegrid-slot,
+.fc-timegrid-cols,
+.fc-timegrid-body,
+.fc-scroller {
+    min-height: 30px !important;
+}
+
+/* Fix for calendar not showing up initially */
+.ui-tabs .ui-tabs-hide {
+    display: block !important;
+    opacity: 0;
+    pointer-events: none;
+}
+.ui-tabs .ui-tabs-active {
+    display: block !important;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Ensure calendar tab is always visible when active */
+#mitnafun-tab-calendar.ui-tabs-panel.ui-widget-content.ui-corner-bottom {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Loading indicator */
+.aviv-loading {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+}
+
+.aviv-loading::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    border: 2px solid #ccc;
+    border-top-color: #0073aa;
+    border-radius: 50%;
+    animation: aviv-spinner 0.6s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes aviv-spinner {
+    to { transform: rotate(360deg); }
+}
+
+/* RTL Support */
+html[dir="rtl"] .aviv-reservations-container {
+    text-align: right;
+}
+
+html[dir="rtl"] .aviv-calendar th {
+    text-align: center;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .aviv-calendar {
+        font-size: 12px;
+    }
+    
+    .aviv-calendar td {
+        height: 30px;
+    }
+    
+    .aviv-reservation-date {
+        font-size: 12px;
+        padding: 3px 6px;
+        margin: 2px;
+    }
+}
+
+/* Tab Styling - with more specific selectors to override jQuery UI styles */
+.mitnafun-admin-content {
+    margin-top: 20px;
+    clear: both;
+    display: block;
+    position: relative;
+}
+
+.mitnafun-admin-content .ui-tabs-nav {
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mitnafun-admin-content .ui-tabs-nav li {
+    margin: 0 4px -1px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    background: #f1f1f1;
+}
+
+.mitnafun-admin-content .ui-tabs-nav li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #444;
+    font-weight: 600;
+}
+
+.mitnafun-admin-content .ui-tabs-nav .ui-tabs-active {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.mitnafun-admin-content .ui-tabs-nav .ui-tabs-active a {
+    color: #000;
+}
+
+/* Stock status styles */
+.mitnafun-availability-info {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    border-left: 4px solid #4CAF50;
+}
+
+.mitnafun-availability-info .low-stock {
+    color: #f44336;
+    font-weight: bold;
+}
+
+.mitnafun-availability-status,
+.mitnafun-availability-quantity {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.mitnafun-availability-label {
+    font-weight: 600;
+    margin-right: 8px;
+    min-width: 80px;
+    display: inline-block;
+}
+
+/* Rental dates styles */
+.mitnafun-rental-dates,
+.mitnafun-upcoming-rentals {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f5f9ff;
+    border-radius: 4px;
+    border-left: 4px solid #2196F3;
+}
+
+.mitnafun-rental-dates-title {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #1976D2;
+    font-size: 1.1em;
+}
+
+.mitnafun-rental-date {
+    padding: 8px 0;
+    border-bottom: 1px dashed #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mitnafun-rental-date:last-child {
+    border-bottom: none;
+}
+
+.mitnafun-rental-date-range {
+    font-family: monospace;
+}
+
+.mitnafun-rental-status {
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.mitnafun-rental-status.processing,
+.mitnafun-rental-status.rental-confirmed {
+    background-color: #e3f2fd;
+    color: #1565C0;
+}
+
+.mitnafun-rental-status.completed,
+.mitnafun-rental-status.rental-completed {
+    background-color: #e8f5e9;
+    color: #2E7D32;
+}
+
+.mitnafun-rental-status.cancelled,
+.mitnafun-rental-status.rental-cancelled {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.mitnafun-rental-status.on-hold {
+    background-color: #fff8e1;
+    color: #F57F17;
+}
+
+/* Force-hide all tab content until explicitly activated */
+.mitnafun-admin-section, 
+.ui-tabs-panel.ui-widget-content.ui-corner-bottom {
+    display: none !important;
+}
+
+/* Only show the active tab panel with multiple selectors for higher specificity */
+.ui-tabs-panel.ui-tabs-panel[aria-hidden="false"],
+.mitnafun-admin-section.ui-tabs-panel.ui-state-active,
+.mitnafun-admin-section.ui-tabs-panel[aria-hidden="false"],
+.ui-tabs-panel.ui-widget-content.ui-corner-bottom[aria-hidden="false"] {
+    display: block !important;
+}
+
+/* Calendar container needs explicit dimensions but should still be hidden in inactive tabs */
+#mitnafun-calendar {
+    height: 800px !important;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Add direct style to force hide calendar in non-active tabs */
+.mitnafun-admin-section[aria-hidden="true"] #mitnafun-calendar,
+.ui-tabs-panel[aria-hidden="true"] #mitnafun-calendar {
+    display: none !important;
+}
+
+/* Add direct style to ensure calendar shows only in its tab */
+.mitnafun-admin-section[aria-hidden="false"] #mitnafun-calendar,
+.ui-tabs-panel[aria-hidden="false"] #mitnafun-calendar {
+    display: block !important;
+}
+
+/* Add inlined styles override */
+.mitnafun-admin-section[style*="display: none"] #mitnafun-calendar {
+    display: none !important;
+}

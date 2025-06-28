@@ -1,0 +1,32 @@
+Thought Process
+
+Planned for 14s
+
+View Plan
+The plan needs an update to reflect that the PHP handler for the AJAX action 'mitnafun_release_stock_issues' does exist in the plugin code (contrary to the previous assumption that it was missing). The focus should now be on debugging why the handler is not being triggered or not working as expected, rather than implementing it from scratch.
+
+I'll update the plan to clarify this and adjust the next steps accordingly.
+
+Added
+Debug why existing PHP handler is not working or not triggered (check nonce, permissions, logic)
+Thought Process
+
+
+I found that the PHP handler for 'mitnafun_release_stock_issues' does exist in the plugin code, but there's a problem with how it's being connected to the AJAX system. Let's check if this function is properly hooked to WordPress AJAX actions:
+
+Searched codebase
+0 results
+Searched inc:\Users\USUARIO\Documents\SITES\BMIT\app\public\wp-content\plugins\mitnafun-order-admin\mitnafun-order-admin.phpwith queryadd_action( 'wp_ajax_mitnafun_release_stock_issues'
+Thought Process
+
+Now I understand the issues:
+
+Missing AJAX Hook: The 
+ajax_release_stock_issues()
+ function exists in the code, but it's not properly hooked to WordPress's AJAX system with add_action('wp_ajax_mitnafun_release_stock_issues', ...). This is why you're getting the 400 error.
+Product Count Display: The product count elements exist in the template but either aren't being populated with data or are styled to be hidden.
+Let's fix both issues:
+
+1. First, let's add the missing AJAX hook:
+Analyzed
+mitnafun-order-admin.php#

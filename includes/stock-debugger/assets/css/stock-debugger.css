@@ -1,0 +1,339 @@
+/**
+ * Stock Debugger CSS
+ * Styles for the stock debugger panel
+ */
+
+.stock-debugger-panel {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    width: 800px;
+    max-height: 80vh;
+    background: #fff;
+    border: 1px solid #e2e4e7;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
+    z-index: 999999;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.stock-debugger-panel.collapsed {
+    height: 40px;
+    overflow: hidden;
+}
+
+.debug-header {
+    padding: 12px 20px;
+    background: #1d2327;
+    color: #f0f0f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid #2c3338;
+}
+
+.debug-header h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #f0f0f1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.debug-header h3 .debug-count {
+    background: rgba(255,255,255,0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.debug-header h3:before {
+    content: '🔍';
+    font-size: 16px;
+}
+
+.debug-close {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: #f0f0f1;
+    width: 28px;
+    height: 28px;
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.debug-close:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.debug-content {
+    padding: 0;
+    overflow-y: auto;
+    flex: 1;
+    background: #f6f7f7;
+}
+
+.debug-section {
+    margin-bottom: 0;
+    background: #fff;
+    border-bottom: 1px solid #e2e4e7;
+    padding: 0;
+}
+
+.debug-section:last-child {
+    border-bottom: none;
+}
+
+.debug-section:not(:first-child) {
+    margin-top: 20px;
+}
+
+.debug-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.debug-item {
+    padding: 12px 15px;
+    background: #f9fafc;
+    border-radius: 4px;
+    border-left: 3px solid #0073aa;
+    display: flex;
+    flex-direction: column;
+}
+
+.debug-item .label {
+    font-size: 12px;
+    color: #646970;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.debug-item .value {
+    font-size: 15px;
+    font-weight: 500;
+    color: #1d2327;
+}
+
+.debug-scrollable {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.debug-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.debug-table th,
+.debug-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f1;
+}
+
+.debug-table th {
+    background: #f6f7f7;
+    color: #1d2327;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.debug-table tr:hover {
+    background-color: #f6f7f7;
+}
+
+.debug-table a {
+    color: #2271b1;
+    text-decoration: none;
+}
+
+.debug-table a:hover {
+    color: #135e96;
+    text-decoration: underline;
+}
+
+.debug-pre {
+    margin: 0;
+    font-family: monospace;
+    white-space: pre-wrap;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.stock-debugger-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.stock-info-panel,
+.dates-info-panel,
+.console-panel {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 1em;
+}
+
+.console-panel {
+    grid-column: 1 / -1;
+}
+
+.debug-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.debug-item {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.debug-item .label {
+    color: #666;
+    font-weight: 500;
+}
+
+.debug-item .value {
+    color: #23282d;
+    font-weight: 600;
+}
+
+.debug-scrollable {
+    max-height: 150px;
+    overflow-y: auto;
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    padding: 8px;
+    direction: ltr;
+    text-align: left;
+}
+
+.stock-info-item {
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 3px;
+    border-right: 3px solid #2271b1;
+}
+
+.stock-info-item .label {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.stock-info-item .value {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.dates-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 5px;
+    background: #f9f9f9;
+    border-radius: 3px;
+}
+
+.date-tag {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    color: white;
+}
+
+.date-tag.disabled {
+    background: #e53935;
+}
+
+.date-tag.reserved {
+    background: #ff9800;
+}
+
+.date-tag.buffer {
+    background: #9c27b0;
+}
+
+.date-tag.more {
+    background: #607d8b;
+}
+
+#debug-console {
+    max-height: 200px;
+    overflow-y: auto;
+    background: #263238;
+    color: #fff;
+    padding: 10px;
+    border-radius: 3px;
+    font-family: monospace;
+    direction: ltr;
+}
+
+.log-entry {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #37474f;
+    padding-bottom: 5px;
+}
+
+.log-entry .timestamp {
+    color: #8bc34a;
+    margin-right: 10px;
+}
+
+/* Calendar highlighting */
+.debug-highlight {
+    box-shadow: 0 0 0 2px #ff5722 !important;
+    position: relative;
+    z-index: 10;
+}
+
+/* RTL fixes */
+.mitnafun-stock-debugger .stock-info-item {
+    border-right: none;
+    border-left: 3px solid #2271b1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .stock-debugger-info {
+        grid-template-columns: 1fr;
+    }
+}

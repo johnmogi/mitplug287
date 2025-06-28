@@ -1,0 +1,2010 @@
+<table class="widefat mitnafun-table" id="stock-list">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Initial Stock</th>
+            <th>Total Stock</th>
+            <th>Currently Booked</th>
+            <th>Available Units</th>
+            <th>Status</th>
+            <th>Current Bookings</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody><tr class="undefined">
+<td>null</td>
+<td>כוח פי ג'יי</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>31</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>אבקת אייס קפה</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>תרכיז ברד 4 ליטר</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>חבילת 50 מקלות סוכר</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">20</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="20" min="0" data-original-value="20">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>50</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>מלח חמאה 1 ק"ג</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>טרמפולינה מתנפחת</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>בית הכיף</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>7 תחנות</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>מתנפח טירה בינוני</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>עולם המים</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>פארק מים ענק</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>מגלשת מים ספלאש</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>טירת קפיצה ובריכה</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>פארק המים</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>מגלשת מים קרוקודיל</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>מגלשה כפולה</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>פנטזיית הג'ונגל</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>כלבלב דלמטי</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>הבית הגדול</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>אתגר אקסטרים</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>עף על הג'ירף</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>בידורית S-400 PROXIMA</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">2</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="2" min="0" data-original-value="2">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>2</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>מגלשה כפולה</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">2</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="2" min="0" data-original-value="2">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>47</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>ממלכת הפוני</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>61</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>דינוזאורים בפרא</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>76</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>יחידת החילוץ</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>50</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>המיניונים</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>61</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>איירון מן</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>16</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>אנה ואלזה 4X3.5</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>46</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>מלך האריות</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>76</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>טירת הכיף</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>46</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>אנה ואלזה 5X5</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>56</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>ספיידרמן</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>64</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>מיקי מאווס</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>בוב ספוג</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>ממלכת הקטנטנים</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>עף על הג'ירף</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">2</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="2" min="0" data-original-value="2">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>197</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>אתגר אקסטרים</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">2</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="2" min="0" data-original-value="2">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>96</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>פנטזיית הג'ונגל</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>הבית הגדול</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">157</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="157" min="0" data-original-value="157">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>טירת הקסמים</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">2</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="2" min="0" data-original-value="2">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>92</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>בריכת כדורים</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">27</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="27" min="0" data-original-value="27">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>סליידר 6 מ'</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">2</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="2" min="0" data-original-value="2">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>56</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>סופר סליידר 10 מ'</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">14</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="14" min="0" data-original-value="14">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>מכונת ברד\אייס קפה</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>9</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>מכונת סוכר</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">2</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="2" min="0" data-original-value="2">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>49</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>מכונת פופקורן</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">2</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="2" min="0" data-original-value="2">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>17</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>מכונת נקניקיות</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>2</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>גנרטור 1400 -GX</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">2</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="2" min="0" data-original-value="2">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>10</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>גנרטור 2500 -LU</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>1</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>גנרטור 3500 -LU</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>9</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>גנרטור 4000 -GX</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>1</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>גנרטור 7500 - GX</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>2</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>כבל מאריך</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>מחצלת</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">1</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="1" min="0" data-original-value="1">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>מגה סלייד דקלים</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">52</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="52" min="0" data-original-value="52">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>0</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr><tr class="undefined">
+<td>null</td>
+<td>כלבלב דלמטי</td>
+
+<td class="initial-stock-cell" data-product-id="null">
+    <span class="initial-stock-value">2</span>
+    <button type="button" class="button button-small edit-initial-stock" title="Edit Initial Stock">
+        <span class="dashicons dashicons-edit"></span>
+    </button>
+    <div class="initial-stock-edit" style="display: none;">
+        <input type="number" class="initial-stock-input" value="2" min="0" data-original-value="2">
+        <button type="button" class="button button-small save-initial-stock">
+            <span class="dashicons dashicons-yes"></span>
+        </button>
+        <button type="button" class="button button-small cancel-initial-stock">
+            <span class="dashicons dashicons-no"></span>
+        </button>
+    </div>
+</td>
+<td>undefined</td>
+<td>undefined</td>
+<td>108</td>
+<td><span class="stock-status undefined"></span></td>
+<td>No rentals</td>
+<td>
+    
+<div class="restock-controls">
+    <input type="number" class="restock-qty" min="1" value="1">
+    <button type="button" class="button restock-button" data-product-id="null">
+        Restock
+    </button>
+</div>
+
+    <p>No active bookings</p>
+</td>
+</tr></tbody>
+</table>

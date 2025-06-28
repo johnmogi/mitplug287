@@ -1,0 +1,1407 @@
+// alert(' admin.js is loaded and running');
+// console.log('%c Mitnafun admin.js confirmed active ', 'color: white; background: green; font-weight: bold; padding: 4px;');
+
+
+jQuery(document).ready(function($) {
+    console.log('Mitnafun Admin initialized ...');
+    
+    // Fix tab display to ensure proper layout and only one tab is visible at a time
+    $('#mitnafun-tabs').tabs({
+        active: 0, // Set the first tab (Booking Calendar) as the default active tab
+        activate: function(event, ui) {
+            // When calendar tab is activated, trigger resize
+            if (ui.newPanel.attr('id') === 'mitnafun-tab-calendar') {
+                console.log('Calendar tab activated');
+                setTimeout(function() {
+                    if (window.calendar) {
+                        window.calendar.render();
+                        window.calendar.updateSize();
+                        console.log('Calendar size updated after tab activation');
+                    }
+                }, 100);
+            }
+        }
+    });
+    
+    // Setting Booking Calendar tab as the default active tab via the active:0 option above
+
+    // Initialize booking calendar using FullCalendar
+    if (typeof FullCalendar !== 'undefined') {
+        console.log('FullCalendar is available');
+        var calendarEl = document.getElementById('mitnafun-calendar');
+        console.log('Calendar element found:', calendarEl);
+        var calendar = null; // Will hold calendar instance
+        
+        // Global cache for events to prevent regeneration
+        window.mitnafunCache = {
+            eventsCache: {},
+            orderData: [],
+            productData: null,
+            clientData: null
+        };
+        
+        if (calendarEl) {
+            console.log('Creating calendar instance');
+            // Set explicit height and width on the element
+            calendarEl.style.height = '800px';
+            calendarEl.style.width = '100%';
+            calendarEl.style.display = 'block';
+            
+            // Initialize calendar with specific settings for visibility
+            calendar = new FullCalendar.Calendar(calendarEl, {
+                // Default to weekly view with hours
+                initialView: 'timeGridWeek',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                height: 'auto',
+                contentHeight: 800,
+                aspectRatio: 1.5,
+                handleWindowResize: true,
+                expandRows: true,
+                stickyHeaderDates: true,
+                // Events fetching function
+                events: function(info, successCallback, failureCallback) {
+                    console.log('Fetching calendar events for range:', info.start, info.end);
+                    
+                    // First, try to load orders directly
+                    loadOrdersForCalendar(info, successCallback, failureCallback);
+                },
+                // Event rendering
+                eventDidMount: function(info) {
+                    // Simple title attribute instead of Bootstrap tooltip (which isn't available)
+                    const event = info.event;
+                    const props = event.extendedProps;
+                    
+                    // For end date display in tooltip, subtract 1 day to show the actual end date
+                    // This is needed because we add 1 day for calendar display (FullCalendar needs exclusive end date)
+                    let displayEndDate = new Date(event.end);
+                    displayEndDate.setDate(displayEndDate.getDate() - 1);
+                    
+                    $(info.el).attr('title', 
+                        'Order #' + props.order_id + 
+                        ' | Client: ' + (props.client_email || 'Guest') +
+                        ' | Status: ' + (props.status || 'N/A') +
+                        ' | Dates: ' + formatDate(event.start) + ' - ' + formatDate(displayEndDate)
+                    );
+                },
+                // Improved display settings
+                slotMinTime: '08:00:00',
+                slotMaxTime: '20:00:00',
+                allDaySlot: true
+            });
+            
+            // Store calendar in global scope and render it
+            window.calendar = calendar;
+
+            // Bind order click to open modal
+            calendar.on('eventClick', function(info) {
+                if (info.jsEvent) {
+                    info.jsEvent.preventDefault();
+                }
+                const orderId = info.event.extendedProps.order_id || null;
+                if (orderId) {
+                    // Navigate to WooCommerce order edit page
+                    const url = mitnafunAdmin.admin_url + 'post.php?post=' + orderId + '&action=edit';
+                    window.open(url, '_blank');
+                }
+            });
+            console.log('Attempting to render calendar');
+            
+            // Add a delay to ensure DOM is ready
+            setTimeout(function() {
+                calendar.render();
+                console.log('Calendar rendering complete');
+                
+                // Force size update after a delay
+                setTimeout(function() {
+                    console.log('Forcing calendar size update after render');
+                    if (window.calendar) {
+                        window.calendar.updateSize();
+                    }
+                }, 500);
+            }, 100);
+            
+            // Add manual refresh button with clearer styling
+            $('#mitnafun-tab-calendar').prepend(
+                $('<div class="mitnafun-calendar-controls" style="margin-bottom: 20px;"></div>').append(
+                    $('<button type="button" id="refresh-calendar" class="button button-primary">Refresh Calendar</button>')
+                )
+            );
+            
+            // Button click handler
+            $('#refresh-calendar').click(function() {
+                console.log('Refreshing calendar');
+                window.calendar.refetchEvents();
+                window.calendar.updateSize();
+            });
+        } else {
+            console.error('Calendar element not found! Make sure there is a div with ID "mitnafun-calendar" in the page.');
+        }
+    } else {
+        console.error('FullCalendar library not loaded!');
+    }
+
+    // Database Info section dismiss button
+    $('.mitnafun-db-info .notice-dismiss').on('click', function() {
+        $(this).closest('.mitnafun-db-info').fadeOut();
+    });
+
+    // Format status for display
+    function formatStatus(status) {
+        const statusMap = {
+            'wc-processing': 'Processing',
+            'wc-completed': 'Completed',
+            'wc-on-hold': 'On Hold',
+            'wc-cancelled': 'Cancelled',
+            'wc-refunded': 'Refunded',
+            'wc-failed': 'Failed',
+            'wc-rental-confirmed': 'Rental Confirmed',
+            'wc-rental-completed': 'Rental Completed',
+            'wc-rental-cancelled': 'Rental Cancelled'
+        };
+        
+        return statusMap[status] || status;
+    }
+
+    // Initialize datepicker if jQuery UI is available
+    if ($.fn.datepicker) {
+        $('.mitnafun-datepicker').datepicker({
+            dateFormat: 'dd.mm.yy',
+            firstDay: 0,
+            isRTL: $('html').attr('dir') === 'rtl'
+        });
+    }
+
+    // Handle Orders
+    function loadOrders() {
+        const $ordersList = $('#orders-list tbody');
+        if (!$ordersList.length) {
+            console.log('Orders table not found');
+            return;
+        }
+        
+        const productId = $('#product-filter').val();
+        const clientId = $('#client-filter').val();
+        const status = $('#status-filter').val();
+
+        $ordersList.html('<tr><td colspan="8" class="mitnafun-loading">Loading orders...</td></tr>');
+
+        $.ajax({
+            url: mitnafunAdmin.ajaxUrl,
+            type: 'POST',
+            data: {
+                action: 'get_recent_orders',
+                nonce: mitnafunAdmin.nonce,
+                product_id: productId,
+                client_id: clientId,
+                status: status
+            },
+            success: function(response) {
+                if (response.success) {
+                    const orders = response.data.orders;
+                    if (orders.length === 0) {
+                        $ordersList.html('<tr><td colspan="8">No orders found.</td></tr>');
+                        return;
+                    }
+
+                    let output = '';
+                    orders.forEach(function(order) {
+                        const orderUrl = '/wp-admin/post.php?post=' + order.order_id + '&action=edit';
+                        const date = new Date(order.date_created_gmt);
+                        const formattedDate = date.toLocaleDateString('he-IL');
+                        const clientName = order.billing_first_name + ' ' + order.billing_last_name;
+                        const statusClass = order.status ? order.status.replace('wc-', '') : 'processing';
+                        const statusText = formatStatus(order.status || 'wc-processing');
+                        
+                        output += `
+                            <tr class="mitnafun-order-row">
+                                <td><a href="${orderUrl}"><strong>#${order.order_id}</strong></a></td>
+                                <td>${formattedDate}</td>
+                                <td>
+                                    <div class="mitnafun-client-info">
+                                        <span>${clientName}</span>
+                                        ${order.billing_phone ? `<span class="mitnafun-client-phone">${order.billing_phone}</span>` : ''}
+                                        ${order.billing_email ? `<span class="mitnafun-client-email">${order.billing_email}</span>` : ''}
+                                    </div>
+                                </td>
+                                <td class="mitnafun-products">${order.product_name || ''}</td>
+                                <td class="mitnafun-booking-dates">${order.rental_dates || ''}</td>
+                                <td><span class="order-status status-${statusClass}">${statusText}</span></td>
+                                <td class="order-total">${order.total_amount}</td>
+                                <td>
+                                    <a href="${orderUrl}" class="button button-small">View</a>
+                                </td>
+                            </tr>
+                        `;
+                    });
+
+                    $ordersList.html(output);
+                } else {
+                    console.error('Error loading orders:', response.data.message);
+                    $ordersList.html(
+                        '<tr><td colspan="8">Error loading orders: ' + response.data.message + '</td></tr>'
+                    );
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('AJAX Error:', error);
+                $ordersList.html(
+                    '<tr><td colspan="8">Error loading orders: ' + error + '</td></tr>'
+                );
+            }
+        });
+    }
+
+    // Load clients data via AJAX
+    function loadClients() {
+        console.log('Loading clients...');
+        const $clientsTable = $('#clients-table tbody');
+        if (!$clientsTable.length) {
+            console.log('Clients table not found');
+            return;
+        }
+        
+        $clientsTable.html('<tr><td colspan="5" class="mitnafun-loading">Loading clients...</td></tr>');
+
+        $.ajax({
+            url: mitnafunAdmin.ajaxUrl,
+            type: 'POST',
+            data: {
+                action: 'get_clients',
+                nonce: mitnafunAdmin.nonce
+            },
+            success: function(response) {
+                console.log('Clients response:', response);
+                if (response.success && response.data && response.data.clients) {
+                    const clients = response.data.clients;
+                    if (clients.length === 0) {
+                        $clientsTable.html('<tr><td colspan="5" class="mitnafun-empty-table">No clients found. All client data will appear here when orders are placed.</td></tr>');
+                        return;
+                    }
+
+                    let output = '';
+                    clients.forEach(function(client) {
+                        output += `
+                            <tr>
+                                <td>
+                                    <div class="mitnafun-client-info">
+                                        <strong>${client.name || '-'}</strong>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="mitnafun-contact-info">
+                                        ${client.email ? `<a href="mailto:${client.email}" class="mitnafun-email-link">${client.email}</a>` : '-'}
+                                        ${client.phone ? `<br><a href="tel:${client.phone}" class="mitnafun-phone-link">${client.phone}</a>` : ''}
+                                    </div>
+                                </td>
+                                <td>${client.total_orders || 0}</td>
+                                <td>${client.total_spent || '₪0.00'}</td>
+                                <td>
+                                    <div class="mitnafun-order-history">Last order: ${client.last_order_date || '-'}</div>
+                                </td>
+                            </tr>
+                        `;
+                    });
+
+                    $clientsTable.html(output);
+                } else {
+                    console.error('Error loading clients:', response);
+                    $clientsTable.html(
+                        '<tr><td colspan="5">Error loading clients data</td></tr>'
+                    );
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('AJAX Error:', error);
+                $clientsTable.html(
+                    '<tr><td colspan="5">Error loading clients: ' + error + '</td></tr>'
+                );
+            }
+        });
+    }
+
+    // Load products data via AJAX
+    function loadProducts() {
+        console.log('Loading products...');
+        const $productsTable = $('#products-table tbody');
+        if (!$productsTable.length) {
+            console.log('Products table not found');
+            return;
+        }
+        
+        $productsTable.html('<tr><td colspan="4" class="mitnafun-loading">Loading products...</td></tr>');
+
+        $.ajax({
+            url: mitnafunAdmin.ajaxUrl,
+            type: 'POST',
+            data: {
+                action: 'get_products',
+                nonce: mitnafunAdmin.nonce
+            },
+            success: function(response) {
+                console.log('Products response:', response);
+                if (response.success && response.data && response.data.products) {
+                    const products = response.data.products;
+                    if (products.length === 0) {
+                        $productsTable.html('<tr><td colspan="4" class="mitnafun-empty-table">No products found. All product data will appear here when products are rented.</td></tr>');
+                        return;
+                    }
+
+                    let output = '';
+                    products.forEach(function(product) {
+                        // Create a more readable rental history display with full date ranges
+                        let rentalDatesDisplay = '';
+                        
+                        if (product.rental_dates_list && product.rental_dates_list.length > 0) {
+                            const datesList = product.rental_dates_list.split('\n');
+                            // Format the dates as a proper list with full date ranges
+                            rentalDatesDisplay = datesList.map(dateInfo => {
+                                // Extract and format the date range from format "Order #XXX: DD.MM.YYYY - DD.MM.YYYY"
+                                const match = dateInfo.match(/Order #(\d+): (.+)/);
+                                if (match && match.length >= 3) {
+                                    const orderNum = match[1];
+                                    const dateRange = match[2];
+                                    return `<div class="mitnafun-rental-date-item">Order #${orderNum}: ${dateRange}</div>`;
+                                }
+                                return `<div class="mitnafun-rental-date-item">${dateInfo}</div>`;
+                            }).join('');
+                        } else if (product.last_rental_date) {
+                            // Fallback if we only have last rental date
+                            rentalDatesDisplay = `<div class="mitnafun-rental-date">${product.last_rental_date}</div>`;
+                        } else {
+                            rentalDatesDisplay = 'No rental dates available';
+                        }
+                        
+                        output += `
+                            <tr>
+                                <td>${product.name || '-'}</td>
+                                <td>${product.total_rentals || 0}</td>
+                                <td>${rentalDatesDisplay}</td>
+                                <td>
+                                    <a href="/wp-admin/post.php?post=${product.id}&action=edit" class="button button-small">Edit Product</a>
+                                </td>
+                            </tr>
+                        `;
+                    });
+
+                    $productsTable.html(output);
+                } else {
+                    console.error('Error loading products:', response);
+                    $productsTable.html(
+                        '<tr><td colspan="4">Error loading products data</td></tr>'
+                    );
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('AJAX Error:', error);
+                $productsTable.html(
+                    '<tr><td colspan="4">Error loading products: ' + error + '</td></tr>'
+                );
+            }
+        });
+    }
+
+    // Initialize all tables
+    function initTables() {
+        loadOrders();
+        loadClients();
+        loadProducts();
+    }
+
+    // Load tables on page load
+    initTables();
+    
+    // Load stock data for the Stock Monitor tab
+    loadStockData();
+    
+    // Run auto-restock button click handler
+    $('#mitnafun-run-restock').on('click', function() {
+        const $button = $(this);
+        $button.prop('disabled', true).text('Processing...');
+        
+        $.ajax({
+            url: mitnafunAdmin.ajaxUrl,
+            type: 'POST',
+            data: {
+                action: 'mitnafun_run_restock',
+                nonce: mitnafunAdmin.nonce
+            },
+            success: function(response) {
+                if (response.success) {
+                    alert(response.data.message);
+                    // Reload stock data to show updated quantities
+                    loadStockData();
+                } else {
+                    alert('Error: ' + (response.data.message || 'Unknown error'));
+                }
+                $button.prop('disabled', false).text('Run Auto-Restock Now');
+            },
+            error: function() {
+                alert('Server error while processing request');
+                $button.prop('disabled', false).text('Run Auto-Restock Now');
+            }
+        });
+    });
+    
+    // Stock monitor filters
+    $('#mitnafun-stock-filter-form').on('submit', function(e) {
+        e.preventDefault();
+        loadStockData({
+            product_id: $('#stock-product-filter').val(),
+            stock_status: $('#stock-status-filter').val()
+        });
+    });
+    
+    $('#mitnafun-stock-filter-reset').on('click', function() {
+        $('#stock-product-filter').val('');
+        $('#stock-status-filter').val('');
+        loadStockData();
+    });
+    
+    // Release Stock Issues button click handler
+    $('#mitnafun-release-stock-issues').on('click', function() {
+        const $button = $(this);
+        $button.prop('disabled', true).text('Processing...');
+        
+        $.ajax({
+            url: mitnafunAdmin.ajaxUrl,
+            type: 'POST',
+            data: {
+                action: 'mitnafun_release_stock_issues',
+                nonce: mitnafunAdmin.nonce
+            },
+            success: function(response) {
+                if (response.success) {
+                    showNotice('success', response.data.message || 'Stock issues released successfully');
+                    // Reload stock data to show newly visible products
+                    loadStockData();
+                } else {
+                    showNotice('error', response.data.message || 'Error releasing stock issues');
+                }
+            },
+            error: function() {
+                showNotice('error', 'Server error while releasing stock issues');
+            },
+            complete: function() {
+                $button.prop('disabled', false).text('Release Stock Issues');
+            }
+        });
+    });
+
+    /**
+     * Show a notice message
+     * @param {string} type - Type of notice (success, error, warning, info)
+     * @param {string} message - The message to display
+     */
+    function showNotice(type, message) {
+        // Create notice element
+        const notice = document.createElement('div');
+        notice.className = `notice notice-${type} is-dismissible`;
+        notice.style.margin = '10px 0';
+        notice.style.padding = '10px 12px';
+        notice.innerHTML = `<p>${message}</p>`;
+        
+        // Add close button
+        const closeButton = document.createElement('button');
+        closeButton.type = 'button';
+        closeButton.className = 'notice-dismiss';
+        closeButton.innerHTML = '<span class="screen-reader-text">Dismiss this notice.</span>';
+        closeButton.addEventListener('click', function() {
+            notice.remove();
+        });
+        
+        notice.appendChild(closeButton);
+        
+        // Add to the page
+        const header = document.querySelector('.wrap > h1, .wrap > h2');
+        if (header) {
+            header.parentNode.insertBefore(notice, header.nextSibling);
+        } else {
+            document.querySelector('.wrap').insertBefore(notice, document.querySelector('.wrap').firstChild);
+        }
+        
+        // Auto-remove after 5 seconds
+        setTimeout(() => {
+            if (notice && notice.parentNode) {
+                notice.remove();
+            }
+        }, 5000);
+    }
+    
+    /**
+     * Load Stock Monitor data
+     */
+    function loadStockData(filters = {}) {
+        const $stockList = $('#stock-list tbody');
+        if (!$stockList.length) {
+            console.log('Stock monitor table not found');
+            return;
+        }
+        
+        $stockList.html('<tr><td colspan="8" class="mitnafun-loading">Loading stock data...</td></tr>');
+        
+        $.ajax({
+            url: mitnafunAdmin.ajaxUrl,
+            type: 'POST',
+            data: {
+                action: 'mitnafun_get_stock_data',
+                nonce: mitnafunAdmin.nonce,
+                product_filter: filters.product_id || '',
+                stock_status: filters.stock_status || ''
+            },
+            success: function(response) {
+                if (response.success) {
+                    const products = response.data.products;
+                    const managedProductCount = response.data.managed_product_count || 0;
+                    const totalProductCount = response.data.total_product_count || 0;
+                    const displayedCount = response.data.displayed_count || 0;
+                    
+                    // Update the product counts in the UI
+                    $('#mitnafun-stock-count').text(displayedCount);
+                    $('#mitnafun-managed-stock-count').text(managedProductCount);
+                    $('#mitnafun-total-product-count').text(totalProductCount);
+                    
+                    // Show warning if counts don't match
+                    if (displayedCount !== managedProductCount) {
+                        $('#mitnafun-stock-count-warning').show();
+                    } else {
+                        $('#mitnafun-stock-count-warning').hide();
+                    }
+                    if (products.length === 0) {
+                        $stockList.html('<tr><td colspan="8">No products found.</td></tr>');
+                        return;
+                    }
+                    
+                    let output = '';
+                    products.forEach(function(product) {
+                        // Generate status class for color-coding
+                        let statusClass = product.status || 'not_managed';
+                        let statusText = '';
+                        
+                        if (statusClass === 'in_stock') {
+                            statusText = 'In Stock';
+                            statusClass = 'in-stock';
+                        } else if (statusClass === 'out_of_stock') {
+                            statusText = 'Out of Stock';
+                            statusClass = 'out-of-stock';
+                        } else {
+                            statusText = 'Not Managed';
+                            statusClass = 'not-managed';
+                        }
+                        
+                        // Format last rental date with order link
+                        let lastRentalHtml = 'No rentals';
+                        if (product.last_rental && product.last_rental.order_id) {
+                            const formattedDate = product.last_rental.date ? new Date(product.last_rental.date).toLocaleDateString() : 'N/A';
+                            lastRentalHtml = `<a href="${mitnafunAdmin.ajaxUrl.replace('admin-ajax.php', '')}post.php?post=${product.last_rental.order_id}&action=edit" target="_blank">
+                                Order #${product.last_rental.order_id} (${formattedDate})
+                            </a>`;
+                        }
+                        
+                        // Format bookings list
+                        let bookingsHtml = '';
+                        if (product.active_bookings && product.active_bookings.length > 0) {
+                            bookingsHtml = '<ul class="mitnafun-booking-list">';
+                            product.active_bookings.forEach(function(booking) {
+                                bookingsHtml += `<li>
+                                    <a href="${mitnafunAdmin.ajaxUrl.replace('admin-ajax.php', '')}post.php?post=${booking.order_id}&action=edit" target="_blank">
+                                        Order #${booking.order_id}
+                                    </a>
+                                    <span class="booking-dates">${booking.start_date} - ${booking.end_date}</span>
+                                </li>`;
+                            });
+                            bookingsHtml += '</ul>';
+                        } else {
+                            bookingsHtml = '<p>No active bookings</p>';
+                        }
+                        
+                        // Manual restock button
+                        const restockButton = `
+                            <div class="restock-controls">
+                                <input type="number" class="restock-qty" min="1" value="1">
+                                <button type="button" class="button restock-button" data-product-id="${product.id}">
+                                    Restock
+                                </button>
+                            </div>
+                        `;
+                        
+                        // Create initial stock cell with edit button
+                        const initialStockCell = `
+                            <td class="initial-stock-cell" data-product-id="${product.id}">
+                                <span class="initial-stock-value">${product.initial_stock || 0}</span>
+                                <button type="button" class="button button-small edit-initial-stock" 
+                                        title="Edit Initial Stock">
+                                    <span class="dashicons dashicons-edit"></span>
+                                </button>
+                                <div class="initial-stock-edit" style="display: none;">
+                                    <input type="number" class="initial-stock-input" 
+                                           value="${product.initial_stock || 0}" min="0" 
+                                           data-original-value="${product.initial_stock || 0}">
+                                    <button type="button" class="button button-small save-initial-stock">
+                                        <span class="dashicons dashicons-yes"></span>
+                                    </button>
+                                    <button type="button" class="button button-small cancel-initial-stock">
+                                        <span class="dashicons dashicons-no"></span>
+                                    </button>
+                                </div>
+                            </td>`;
+                            
+                        output += `<tr class="${statusClass}">
+                            <td>${product.id}</td>
+                            <td>${product.name}</td>
+                            ${initialStockCell}
+                            <td>${product.total_stock}</td>
+                            <td>${product.currently_booked}</td>
+                            <td>${product.available_stock}</td>
+                            <td><span class="stock-status ${statusClass}">${statusText}</span></td>
+                            <td>${lastRentalHtml}</td>
+                            <td>
+                                ${restockButton}
+                                ${bookingsHtml}
+                            </td>
+                        </tr>`;
+                    });
+                    
+                    $stockList.html(output);
+                    
+                    // Handle initial stock editing
+                    $('.edit-initial-stock').on('click', function(e) {
+                        e.stopPropagation();
+                        const $cell = $(this).closest('.initial-stock-cell');
+                        $cell.find('.initial-stock-value, .edit-initial-stock').hide();
+                        $cell.find('.initial-stock-edit').show().find('input').focus().select();
+                    });
+                    
+                    $('.save-initial-stock').on('click', function() {
+                        const $editContainer = $(this).closest('.initial-stock-edit');
+                        const $input = $editContainer.find('.initial-stock-input');
+                        const newValue = parseInt($input.val()) || 0;
+                        const productId = $(this).closest('.initial-stock-cell').data('product-id');
+                        
+                        // Show loading
+                        const $cell = $(this).closest('.initial-stock-cell');
+                        $cell.addClass('updating');
+                        
+                        // Save via AJAX
+                        $.ajax({
+                            url: mitnafunAdmin.ajaxUrl,
+                            type: 'POST',
+                            data: {
+                                action: 'mitnafun_update_initial_stock',
+                                nonce: mitnafunAdmin.nonce,
+                                product_id: productId,
+                                initial_stock: newValue
+                            },
+                            success: function(response) {
+                                if (response.success) {
+                                    // Update display
+                                    $cell.find('.initial-stock-value').text(newValue);
+                                    $cell.find('.initial-stock-input').val(newValue).data('original-value', newValue);
+                                    showNotice('success', response.data.message);
+                                } else {
+                                    showNotice('error', response.data.message || 'Failed to update initial stock');
+                                }
+                            },
+                            error: function() {
+                                showNotice('error', 'Error updating initial stock');
+                            },
+                            complete: function() {
+                                $cell.removeClass('updating');
+                                $cell.find('.initial-stock-value, .edit-initial-stock').show();
+                                $editContainer.hide();
+                            }
+                        });
+                    });
+                    
+                    $('.cancel-initial-stock').on('click', function() {
+                        const $editContainer = $(this).closest('.initial-stock-edit');
+                        const originalValue = $editContainer.find('.initial-stock-input').data('original-value');
+                        $editContainer.find('.initial-stock-input').val(originalValue);
+                        $editContainer.hide();
+                        $editContainer.closest('.initial-stock-cell').find('.initial-stock-value, .edit-initial-stock').show();
+                    });
+                    
+                    // Close editor when clicking outside
+                    $(document).on('click', function(e) {
+                        if (!$(e.target).closest('.initial-stock-edit, .edit-initial-stock').length) {
+                            $('.initial-stock-edit').hide();
+                            $('.initial-stock-cell').find('.initial-stock-value, .edit-initial-stock').show();
+                        }
+                    });
+                    
+                    // Handle manual initialization button click
+                    $('#mitnafun-init-stock').on('click', function() {
+                        if (confirm('Are you sure you want to initialize all stock values? This will set initial stock = current stock for all products.')) {
+                            const $button = $(this);
+                            const originalText = $button.text();
+                            
+                            $button.prop('disabled', true).text('Initializing...');
+                            
+                            $.ajax({
+                                url: mitnafunAdmin.ajaxUrl,
+                                type: 'POST',
+                                data: {
+                                    action: 'mitnafun_initialize_stock',
+                                    nonce: mitnafunAdmin.nonce
+                                },
+                                success: function(response) {
+                                    if (response.success) {
+                                        showNotice('success', response.data.message);
+                                        // Reload the stock data
+                                        loadStockData();
+                                    } else {
+                                        showNotice('error', response.data.message || 'Failed to initialize stock values');
+                                    }
+                                },
+                                error: function() {
+                                    showNotice('error', 'Error initializing stock values');
+                                },
+                                complete: function() {
+                                    $button.prop('disabled', false).text(originalText);
+                                }
+                            });
+                        }
+                    });
+                    
+                    // Handle sync from total stock to WooCommerce stock button click
+                    $('#mitnafun-sync-to-woo').on('click', function() {
+                        if (confirm('Are you sure you want to synchronize total stock to WooCommerce? This will update WooCommerce stock to match total stock for all products.')) {
+                            const $button = $(this);
+                            const originalText = $button.text();
+                            
+                            $button.prop('disabled', true).text('Syncing...');
+                            
+                            $.ajax({
+                                url: mitnafunAdmin.ajaxUrl,
+                                type: 'POST',
+                                data: {
+                                    action: 'mitnafun_bulk_sync_stock',
+                                    nonce: mitnafunAdmin.nonce
+                                },
+                                success: function(response) {
+                                    if (response.success) {
+                                        showNotice('success', response.data.message);
+                                        // Reload the stock data
+                                        loadStockData();
+                                    } else {
+                                        showNotice('error', response.data.message || 'Failed to synchronize stock values');
+                                    }
+                                },
+                                error: function() {
+                                    showNotice('error', 'Error synchronizing stock values');
+                                },
+                                complete: function() {
+                                    $button.prop('disabled', false).text(originalText);
+                                }
+                            });
+                        }
+                    });
+                    
+                    // Check for init_stock parameter in URL
+                    const urlParams = new URLSearchParams(window.location.search);
+                    if (urlParams.get('init_stock') === '1') {
+                        $('#mitnafun-init-stock').trigger('click');
+                        // Clean up the URL
+                        const url = new URL(window.location);
+                        url.searchParams.delete('init_stock');
+                        window.history.replaceState({}, '', url);
+                    }
+                    
+                    // Initialize manual restock buttons
+                    $('.restock-button').on('click', function() {
+                        const $button = $(this);
+                        const productId = $button.data('product-id');
+                        const quantity = $button.closest('.restock-controls').find('.restock-qty').val();
+                        
+                        if (!productId || quantity < 1) {
+                            alert('Please select a valid quantity');
+                            return;
+                        }
+                        
+                        $button.prop('disabled', true).text('Processing...');
+                        
+                        $.ajax({
+                            url: mitnafunAdmin.ajaxUrl,
+                            type: 'POST',
+                            data: {
+                                action: 'mitnafun_manual_restock',
+                                nonce: mitnafunAdmin.nonce,
+                                product_id: productId,
+                                quantity: quantity
+                            },
+                            success: function(response) {
+                                if (response.success) {
+                                    alert(response.data.message);
+                                    // Reload stock data to show updated quantities
+                                    loadStockData();
+                                } else {
+                                    alert('Error: ' + (response.data.message || 'Unknown error'));
+                                    $button.prop('disabled', false).text('Restock');
+                                }
+                            },
+                            error: function() {
+                                alert('Server error while processing request');
+                                $button.prop('disabled', false).text('Restock');
+                            }
+                        });
+                    });
+                    
+                    // Add styling for stock status indicators
+                    if (!$('#mitnafun-stock-styles').length) {
+                        $('head').append(
+                            '<style id="mitnafun-stock-styles">' +
+                            '.stock-status { display: inline-block; padding: 3px 8px; border-radius: 3px; font-weight: bold; }' +
+                            '.in-stock { background-color: #dff0d8; color: #3c763d; }' +
+                            '.low-stock { background-color: #fcf8e3; color: #8a6d3b; }' +
+                            '.out-of-stock { background-color: #f2dede; color: #a94442; }' +
+                            '.mitnafun-booking-list { margin: 0; padding-left: 20px; }' +
+                            '.restock-controls { margin-bottom: 10px; display: flex; }' +
+                            '.restock-qty { width: 60px; margin-right: 5px; }' +
+                            '</style>'
+                        );
+                    }
+                } else {
+                    $stockList.html('<tr><td colspan="8">Error loading stock data: ' + 
+                        (response.data.message || 'Unknown error') + '</td></tr>');
+                }
+            },
+            error: function() {
+                $stockList.html('<tr><td colspan="8">Server error while loading stock data</td></tr>');
+            }
+        });
+    }
+    
+    // Reload orders when filters change
+    $('#mitnafun-filter-form').on('submit', function(e) {
+        e.preventDefault();
+        loadOrders();
+    });
+
+    // Reset filters
+    $('#mitnafun-filter-reset').on('click', function() {
+        $('#product-filter').val('');
+        $('#client-filter').val('');
+        $('#status-filter').val('');
+        $('#filter-date-from').val('');
+        $('#filter-date-to').val('');
+        loadOrders();
+    });
+});
+
+// Helper functions need access to jQuery and mitnafunAdmin
+function createSampleEvents(info, successCallback) {
+    // Use the jQuery object from the global scope
+    jQuery.ajax({
+        url: mitnafunAdmin.ajaxUrl,
+        method: 'GET',
+        async: false, // We need to wait for this to complete
+        data: {
+            action: 'mitnafun_get_products',
+            nonce: mitnafunAdmin.nonce
+        },
+        success: function(productsResponse) {
+            if (productsResponse.success && productsResponse.data && productsResponse.data.products) {
+                window.mitnafunCache.productData = productsResponse.data.products;
+            }
+        }
+    });
+    
+    const products = window.mitnafunCache.productData || [];
+    console.log('Products with rental data:', products);
+    
+    // First try to extract rental dates from product history
+    if (products.length > 0) {
+        const realEvents = extractRealEvents(products);
+        
+        if (realEvents.length > 0) {
+            // Store in global cache
+            window.mitnafunCache.sampleEvents = realEvents;
+            window.mitnafunCache.sampleEventsCreated = true;
+            
+            // Filter to current range
+            const rangeStart = new Date(info.start);
+            const rangeEnd = new Date(info.end);
+            
+            const filteredEvents = realEvents.filter(function(event) {
+                const eventStart = new Date(event.start);
+                const eventEnd = new Date(event.end);
+                return eventStart < rangeEnd && eventEnd > rangeStart;
+            });
+            
+            console.log('Created events from product rental history:', filteredEvents);
+            successCallback(filteredEvents);
+            return;
+        }
+    }
+    
+    // If no rental history found, fall back to client-based sample events
+    loadClientBasedEvents(info, successCallback);
+}
+
+function extractRealEvents(products) {
+    const events = [];
+    
+    products.forEach(function(product) {
+        // Check if product has rental history
+        if (product.rental_history && product.rental_history.length > 0) {
+            const rentalDates = extractRentalDates(product.rental_history);
+            
+            rentalDates.forEach(function(rental, index) {
+                // Create the event
+                events.push({
+                    id: 'product_' + product.product_id + '_' + index,
+                    title: product.product_name,
+                    start: rental.start,
+                    end: rental.end,
+                    backgroundColor: getOrderStatusColor(rental.status || 'Processing'),
+                    borderColor: getOrderStatusColor(rental.status || 'Processing'),
+                    extendedProps: {
+                        order_id: rental.order_id,
+                        product_id: product.product_id,
+                        status: rental.status || 'Processing',
+                        client_name: rental.client_name || 'Guest',
+                        client_email: rental.client_email || ''
+                    },
+                    allDay: true
+                });
+            });
+        }
+    });
+    
+    return events;
+}
+
+function extractRentalDates(rentalHistory) {
+    const dates = [];
+    
+    rentalHistory.forEach(function(historyItem) {
+        let match;
+        let orderId, startDate, endDate;
+        
+        // Format: "Order #900: 06.06.2025 - 09.06.2025"
+        match = historyItem.match(/Order #(\d+): (\d+\.\d+\.\d+) - (\d+\.\d+\.\d+)/);
+        if (match) {
+            orderId = match[1];
+            // Convert DD.MM.YYYY to YYYY-MM-DD
+            const startParts = match[2].split('.');
+            const endParts = match[3].split('.');
+            
+            if (startParts.length === 3 && endParts.length === 3) {
+                // Israeli format is DD.MM.YYYY
+                startDate = startParts[2] + '-' + startParts[1] + '-' + startParts[0];
+                endDate = endParts[2] + '-' + endParts[1] + '-' + endParts[0];
+            }
+        } else {
+            // Try alternate formats
+            
+            // Format: "1002 5. - 7.5" (meaning Order #1002: May 5 - May 7)
+            match = historyItem.match(/(\d+)\s+(\d+)\.?\s*-\s*(\d+)\.(\d+)/);
+            if (match) {
+                orderId = match[1];
+                const startDay = match[2].padStart(2, '0');
+                const endDay = match[3].padStart(2, '0');
+                const endMonth = match[4].padStart(2, '0');
+                
+                // Infer the start month from end month
+                // If end day < start day, then it's likely the next month
+                let startMonth = endMonth;
+                
+                // Get current year
+                const currentYear = new Date().getFullYear();
+                
+                startDate = currentYear + '-' + startMonth + '-' + startDay;
+                endDate = currentYear + '-' + endMonth + '-' + endDay;
+                
+                console.log('Parsed short date format:', historyItem, 'to', startDate, '-', endDate);
+            } else {
+                // Format: "1002 28.4-30.4" (meaning Order #1002: April 28 - April 30)
+                match = historyItem.match(/(\d+)\s+(\d+)\.(\d+)-(\d+)\.(\d+)/);
+                if (match) {
+                    orderId = match[1];
+                    const startDay = match[2].padStart(2, '0');
+                    const startMonth = match[3].padStart(2, '0');
+                    const endDay = match[4].padStart(2, '0');
+                    const endMonth = match[5].padStart(2, '0');
+                    
+                    // Get current year
+                    const currentYear = new Date().getFullYear();
+                    
+                    startDate = currentYear + '-' + startMonth + '-' + startDay;
+                    endDate = currentYear + '-' + endMonth + '-' + endDay;
+                    
+                    console.log('Parsed compact date format:', historyItem, 'to', startDate, '-', endDate);
+                } else {
+                    // Try to detect any date-like pattern
+                    console.log('Could not parse date format:', historyItem);
+                    return; // Skip this item - fix for lint error
+                }
+            }
+        }
+        
+        if (orderId && startDate && endDate) {
+            // Adjust the end date to be exclusive (FullCalendar requirement)
+            let adjustedEndDate = new Date(endDate);
+            adjustedEndDate.setDate(adjustedEndDate.getDate() + 1);
+            const formattedEndDate = adjustedEndDate.toISOString().split('T')[0];
+            
+            dates.push({
+                order_id: orderId,
+                start: startDate,
+                end: formattedEndDate, // End date is exclusive in FullCalendar
+                status: Math.random() > 0.5 ? 'Completed' : 'Processing'
+            });
+        }
+    });
+    
+    return dates;
+}
+
+function loadClientBasedEvents(info, successCallback) {
+    // Load client data only once
+    if (!window.mitnafunCache.clientData) {
+        jQuery.ajax({
+            url: mitnafunAdmin.ajaxUrl,
+            method: 'POST',
+            async: false, // We need to wait for this to complete
+            data: {
+                action: 'get_clients',
+                nonce: mitnafunAdmin.nonce
+            },
+            success: function(clientsResponse) {
+                if (clientsResponse.success && clientsResponse.data && clientsResponse.data.clients) {
+                    window.mitnafunCache.clientData = clientsResponse.data.clients;
+                }
+            }
+        });
+    }
+    
+    const clients = window.mitnafunCache.clientData || [];
+    const products = window.mitnafunCache.productData || [];
+    
+    // Generate a full year of sample events based on client data
+    const allSampleEvents = [];
+    const today = new Date();
+    const yearStart = new Date(today.getFullYear(), 0, 1); // Jan 1st
+    
+    // For each client, create events across the year
+    clients.forEach(function(client, clientIndex) {
+        // Create events for several months
+        for (let monthOffset = 0; monthOffset < 12; monthOffset++) {
+            // Skip some months randomly to avoid too many events
+            if (Math.random() > 0.7) continue;
+            
+            // Create date for this month
+            const eventMonth = new Date(yearStart);
+            eventMonth.setMonth(monthOffset);
+            
+            // Pick a day in the month (1-28)
+            const day = 1 + Math.floor(Math.random() * 28);
+            eventMonth.setDate(day);
+            
+            // Duration between 1-3 days
+            const duration = 1 + (clientIndex % 3);
+            const startDate = new Date(eventMonth);
+            const endDate = new Date(eventMonth);
+            endDate.setDate(endDate.getDate() + duration);
+            
+            // Determine which product to use
+            const productIndex = (clientIndex + monthOffset) % Math.max(products.length, 1);
+            const productName = products[productIndex] ? 
+                products[productIndex].product_name : 
+                'Sample Product ' + (clientIndex + 1);
+            const productId = products[productIndex] ? 
+                products[productIndex].product_id : 
+                clientIndex + 100;
+            
+            // Create consistent event ID
+            const eventId = 'client_' + (client.id || clientIndex) + '_' + startDate.toISOString().split('T')[0];
+            
+            allSampleEvents.push({
+                id: eventId,
+                title: productName + ' (' + client.email.split('@')[0] + ')',
+                start: startDate.toISOString().split('T')[0],
+                end: endDate.toISOString().split('T')[0],
+                backgroundColor: ['#FF9800', '#4CAF50', '#2196F3', '#9C27B0'][clientIndex % 4], // Rotate colors
+                borderColor: ['#FF9800', '#4CAF50', '#2196F3', '#9C27B0'][clientIndex % 4],
+                extendedProps: {
+                    order_id: '1000' + clientIndex,
+                    product_id: productId,
+                    client_name: client.name || 'Guest',
+                    client_email: client.email || '',
+                    status: ['Processing', 'Completed', 'Rental Confirmed'][clientIndex % 3]
+                },
+                allDay: true
+            });
+            
+            console.log('Created sample event for client:', client.email);
+        }
+    });
+    
+    // Store all events in the global cache
+    window.mitnafunCache.sampleEvents = allSampleEvents;
+    window.mitnafunCache.sampleEventsCreated = true;
+    
+    // Filter to the current date range
+    const rangeStart = new Date(info.start);
+    const rangeEnd = new Date(info.end);
+    
+    const filteredEvents = allSampleEvents.filter(function(event) {
+        const eventStart = new Date(event.start);
+        const eventEnd = new Date(event.end);
+        return eventStart < rangeEnd && eventEnd > rangeStart;
+    });
+    
+    console.log('Created sample events from client data:', filteredEvents.length, 'events for current view');
+    successCallback(filteredEvents);
+}
+
+// Helper function to get color for order status
+function getOrderStatusColor(status) {
+    status = status.toLowerCase();
+    const colors = {
+        'processing': '#2196F3', // Changed to light blue
+        'completed': '#4CAF50',
+        'rental-confirmed': '#2196F3', // Changed to light blue
+        'rental-completed': '#4CAF50',
+        'rental-cancelled': '#F44336',
+        'on-hold': '#FFC107',
+        'cancelled': '#F44336',
+        'wc-processing': '#2196F3', // Added with light blue
+        'wc-rental-confirmed': '#2196F3', // Added with light blue
+        'pending': '#2196F3' // Added with light blue
+    };
+    
+    // Remove 'wc-' prefix if present
+    if (status.startsWith('wc-')) {
+        status = status.substring(3);
+    }
+    
+    return colors[status] || '#9C27B0'; // Default to purple if status not found
+}
+
+function loadOrdersForCalendar(info, successCallback, failureCallback) {
+    console.log('Loading orders for calendar, date range:', info.startStr, 'to', info.endStr);
+    
+    // Fetch orders from the server
+    jQuery.ajax({
+        url: mitnafunAdmin.ajaxUrl,
+        method: 'POST',
+        data: {
+            action: 'mitnafun_load_orders',
+            nonce: mitnafunAdmin.nonce,
+            start: info.startStr,
+            end: info.endStr,
+            product_id: '',
+            client_id: '',
+            status: ''
+        },
+        success: function(response) {
+            console.log('Order data received:', response);
+            
+            if (response.success && response.data && response.data.orders) {
+                const orders = response.data.orders;
+                const events = [];
+                
+                orders.forEach(function(order) {
+                    if (!order.rental_dates || order.rental_dates === 'N/A') {
+                        console.log('Skipping order without rental dates:', order.order_id);
+                        return;
+                    }
+                    
+                    try {
+                        // Handle different date formats
+                        let startDate, endDate;
+                        
+                        if (order.rental_dates.includes(' - ')) {
+                            // Format: DD.MM.YYYY - DD.MM.YYYY
+                            const dates = order.rental_dates.split(' - ');
+                            if (dates.length === 2) {
+                                startDate = convertToISODate(dates[0].trim());
+                                endDate = convertToISODate(dates[1].trim(), true);
+                            }
+                        } else if (order.start_date && order.end_date) {
+                            // Use direct date fields if available
+                            startDate = order.start_date;
+                            endDate = order.end_date;
+                        }
+                        
+                        if (startDate && endDate) {
+                            const eventId = 'order_' + order.order_id;
+                            events.push({
+                                id: eventId,
+                                title: order.product_name || ('Order #' + order.order_id),
+                                start: startDate,
+                                end: endDate,
+                                backgroundColor: getOrderStatusColor(order.status),
+                                borderColor: getOrderStatusColor(order.status),
+                                extendedProps: {
+                                    order_id: order.order_id,
+                                    product_id: order.product_id,
+                                    client_email: order.customer_email || order.billing_email || 'Guest',
+                                    status: order.status
+                                },
+                                allDay: true
+                            });
+                            console.log('Added event:', eventId, startDate, 'to', endDate);
+                        }
+                    } catch (error) {
+                        console.error('Error processing order:', order.order_id, error);
+                    }
+                });
+                
+                console.log('Successfully processed', events.length, 'events');
+                window.mitnafunCache.orderData = orders;
+                successCallback(events);
+                
+                // Force calendar to update
+                if (window.calendar) {
+                    setTimeout(() => {
+                        window.calendar.refetchEvents();
+                        console.log('Calendar events refreshed');
+                    }, 100);
+                }
+            } else {
+                console.error('Invalid response format or no orders found');
+                if (failureCallback) failureCallback('No orders found');
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('AJAX error loading orders:', status, error);
+            if (failureCallback) failureCallback(error);
+        }
+    });
+}
+
+/**
+ * Helper function to convert date formats to ISO
+ * Handles DD.MM.YYYY, DD/MM/YYYY, and similar formats
+ */
+function convertToISODate(dateStr, isEndDate = false) {
+    if (!dateStr) return null;
+    
+    // Remove any whitespace
+    dateStr = dateStr.trim();
+    
+    let day, month, year;
+    
+    // Try to match DD.MM.YYYY format
+    let match = dateStr.match(/(\d{1,2})[.\/\-](\d{1,2})[.\/\-](\d{4})/);
+    if (match) {
+        day = parseInt(match[1], 10);
+        month = parseInt(match[2], 10) - 1; // JS months are 0-based
+        year = parseInt(match[3], 10);
+    } else {
+        // Try to match MM/DD/YYYY format (US format)
+        match = dateStr.match(/(\d{1,2})[.\/\-](\d{1,2})[.\/\-](\d{4})/);
+        if (match) {
+            month = parseInt(match[1], 10) - 1; // JS months are 0-based
+            day = parseInt(match[2], 10);
+            year = parseInt(match[3], 10);
+        }
+    }
+    
+    if (day && month !== undefined && year) {
+        // Create date object
+        const date = new Date(year, month, day);
+        
+        // For end dates, set time to 10:00 (return time)
+        // For start dates, set time to 11:00 (pickup time)
+        if (isEndDate) {
+            date.setHours(10, 0, 0, 0); // 10:00 AM for returns
+        } else {
+            date.setHours(11, 0, 0, 0); // 11:00 AM for pickups
+        }
+        
+        // Ensure the date is valid
+        if (!isNaN(date.getTime())) {
+            // For end dates, add a day to ensure the full end date is included
+            if (isEndDate) {
+                date.setDate(date.getDate() + 1);
+            }
+            return date.toISOString().split('T')[0]; // Return YYYY-MM-DD format
+        }
+    }
+    
+    return null;
+}
+
+/**
+ * Format a date object to a readable string format
+ */
+function formatDate(date) {
+    // existing body remains
+}
+
+/**
+ * Display order details in a modal via AJAX
+ */
+function showOrderDetails(orderId) {
+    const existingModal = jQuery('#mitnafun-order-modal');
+    let $modal;
+    if (existingModal.length) {
+        $modal = existingModal;
+    } else {
+        $modal = jQuery('<div id="mitnafun-order-modal" class="mitnafun-order-modal">' +
+            '<div class="mitnafun-order-modal-content">' +
+            '<span class="mitnafun-modal-close">&times;</span>' +
+            '<div class="mitnafun-order-modal-body">Loading...</div>' +
+            '</div></div>');
+        jQuery('body').append($modal);
+    }
+
+    // Show modal and set loading state
+    $modal.find('.mitnafun-order-modal-body').html('Loading...').addClass('mitnafun-loading');
+    $modal.addClass('visible');
+
+    // Close handler
+    $modal.find('.mitnafun-modal-close').off('click').on('click', function () {
+        $modal.removeClass('visible');
+    });
+
+    // AJAX request for order details
+    jQuery.ajax({
+        url: mitnafunAdmin.ajaxUrl,
+        type: 'POST',
+        data: {
+            action: 'mitnafun_get_order_details',
+            nonce: mitnafunAdmin.nonce,
+            order_id: orderId
+        },
+        success: function (response) {
+            if (response.success) {
+                $modal.find('.mitnafun-order-modal-body').removeClass('mitnafun-loading').html(response.data.html);
+            } else {
+                $modal.find('.mitnafun-order-modal-body').removeClass('mitnafun-loading').html('<p>Error: ' + (response.data.message || 'Unknown error') + '</p>');
+            }
+        },
+        error: function () {
+            $modal.find('.mitnafun-order-modal-body').removeClass('mitnafun-loading').html('<p>Server error while fetching order details</p>');
+        }
+    });
+}
+
+// Close modal when clicking outside content
+jQuery(document).on('click', '#mitnafun-order-modal', function (e) {
+    if (jQuery(e.target).is('#mitnafun-order-modal')) {
+        jQuery('#mitnafun-order-modal').removeClass('visible');
+    }
+});
+
+// Utility: format date as DD.MM.YYYY
+function formatDate(date) {
+    if (!date) return 'N/A';
+    
+    // Check if it's already a Date object or a string
+    const dateObj = typeof date === 'string' ? new Date(date) : date;
+    
+    // Format the date as DD.MM.YYYY
+    const day = String(dateObj.getDate()).padStart(2, '0');
+    const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+    const year = dateObj.getFullYear();
+    
+            return `${day}.${month}.${year}`;
+}
+

@@ -1,0 +1,1 @@
+C:\Users\USUARIO\Documents\SITES\BMIT\app\public\wp-content\plugins\mitnafun-order-admin/../../../wp-config.php
