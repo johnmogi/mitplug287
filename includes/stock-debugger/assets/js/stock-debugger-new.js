@@ -96,7 +96,7 @@
         console.log('Highlighting calendar dates with stock:', stock, 'reservations:', dateReservations);
         
         // First, remove any existing highlights
-        $('.day-cell').removeClass('fully-booked partially-booked');
+        $('.day-cell').removeClass('fully-booked partially-booked low-stock');
         
         // Apply new highlights
         Object.keys(dateReservations).forEach(function(dateKey) {
@@ -124,20 +124,27 @@
                 
                 if ($dateCells.length) {
                     var isFullyBooked = data.isFullyBooked || (data.count >= stock);
+                    var isLowStock = (stock - (data.count || 0)) < 2; // Check if stock is less than 2
+                    
                     var title = isFullyBooked 
-                        ? 'Fully booked' 
-                        : (data.count || 0) + ' of ' + (stock || 0) + ' booked';
+                        ? 'זהו! כרגע אין לנו מלאי זמין בתאריך זה' 
+                        : (data.count || 0) + ' מתוך ' + (stock || 0) + ' מוזמנים';
                     
                     if (isFullyBooked) {
                         $dateCells.addClass('fully-booked');
+                    } else if (isLowStock) {
+                        $dateCells.addClass('low-stock');
+                        title += ' (מעט מלאי זמין)';
                     } else {
                         $dateCells.addClass('partially-booked');
                     }
+                    
                     $dateCells.attr('title', title);
                     
                     console.log('Highlighted date:', dateToCheck, {
                         cells: $dateCells.length,
                         isFullyBooked: isFullyBooked,
+                        isLowStock: isLowStock,
                         count: data.count,
                         stock: stock
                     });
@@ -523,13 +530,16 @@
             });
             
             // Start observing the stock element for changes
-        var stockElement = document.querySelector('.stock-availability');
-        if (stockElement) {
-            observer.observe(stockElement, {
-                childList: true,
-                subtree: true,
-                characterData: true
-            });
+            var stockElement = document.querySelector('.stock-availability');
+            if (stockElement) {
+                observer.observe(stockElement, {
+                    childList: true,
+                    subtree: true,
+                    characterData: true
+                });
+            }
+        } catch (error) {
+            console.error('Error initializing stock debugger:', error);
         }
     });
 
